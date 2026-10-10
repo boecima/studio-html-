@@ -312,7 +312,8 @@ function anteprima(p){
   selected=p;const nome=p.split("/").pop(), ext=nome.split(".").pop().toLowerCase(), url="/api/file?p="+encodeURIComponent(p);
   $("#ovName").textContent=nome;$("#ovMeta").textContent=p;
   const b=$("#ovBody");
-  if(ext==="pdf"||ext==="txt"||ext==="md")b.innerHTML=`<iframe src="${url}" title="anteprima"></iframe>`;
+  if(window.DEMO)b.innerHTML=`<div class="noprev"><b>${esc(nome)}</b><br><br>Nella versione dimostrativa l'anteprima non c'è: nel programma vero qui si vede il PDF o la foto.<br><br>Scegli lo slot qui sotto e premi “Collega alla pratica”.</div>`;
+  else if(ext==="pdf"||ext==="txt"||ext==="md")b.innerHTML=`<iframe src="${url}" title="anteprima"></iframe>`;
   else if(["jpg","jpeg","png"].includes(ext))b.innerHTML=`<img src="${url}" alt="">`;
   else b.innerHTML=`<div class="noprev">Nessuna anteprima per i file .${esc(ext)}.<br><a href="${url}" target="_blank">Apri con il programma del PC</a><br><span class="note">Word ed Excel: in futuro anteprima dal Markdown.</span></div>`;
   const sel=$("#ovSlot"),btn=$("#ovLink");
