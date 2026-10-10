@@ -1,6 +1,6 @@
 # Piano di lavoro — Gestionale file e pratiche dello studio
 
-Stato: bozza del 10/10/2026. Tutto quello che c'è nei riepiloghi (`docs/riepiloghi/`) vale come linea guida, non come decisione presa.
+Stato: aggiornato il 10/10/2026 sera. Fatto: esempio funzionante (app/), 12 schede di ricerca (docs/pratiche/), 12 JSON generati (pratiche/). Tutto quello che c'è nei riepiloghi (`docs/riepiloghi/`) vale come linea guida, non come decisione presa.
 
 ## Quadro
 
@@ -10,6 +10,12 @@ Stato: bozza del 10/10/2026. Tutto quello che c'è nei riepiloghi (`docs/riepilo
   2. **Copia** — i file copiati nella cartella della pratica con il nome standard, pronti da inviare. A scelta.
   3. **Pacchetto per l'AI** — le versioni Markdown dei documenti + un `manifest.json`, per far compilare il modulo (CFL, CIL, …) all'AI. A scelta.
 - **Interfaccia:** pagina a due pannelli. Sinistra: albero dell'archivio vecchio stile, solo file di ufficio. Destra: la pratica, con gli slot dei documenti in ordine (chi viene prima, chi va in parallelo). Più poche funzioni cliccabili utili: cartella **Inviati** (cosa è già partito dallo studio), scheda **Indice cliccabile**, e altro da decidere.
+
+## Dove siamo (10/10/2026)
+
+- **Fase 1 — fatta la prima passata.** 12 schede in `docs/pratiche/` (CFL, SCA, CIL, CILA+CILAS, SCIA, PdC, catasto, sismica, sanatoria, paesaggistica, energia) e i JSON generati da `pratiche/da_scheda.py`. Limite: dall'ambiente cloud i siti ufficiali (normattiva, Regione, Agenzia Entrate, comuni) erano bloccati, quindi le schede nascono da riassunti di ricerca e ogni dato non letto alla fonte è marcato "DA VERIFICARE". Prossimo passo: riaprire le fonti (da Cowork o da un ambiente con rete aperta) e togliere i "DA VERIFICARE", poi far correggere le schede a Franco e Nicola.
+- **Fase 3 — esempio funzionante.** `app/server.py` + pagina a due pannelli, 3 uscite, scheda Inviati, scheda Indice cliccabile, archivio di prova. Manca: anteprima Word/Excel via Markdown, conversione automatica nel pacchetto AI, installazione sul NAS come servizio.
+- **Fase 2 e 4 — non iniziate.**
 
 ## Fasi, in ordine di importanza
 
