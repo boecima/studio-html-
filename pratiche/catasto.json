@@ -1,0 +1,422 @@
+{
+  "sigla": "CAT",
+  "nome": "Pratiche catastali: DOCFA, Pregeo, voltura (Catasto Fabbricati e Catasto Terreni)",
+  "descrizione": "Vedi docs/pratiche/catasto.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/catasto.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "CAT-01",
+      "nome": "Visura catastale attuale (terreni e fabbricati) con intestati, identificativi e rendita",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico (SISTER / Fisconline, consultazione gratuita dal 2025)",
+      "validita_giorni": null,
+      "validita_testo": "istantanea: rifare prima dell'invio",
+      "nome_file": "AAAA-MM-GG_CAT-01_visura_catastale.pdf",
+      "fonte": "[F6]",
+      "parole_chiave": [
+        "visura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-02",
+      "nome": "Planimetria catastale in atti (ultima registrata) ed elaborato planimetrico esistente",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-01"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico (SISTER, servizio \"planimetrie\" per il tecnico incaricato)",
+      "validita_giorni": null,
+      "validita_testo": "istantanea",
+      "nome_file": "AAAA-MM-GG_CAT-02_planimetria_in_atti.pdf",
+      "fonte": "[F6]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-03",
+      "nome": "Estratto di mappa digitale (file .emap) per Pregeo, rilasciato dall'Ufficio via SISTER",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-01"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico (richiesta via SISTER)",
+      "validita_giorni": 180,
+      "validita_testo": "6 mesi dal rilascio (dato da verificare); gratuito dal 2025",
+      "nome_file": "AAAA-MM-GG_CAT-03_estratto_mappa_foglioNN.emap",
+      "fonte": "[F5][F6] DA VERIFICARE validità",
+      "parole_chiave": [
+        "frazionamento",
+        "mappale",
+        "pregeo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-04",
+      "nome": "Lettera di incarico / mandato del committente al tecnico (con dati del dichiarante e CF)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente (firma) / tecnico (redige)",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_CAT-04_lettera_incarico.pdf",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "committente",
+        "incarico",
+        "lettera",
+        "mandato"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CAT-05",
+      "nome": "Copia documento d'identità e CF del/dei dichiaranti",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "documento in corso di validità",
+      "nome_file": "AAAA-MM-GG_CAT-05_documento_identita.pdf",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "identita"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CAT-06",
+      "nome": "Titolo abilitativo edilizio (PdC/SCIA/CILA) + CFL con data di ultimazione, o atto di provenienza",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente / tecnico / notaio",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-06_titolo_edilizio_o_atto.pdf",
+      "fonte": "[F1][F7]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "fine lavori",
+        "fine-lavori",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo",
+        "ultimazione"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CAT-07",
+      "nome": "Rilievo topografico celerimetrico/GNSS agganciato ai punti fiduciali (libretto delle misure)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-03"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-07_libretto_misure.dat",
+      "fonte": "[F5] DA VERIFICARE casi di esenzione dal rilievo",
+      "parole_chiave": [
+        "agganciato",
+        "celerimetrico",
+        "rilievo",
+        "topografico"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-08",
+      "nome": "Atto Pregeo (file .dat Pregeo 10): tipo mappale (TM), tipo di frazionamento (FR), misto (FM), tipo particellare, con relazione tecnica, modello censuario e proposta di aggiornamento",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-03",
+        "CAT-04",
+        "CAT-07"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico (firma digitale)",
+      "validita_giorni": null,
+      "validita_testo": "nessuna scadenza, ma estratto di mappa aggiornato",
+      "nome_file": "AAAA-MM-GG_CAT-08_pregeo_TM_foglioNN_partNNN.dat",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "frazionamento",
+        "mappale",
+        "pregeo",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-09",
+      "nome": "Dichiarazione di tipo mappale/frazionamento sottoscritta dal proprietario (firma sul frontespizio o delega)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-04",
+        "CAT-05",
+        "CAT-08"
+      ],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "per la pratica",
+      "nome_file": "AAAA-MM-GG_CAT-09_firma_proprietario_pregeo.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "dichiarazione",
+        "frazionamento",
+        "mappale",
+        "sottoscritta"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CAT-10",
+      "nome": "Ricevuta SISTER Pregeo: protocollo e attestato di approvazione (automatica o dopo controllo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-08",
+        "CAT-09"
+      ],
+      "gruppo": "P1 (output)",
+      "produce": "Agenzia Entrate",
+      "validita_giorni": null,
+      "validita_testo": "conservare; prerequisito del DOCFA di nuova costruzione",
+      "nome_file": "AAAA-MM-GG_CAT-10_ricevuta_pregeo_protNNNN.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "frazionamento",
+        "mappale",
+        "pregeo",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "CAT-11",
+      "nome": "Elaborato planimetrico (EP) con elenco subalterni, su file DOCFA",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-02",
+        "CAT-10"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-11_elaborato_planimetrico.pdf",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "catast",
+        "docfa"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-12",
+      "nome": "Planimetrie delle unità immobiliari (scala 1:200, orientamento, altezze, confini, piano)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-06",
+        "CAT-11"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-12_planimetria_subN.pdf",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "altezze",
+        "immobiliari",
+        "orientamento",
+        "planimetrie"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-13",
+      "nome": "Modello D (quadro dichiarazione: dati dichiarante, causale, data ultimazione lavori, elenco unità, tributi) + modello 1N parte I e II (categorie ordinarie A/B/C) o 2N (speciali D/E)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-04",
+        "CAT-05",
+        "CAT-06",
+        "CAT-11",
+        "CAT-12"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico (compila) / committente (dichiara)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-13_docfa_modD_1N.pdf",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "fine lavori",
+        "fine-lavori",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-14",
+      "nome": "Proposta di classamento e rendita (categoria, classe, consistenza; per D/E stima diretta o multiparametrica)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-13"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": 360,
+      "validita_testo": "soggetta a rettifica dell'Ufficio entro 12 mesi",
+      "nome_file": "(dentro CAT-13)",
+      "fonte": "[F3]",
+      "parole_chiave": [
+        "categoria",
+        "classamento",
+        "proposta",
+        "rendita"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-15",
+      "nome": "File DOCFA (.dc3/.dcf) firmato digitalmente, con eventuale \"dichiarazione di conformità dello stato dei luoghi\" e indicazione del titolo edilizio",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-11",
+        "CAT-14"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "invio entro 30 gg dall'ultimazione",
+      "nome_file": "AAAA-MM-GG_CAT-15_docfa_nuova_costruzione.dc3",
+      "fonte": "[F1][F3]",
+      "parole_chiave": [
+        "catast",
+        "cila",
+        "cilas",
+        "docfa",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-16",
+      "nome": "Ricevuta SISTER DOCFA (protocollo), visura con \"rendita proposta\" e planimetrie registrate",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-15"
+      ],
+      "gruppo": "P2 (output)",
+      "produce": "Agenzia Entrate",
+      "validita_giorni": 360,
+      "validita_testo": "la rendita diventa definitiva se non rettificata entro 12 mesi",
+      "nome_file": "AAAA-MM-GG_CAT-16_ricevuta_docfa_protNNNN.pdf",
+      "fonte": "[F3] DA VERIFICARE termine 12 mesi nel testo del D.M. 701/1994",
+      "parole_chiave": [
+        "catast",
+        "docfa",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "CAT-17",
+      "nome": "Domanda di voltura (Voltura 2.0) con estremi dell'atto/successione, soggetti dante/avente causa, immobili",
+      "obbligatorio": "condizionato",
+      "condizione": "solo se il trasferimento non è già volturato automaticamente (MUI notarile / dichiarazione di successione telematica)",
+      "prerequisiti": [
+        "CAT-01",
+        "CAT-04",
+        "CAT-05",
+        "CAT-06"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico o parte (SISTER / Fisconline / PEC / ufficio)",
+      "validita_giorni": 30,
+      "validita_testo": "entro 30 gg dalla registrazione dell'atto",
+      "nome_file": "AAAA-MM-GG_CAT-17_voltura_2.0.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "domanda",
+        "estremi",
+        "voltura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CAT-18",
+      "nome": "Ricevuta pagamento tributi: DOCFA e Pregeo 70 € per unità (dal 1/1/2025); voltura 55 € + bollo 16 €",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CAT-15",
+        "CAT-08",
+        "CAT-17"
+      ],
+      "gruppo": "P2/P1/P3",
+      "produce": "tecnico (addebito su conto SISTER) o committente (F24 Elide per voltura cartacea)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CAT-18_ricevuta_tributi.pdf",
+      "fonte": "[F6][F7]",
+      "parole_chiave": [
+        "catast",
+        "docfa",
+        "frazionamento",
+        "mappale",
+        "pregeo",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Data di ultimazione lavori nel modello D ≠ data della CFL/dichiarazione del DL: è l'errore più segnalato dagli Uffici e fa scattare la sanzione per tardività [F12].",
+    "Identificativi catastali (foglio, particella, subalterno) devono coincidere tra titolo edilizio, Pregeo approvato, DOCFA, SCA e atto notarile; una variazione DOCFA su particella non ancora aggiornata in mappa viene respinta.",
+    "Intestazione catastale ≠ committente/titolare del titolo edilizio: verificare volture pendenti (CAT-17) prima del DOCFA; il dichiarante deve essere intestatario o titolare di diritto (o dichiarare la qualità).",
+    "Codice fiscale e generalità del dichiarante identici in lettera di incarico, modello D e documento d'identità.",
+    "Planimetrie: orientamento, scala, altezze interne, piano e confini (ditte confinanti/strade) obbligatori; porzioni comuni rappresentate solo nell'EP; difformità tra planimetria e progetto allegato alla SCIA/CFL generano problemi in sede di SCA e di atto.",
+    "Rendita proposta pari a zero per D/E non è ammessa (D.M. 701/1994) [F3].",
+    "Tributi dichiarati ≠ calcolati dal software (Pregeo): SISTER respinge l'invio [F5].",
+    "Estratto di mappa scaduto o non \"ufficiale\" dell'Ufficio: impedisce l'approvazione automatica del Pregeo [F5].",
+    "Versione software non aggiornata o archivio provinciale non corrispondente (es. Caserta 2026): file non accettato [F9]."
+  ],
+  "dopo": [
+    "Prima: titolo edilizio (CILA/SCIA/PdC) → eventuale pratica sismica (deposito/autorizzazione, scheda SIS) → esecuzione → CFL con data di ultimazione. Poi: Pregeo (TM/FR) → DOCFA entro 30 gg → SCA (allegato: ricevuta DOCFA e planimetrie, art. 24 d.P.R. 380/2001) → atto notarile (conformità catastale). In parallelo: voltura se c'è stato un trasferimento non automatico; dichiarazione di successione (che include la voltura). Sostituzioni: la voltura automatica da MUI notarile sostituisce la domanda; il DOCFA \"variazione per esatta rappresentazione grafica\" senza lavori non sostituisce la sanatoria urbanistica."
+  ]
+}

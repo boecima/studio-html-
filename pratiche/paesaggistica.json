@@ -1,0 +1,443 @@
+{
+  "sigla": "PAE",
+  "nome": "Autorizzazione paesaggistica ordinaria (art. 146 D.Lgs. 42/2004), semplificata (dPR 31/2017) e accertamento di compatibilità paesaggistica (art. 167)",
+  "descrizione": "Vedi docs/pratiche/paesaggistica.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/paesaggistica.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "PAE-01",
+      "nome": "Titolo di disponibilità dell'immobile (atto, visura, contratto) + documento d'identità del richiedente",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente",
+      "validita_giorni": 90,
+      "validita_testo": "visura: consigliata < 3 mesi (prassi, DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_PAE-01_titolo-visura.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "appalto",
+        "carta",
+        "ci_",
+        "cila",
+        "cilas",
+        "contratto",
+        "identita",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PAE-02",
+      "nome": "Verifica del vincolo: estratto del decreto di vincolo (art. 136) o fascia art. 142, PTR/PTP (es. PUT Sorrentino-Amalfitano L.R. 35/1987), Piano del Parco, zona del PRG/PUC; CDU",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico (CDU dal Comune)",
+      "validita_giorni": null,
+      "validita_testo": "CDU 1 anno",
+      "nome_file": "AAAA-MM-GG_PAE-02_vincoli-cdu.pdf",
+      "fonte": "[F1][F7]",
+      "parole_chiave": [
+        "decreto",
+        "estratto",
+        "verifica",
+        "vincolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-03",
+      "nome": "Stato legittimo dell'immobile (titoli edilizi pregressi, precedenti autorizzazioni paesaggistiche)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-01"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-03_stato-legittimo.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-04",
+      "nome": "Classificazione dell'intervento: Allegato A (esente), Allegato B (semplificata, voci B.1–B.42) o ordinaria; nota del tecnico con la voce richiamata",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-02",
+        "PAE-03"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-04_classificazione-dpr31.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "allegato",
+        "classificazione",
+        "esente",
+        "intervento"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-05",
+      "nome": "Documentazione fotografica dello stato attuale con planimetria dei punti di ripresa, foto da punti di intervisibilità (strade, belvedere, mare)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "foto recenti (prassi)",
+      "nome_file": "AAAA-MM-GG_PAE-05_foto-punti-ripresa.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "foto",
+        "jpg",
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-06",
+      "nome": "Elaborati di progetto: inquadramento territoriale (CTR/ortofoto), planimetria, piante, prospetti, sezioni stato di fatto/progetto/comparativa (nero assentito, rosso progetto, giallo demolizioni), particolari di materiali e colori",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-03",
+        "PAE-05"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-06_elaborati-progetto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "materiali",
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-07",
+      "nome": "Fotoinserimenti / simulazione dello stato dei luoghi dopo l'intervento (foto-modellazione realistica, con adeguato intorno; prima la foto dello stato attuale, poi il fotoinserimento)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-05",
+        "PAE-06"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-07_fotoinserimenti.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "fotoinserimenti",
+        "intervento",
+        "luoghi",
+        "simulazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-08",
+      "nome": "ORDINARIA – Relazione paesaggistica ai sensi del DPCM 12/12/2005: analisi dello stato attuale (contesto, caratteri paesaggistici, PTR/PTP), descrizione dell'intervento, effetti e compatibilità, misure di mitigazione",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-02",
+        "PAE-07"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-08_relazione-paesaggistica-dpcm2005.pdf",
+      "fonte": "[F8][F9]",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-09",
+      "nome": "ORDINARIA – Istanza di autorizzazione paesaggistica (modulo comunale/regionale) + procura al tecnico + bolli (€ 16 istanza, € 16 provvedimento) + diritti di segreteria",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-08"
+      ],
+      "gruppo": "P3",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-09_istanza-146.pdf",
+      "fonte": "moduli e importi DA VERIFICARE per comune",
+      "parole_chiave": [
+        "bollettino",
+        "delega",
+        "diritti",
+        "istanza",
+        "modulo",
+        "paesagg",
+        "pagopa",
+        "procura",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PAE-10",
+      "nome": "SEMPLIFICATA – Modello di istanza Allegato C dPR 31/2017",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-04"
+      ],
+      "gruppo": "P3",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-10_istanza-allegato-C.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "allegato",
+        "istanza",
+        "modello",
+        "semplificata"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PAE-11",
+      "nome": "SEMPLIFICATA – Relazione paesaggistica semplificata Allegato D (scheda: vincolo, stato attuale, intervento, compatibilità, foto, elaborati)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-04",
+        "PAE-07"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico abilitato",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-11_relazione-semplificata-allegato-D.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-12",
+      "nome": "ACCERTAMENTO 167 – Istanza di accertamento di compatibilità paesaggistica (proprietario, possessore o detentore)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-01"
+      ],
+      "gruppo": "P3",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-12_istanza-167.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PAE-13",
+      "nome": "ACCERTAMENTO 167 – Relazione tecnica che dimostra l'assenza di nuove superfici utili/volumi (o la natura di materiali difformi / manutenzione), con raffronto autorizzato/realizzato e foto",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-03",
+        "PAE-05",
+        "PAE-06"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-13_relazione-compatibilita-167.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "materiali",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-14",
+      "nome": "ACCERTAMENTO 167 – Perizia di stima del profitto conseguito e del danno (base per la sanzione = maggiore tra i due); alcuni comuni hanno regolamenti propri di calcolo",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-13"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico (giurata se richiesta dal Comune)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-14_perizia-stima-167.pdf",
+      "fonte": "[F5][F10]",
+      "parole_chiave": [
+        "accertamento",
+        "conseguito",
+        "perizia",
+        "profitto"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-15",
+      "nome": "Nulla osta ulteriori: Ente Parco, vincolo idrogeologico (R.D. 3267/1923), Autorità di Bacino, art. 21 per bene culturale",
+      "obbligatorio": "condizionato",
+      "condizione": "vincoli presenti",
+      "prerequisiti": [
+        "PAE-02"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico → enti",
+      "validita_giorni": null,
+      "validita_testo": "validità del singolo atto",
+      "nome_file": "AAAA-MM-GG_PAE-15_nulla-osta-altri-enti.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "autorità",
+        "idrogeologico",
+        "ulteriori",
+        "vincolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-16",
+      "nome": "Richiesta certificazione vincoli alla SABAP (facoltativa, utile nei casi dubbi; modulo SABAP CE-BN 2026)",
+      "obbligatorio": false,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-16_certificazione-vincoli-sabap.pdf",
+      "fonte": "[F11]",
+      "parole_chiave": [
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-17",
+      "nome": "Ricevuta di protocollo del SUE / portale e ricevuta pagamento diritti",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-09",
+        "PAE-10",
+        "PAE-12"
+      ],
+      "gruppo": "P4",
+      "produce": "SUE (torna al tecnico)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-17_ricevuta-protocollo.pdf",
+      "fonte": "—",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "PAE-18",
+      "nome": "Parere della Commissione Locale per il Paesaggio e relazione tecnica illustrativa + proposta motivata del Comune alla SABAP",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-17"
+      ],
+      "gruppo": "P5",
+      "produce": "Comune",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-18_parere-clp-proposta.pdf",
+      "fonte": "[F2][F3]",
+      "parole_chiave": [
+        "relazione"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "PAE-19",
+      "nome": "Parere vincolante della Soprintendenza",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-18"
+      ],
+      "gruppo": "P6",
+      "produce": "SABAP",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PAE-19_parere-sabap.pdf",
+      "fonte": "[F1][F4][F5]",
+      "parole_chiave": [
+        "parere",
+        "soprintendenza",
+        "vincolante"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PAE-20",
+      "nome": "Autorizzazione paesaggistica (o accertamento con determinazione della sanzione) + ricevuta pagamento sanzione 167",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PAE-19"
+      ],
+      "gruppo": "P7",
+      "produce": "Comune / committente",
+      "validita_giorni": null,
+      "validita_testo": "5 anni dal rilascio; lavori iniziati nel quinquennio concludibili entro l'anno successivo (art. 146 c. 4)",
+      "nome_file": "AAAA-MM-GG_PAE-20_autorizzazione-paesaggistica.pdf",
+      "fonte": "[F1] DA VERIFICARE testo c. 4",
+      "parole_chiave": [
+        "paesagg",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente"
+    }
+  ],
+  "controlli_incrociati": [
+    "Vincolo citato correttamente (numero/data del decreto o lettera art. 142) in istanza, relazione e All. C/D; dati catastali e indirizzo identici in tutti gli atti e nel titolo edilizio collegato.",
+    "Voce dell'Allegato B indicata e coerente con l'intervento: una voce sbagliata fa riqualificare la pratica in ordinaria (tempi raddoppiati).",
+    "Fotoinserimenti privi dell'intorno o senza foto \"prima/dopo\" dagli stessi punti: la SABAP chiede integrazioni (interruzione dei termini).",
+    "Elaborati del titolo edilizio diversi da quelli autorizzati paesaggisticamente: il titolo è inefficace e scatta l'art. 167.",
+    "Istanza 167 per opere con incremento di volume/superficie (anche interrato o tecnico, orientamento TAR Lazio) → inammissibile [F6].",
+    "Commissione Locale per il Paesaggio scaduta o non costituita: il Comune non può istruire (verificare prima dell'invio).",
+    "Autorizzazione scaduta (5 anni) prima dell'inizio lavori → nuova istanza.",
+    "Inizio lavori prima del rilascio (anche per la semplificata): reato e sanzione."
+  ],
+  "dopo": [
+    "Prima o contestuale: CILA/SCIA/PdC (il titolo edilizio è efficace solo con l'autorizzazione paesaggistica); nulla osta Parco/idrogeologico; art. 21 beni culturali. Dopo: comunicazione inizio lavori che richiama il protocollo dell'autorizzazione; CFL; SCA. Con la sanatoria edilizia: art. 36-bis (parere SABAP 90 gg, scheda SAN) e art. 167 (accertamento) vanno in parallelo all'istruttoria urbanistica; il condono in area vincolata richiede il parere dell'autorità preposta (art. 32 L. 47/85). Sostituisce: nulla; l'Allegato A esenta."
+  ]
+}

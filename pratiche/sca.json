@@ -1,0 +1,494 @@
+{
+  "sigla": "SCA",
+  "nome": "Segnalazione Certificata di Agibilità (art. 24 dPR 380/2001)",
+  "descrizione": "Vedi docs/pratiche/sca.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/sca.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "SCA-00",
+      "nome": "Verifica preliminare: titolo edilizio e varianti, CFL depositata con data di ultimazione, conformità opere al progetto (anche art. 34-bis tolleranze), presenza di tutti gli allegati del c. 5",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": 15,
+      "validita_testo": "i 15 gg decorrono dalla data di ultimazione finiture",
+      "nome_file": "AAAA-MM-GG_SCA-00_verifica-preliminare.pdf",
+      "fonte": "[F1][F20]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "fine lavori",
+        "fine-lavori",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo",
+        "ultimazione",
+        "variante",
+        "varianti"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-01",
+      "nome": "Modulo unificato regionale \"Segnalazione certificata per l'agibilità (SCA)\" (versione DD Regione Campania 14 del 26/09/2025, BURC 69 del 06/10/2025, aggiornata al Salva Casa – Accordo CU 30/07/2025 Rep. 92/CU) con quadri: titolare, immobile, titolo edilizio, agibilità totale/parziale, dichiarazioni, soggetti coinvolti, quadro riepilogativo allegati",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCA-00",
+        "SCA-02",
+        "SCA-13"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico + titolare",
+      "validita_giorni": null,
+      "validita_testo": "deposito entro 15 gg dall'ultimazione (art. 24 c. 2)",
+      "nome_file": "AAAA-MM-GG_SCA-01_modulo-SCA.pdf",
+      "fonte": "[F4][F11][F21]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "istanza",
+        "modulo",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-02",
+      "nome": "Relazione tecnica di asseverazione / attestazione del DL (o professionista abilitato) sulla sussistenza delle condizioni di sicurezza, igiene, salubrità, risparmio energetico, infrastrutturazione digitale e conformità al progetto (art. 24 c. 5 lett. a); con eventuale sezione Salva Casa cc. 5-bis/5-ter/5-quater e indicazione del provvedimento igienico-sanitario di riferimento",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCA-00",
+        "SCA-04",
+        "SCA-05",
+        "SCA-06",
+        "SCA-08"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico (DL)",
+      "validita_giorni": null,
+      "validita_testo": "riferita alla data di ultimazione",
+      "nome_file": "AAAA-MM-GG_SCA-02_relazione-asseverata.pdf",
+      "fonte": "[F1][F21][F31]",
+      "parole_chiave": [
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-03",
+      "nome": "Certificato di collaudo finale / regolare esecuzione già depositato con la CFL (estremi + copia)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-03_collaudo-finale.pdf",
+      "fonte": "[F23]",
+      "parole_chiave": [
+        "collaudo",
+        "cre",
+        "regolare"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-04",
+      "nome": "Ricevuta della CFL con protocollo e data di ultimazione",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "SUE (già rilasciata)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-04_ricevuta-CFL.pdf",
+      "fonte": "[F17-bis] (SCA contestuale o successiva alla CFL)",
+      "parole_chiave": [
+        "fine lavori",
+        "fine-lavori",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "ultimazione"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "SCA-05",
+      "nome": "Certificato di collaudo statico (art. 67) con attestato di deposito al Genio Civile (S.I.smi.CA, L.R. 9/1983) OPPURE dichiarazione di regolare esecuzione del DL strutture per interventi di cui all'art. 67 c. 8-bis / art. 94-bis (minore rilevanza / riparazioni e interventi locali)",
+      "obbligatorio": "condizionato",
+      "condizione": "sempre se opere strutturali; per interventi senza opere strutturali, dichiarazione del tecnico di assenza di opere strutturali (art. 24 c. 5 lett. b)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "collaudatore / DL strutture",
+      "validita_giorni": null,
+      "validita_testo": "collaudo entro 60 gg da ultimazione strutture (art. 67 c. 7 — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCA-05_collaudo-statico.pdf",
+      "fonte": "[F1][F3][F25]",
+      "parole_chiave": [
+        "collaudo",
+        "cre",
+        "regolare"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-06",
+      "nome": "Dichiarazioni di conformità degli impianti installati (DM 37/2008 art. 7, con allegati obbligatori) o dichiarazione di rispondenza (art. 7 c. 6); per impianti non modificati: dichiarazione del tecnico (art. 24 c. 5 lett. e \"dichiarazione dell'impresa installatrice\")",
+      "obbligatorio": "condizionato",
+      "condizione": "se impianti installati/trasformati/ampliati; sempre nelle nuove costruzioni",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "imprese installatrici",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-06_conformita-impianto-<tipo>.pdf",
+      "fonte": "[F1][F29]",
+      "parole_chiave": [
+        "conformità",
+        "dichiarazioni",
+        "impianti",
+        "installati"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "SCA-07",
+      "nome": "Estremi / ricevuta dell'avvenuta dichiarazione di aggiornamento catastale (DOCFA) (art. 24 c. 5 lett. d) o dichiarazione che non è dovuta",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico abilitato",
+      "validita_giorni": null,
+      "validita_testo": "DOCFA entro 30 gg da abitabilità/servibilità (DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCA-07_ricevuta-DOCFA.pdf",
+      "fonte": "[F1][F19]",
+      "parole_chiave": [
+        "catast",
+        "docfa",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-08",
+      "nome": "Attestato di Prestazione Energetica (APE) trasmesso al registro regionale, oppure dichiarazione di non obbligo",
+      "obbligatorio": "condizionato",
+      "condizione": "nuova costruzione, ristrutturazione importante, interventi sull'involucro/impianti termici (D.Lgs. 192/2005 art. 6 — DA VERIFICARE); nel modulo \"nei soli casi previsti\"",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "certificatore energetico",
+      "validita_giorni": null,
+      "validita_testo": "10 anni (DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCA-08_APE.pdf",
+      "fonte": "[F19][F29]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-09",
+      "nome": "Dichiarazione di conformità delle opere alla normativa su accessibilità e superamento barriere architettoniche (art. 24 c. 5 lett. c; artt. 77 e 82 dPR 380; L. 13/1989, DM 236/1989)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico (progettista/DL)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-09_conformita-barriere.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "dm236"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-10",
+      "nome": "Attestazione del rispetto dei requisiti acustici passivi (DPCM 5/12/1997; L. 447/1995 art. 8) – relazione o collaudo acustico",
+      "obbligatorio": "condizionato",
+      "condizione": "nuove costruzioni e ristrutturazioni che incidono sui requisiti acustici; voce presente nei quadri allegati di molti SUE (non nell'elenco tassativo del c. 5)",
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico competente in acustica",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-10_acustica.pdf",
+      "fonte": "[F29] — base normativa DA VERIFICARE",
+      "parole_chiave": [
+        "acustic",
+        "collaudo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-11",
+      "nome": "Prevenzione incendi: SCIA antincendio / CPI / dichiarazione di non assoggettabilità (DPR 151/2011)",
+      "obbligatorio": "condizionato",
+      "condizione": "attività soggette (es. autorimesse > 300 mq, centrali termiche > 116 kW, edifici civili h > 24 m)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico antincendio + VVF",
+      "validita_giorni": null,
+      "validita_testo": "CPI/SCIA con rinnovo periodico (5/10 anni) DA VERIFICARE",
+      "nome_file": "AAAA-MM-GG_SCA-11_antincendio.pdf",
+      "fonte": "[F1] (fonte secondaria cita lett. f/prevenzione incendi; non nel c. 5 vigente — DA VERIFICARE)",
+      "parole_chiave": [
+        "antincendio",
+        "dichiarazione",
+        "incendi",
+        "prevenzione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-12",
+      "nome": "Dichiarazione sull'infrastrutturazione digitale (art. 135-bis dPR 380: edifici nuovi / ristrutturazione profonda con titolo dopo il 01/07/2015, infrastruttura fisica multiservizio passiva e punto di accesso)",
+      "obbligatorio": "condizionato",
+      "condizione": "se art. 135-bis applicabile; altrimenti dichiarazione di non applicabilità",
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-12_infrastrutturazione-digitale.pdf",
+      "fonte": "[F1][F29] — art. 135-bis DA VERIFICARE",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-13",
+      "nome": "Elaborato planimetrico / planimetria dei locali con destinazioni, superfici, altezze, rapporti aeroilluminanti (e, per agibilità parziale, individuazione della porzione)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-13_planimetria-locali.pdf",
+      "fonte": "[F1][F29]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-14",
+      "nome": "Allaccio fognatura: nulla osta/contratto del gestore per scarico in pubblica fognatura, oppure autorizzazione allo scarico (D.Lgs. 152/2006 art. 124) per scarichi fuori fognatura; dichiarazione del tecnico sulla rete",
+      "obbligatorio": "condizionato",
+      "condizione": "nuove costruzioni / nuovi scarichi; richiesto in molti regolamenti comunali; non nel c. 5",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "gestore + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "autorizzazione scarico 4 anni (art. 124 c. 8 — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCA-14_fognatura.pdf",
+      "fonte": "DA VERIFICARE (nessuna fonte campana trovata)",
+      "parole_chiave": [
+        "appalto",
+        "contratto"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCA-15",
+      "nome": "Dichiarazione impianto termico / libretto di impianto e dichiarazione di conformità o messa in esercizio (DPR 74/2013)",
+      "obbligatorio": "condizionato",
+      "condizione": "se impianto termico nuovo",
+      "prerequisiti": [
+        "SCA-06"
+      ],
+      "gruppo": "P1",
+      "produce": "installatore / manutentore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-15_libretto-impianto-termico.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "dichiarazione",
+        "impianto",
+        "libretto",
+        "termico"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "SCA-16",
+      "nome": "Ascensori/montacarichi: dichiarazione di conformità CE e comunicazione di messa in esercizio al Comune (DPR 162/1999 art. 12) con numero di matricola",
+      "obbligatorio": "condizionato",
+      "condizione": "se installati",
+      "prerequisiti": [
+        "SCA-06"
+      ],
+      "gruppo": "P1",
+      "produce": "installatore + committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-16_ascensore.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "ascensori",
+        "conformità",
+        "dichiarazione",
+        "montacarichi"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "SCA-17",
+      "nome": "Copia documento d'identità del titolare (se non firma digitalmente)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "in corso di validità",
+      "nome_file": "AAAA-MM-GG_SCA-17_CI-titolare.pdf",
+      "fonte": "[F5] (regola generale modulistica)",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "identita"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCA-18",
+      "nome": "Procura speciale al tecnico per firma e invio",
+      "obbligatorio": "condizionato",
+      "condizione": "se invio tramite tecnico",
+      "prerequisiti": [
+        "SCA-17"
+      ],
+      "gruppo": "P1",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_SCA-18_procura.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "delega",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCA-19",
+      "nome": "Ricevuta versamento diritti di segreteria/istruttoria (e marca da bollo se richiesta dal comune)",
+      "obbligatorio": "condizionato",
+      "condizione": "secondo comune (Napoli: pagamento prima dell'invio; Caserta: C.C. 38/2018; Verona/Roma esempi di \"sempre\")",
+      "prerequisiti": [],
+      "gruppo": "P3",
+      "produce": "committente / tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-19_diritti-segreteria.pdf",
+      "fonte": "[F12][F14] — importi DA VERIFICARE",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCA-20",
+      "nome": "Ricevuta di deposito / protocollo SUE della SCA",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCA-01"
+      ],
+      "gruppo": null,
+      "produce": "SUE",
+      "validita_giorni": null,
+      "validita_testo": "conservare: da questa data l'immobile è utilizzabile (art. 24 c. 6)",
+      "nome_file": "AAAA-MM-GG_SCA-20_ricevuta-protocollo.pdf",
+      "fonte": "[F1][F10]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "SCA-21",
+      "nome": "Lettera di accompagnamento / indice allegati",
+      "obbligatorio": false,
+      "prerequisiti": [
+        "SCA-00",
+        "SCA-01",
+        "SCA-02",
+        "SCA-03",
+        "SCA-04",
+        "SCA-07",
+        "SCA-09",
+        "SCA-13",
+        "SCA-20"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCA-21_lettera-accompagnamento.pdf",
+      "fonte": "—",
+      "parole_chiave": [
+        "accompagnamento",
+        "accompagnatoria",
+        "lettera"
+      ],
+      "cartella": "03_tecnico",
+      "prerequisiti_tutti": true
+    }
+  ],
+  "controlli_incrociati": [
+    "Dati che devono coincidere: data di ultimazione (CFL-02 = SCA-01 = SCA-02; entro 15 gg dalla SCA); estremi del titolo e delle varianti (SCA-01, SCA-02, SCA-03); identificativi catastali (SCA-01, SCA-07, SCA-13 e DOCFA); CF/ragione sociale di titolare, DL, collaudatore, installatori; numero di protocollo della CFL e del deposito al Genio Civile; destinazioni d'uso e numero di unità tra planimetria, DOCFA e SCA (soprattutto per agibilità parziale).",
+    "Errori tipici:",
+    "SCA presentata oltre i 15 gg senza pagamento della sanzione",
+    "asseverazione generica senza richiamo a collaudo statico, impianti, APE, barriere",
+    "dichiarazione impianti incompleta o resa da impresa non abilitata",
+    "collaudo statico non depositato al Genio Civile o dichiarazione di regolare esecuzione usata fuori dai casi dell'art. 67 c. 8-bis/94-bis",
+    "DOCFA non ancora protocollato (serve almeno la ricevuta)",
+    "opere difformi dal progetto non regolarizzate prima della SCA (la SCA non sana)",
+    "deroghe Salva Casa (altezze 2,40 m, superfici ridotte) applicate senza indicare il provvedimento igienico-sanitario di riferimento (c. 5-quater) o per cambi d'uso non ammessi (TAR Lombardia 2861/2025 in [F26])",
+    "canale sbagliato (Caserta) o diritti non pagati prima (Napoli)",
+    "modulo regionale non aggiornato (versione 2017 al posto della DD 14/2025)",
+    "quadro soggetti coinvolti / riepilogo allegati non firmati sia dal titolare sia dal tecnico [F31]"
+  ],
+  "dopo": [
+    "Prima: titolo edilizio e varianti → denuncia strutture L.R. 9/1983 → CFL (con collaudo finale, DOCFA, conformità impianti) → collaudo statico depositato al Genio Civile → APE.",
+    "In parallelo: SCIA antincendio VVF, allaccio fognatura/utenze, numero civico, messa in esercizio ascensore.",
+    "La SCA può essere contestuale alla CFL o successiva [F17-bis]; per immobili legittimi privi di agibilità e senza lavori: SCA ex art. 24 c. 7-bis (DA VERIFICARE). Dopo: voltura catastale, contratti di utenza, atti di compravendita/locazione (l'agibilità è normalmente richiesta nei rogiti).",
+    "Sostituisce: il vecchio certificato di agibilità (procedimento art. 25 abrogato) e la \"SCIA per l'agibilità\" del modulo 2017; non è sostituita da nessun altro atto."
+  ]
+}

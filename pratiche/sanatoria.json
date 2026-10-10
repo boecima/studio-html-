@@ -1,0 +1,650 @@
+{
+  "sigla": "SAN",
+  "nome": "Accertamento di conformità / sanatoria edilizia (art. 36 e 36-bis dPR 380/2001, CILA e SCIA in sanatoria) e condono edilizio (L. 47/85, L. 724/94, L. 326/03)",
+  "descrizione": "Vedi docs/pratiche/sanatoria.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/sanatoria.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "SAN-01",
+      "nome": "Titolo di proprietà / atto di provenienza (rogito, successione, sentenza) + visura catastale e planimetria catastale storica",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente (tecnico scarica visure)",
+      "validita_giorni": 90,
+      "validita_testo": "visura: consigliata < 3 mesi (prassi, DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SAN-01_titolo-proprieta-visure.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "planimetria",
+        "scia",
+        "titolo",
+        "visura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SAN-02",
+      "nome": "Accesso agli atti: copia dei titoli edilizi pregressi (licenze, concessioni, PdC, DIA/SCIA, CILA, condoni) e agibilità",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-01"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico (istanza al SUE / archivio)",
+      "validita_giorni": 30,
+      "validita_testo": "— (30 gg per risposta ex L. 241/90 art. 25)",
+      "nome_file": "AAAA-MM-GG_SAN-02_accesso-atti-titoli.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "accesso",
+        "edilizi",
+        "pregressi",
+        "titoli"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-03",
+      "nome": "Ricostruzione dello stato legittimo (art. 9-bis c. 1-bis): titolo originario o ultimo titolo sull'intero immobile/unità, integrato con tolleranze art. 34-bis e difformità fiscalizzate; per immobili ante 1/9/1967 (o ante vincolo) documenti probanti (catasto d'impianto, foto aeree, estratti)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-01",
+        "SAN-02"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-03_stato-legittimo.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-04",
+      "nome": "Dichiarazione asseverata sulle tolleranze costruttive/esecutive (art. 34-bis c. 3): per interventi ante 24/5/2024 soglie 2% (>500 mq), 3% (300-500), 4% (100-300), 5% (<100), 6% (<60 mq); interventi successivi 2%",
+      "obbligatorio": "condizionato",
+      "condizione": "se parte delle difformità rientra nelle tolleranze",
+      "prerequisiti": [
+        "SAN-03"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "— (si allega allo stato legittimo)",
+      "nome_file": "AAAA-MM-GG_SAN-04_tolleranze-34bis.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "asseverata",
+        "costruttive",
+        "dichiarazione",
+        "tolleranze"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-05",
+      "nome": "Rilievo dello stato di fatto (misure, quote, destinazioni) + documentazione fotografica interna/esterna datata",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-01"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-05_rilievo-foto-stato-di-fatto.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "foto",
+        "jpg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-06",
+      "nome": "Certificato di destinazione urbanistica / estratto PRG-PUC, verifica vincoli (paesaggistico, idrogeologico, sismico, parco, PSAI, centro storico)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico (CDU rilasciato dal comune)",
+      "validita_giorni": null,
+      "validita_testo": "CDU: 1 anno (art. 30 c. 3 TUE)",
+      "nome_file": "AAAA-MM-GG_SAN-06_cdu-vincoli.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "paesagg",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-07",
+      "nome": "Dichiarazione del tecnico sulla data di realizzazione dell'abuso (art. 36-bis c. 4: se non documentabile, attestazione del tecnico sotto responsabilità penale) con prove (foto aeree, fatture, contratti, atti)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-03",
+        "SAN-05"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-07_data-abuso.pdf",
+      "fonte": "[F2] DA VERIFICARE testo c. 4",
+      "parole_chiave": [
+        "dichiarazione",
+        "documentabile",
+        "realizzazione",
+        "tecnico"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-08",
+      "nome": "Relazione tecnica asseverata di accertamento di conformità: descrizione opere, titolo violato, inquadramento (art. 36 vs 36-bis), verifica doppia conformità (piena o semplificata), verifica igienico-sanitaria, barriere, risparmio energetico, strutture",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-03",
+        "SAN-05",
+        "SAN-06",
+        "SAN-07"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-08_relazione-conformita.pdf",
+      "fonte": "[F1][F2]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "cila",
+        "cilas",
+        "dm236",
+        "pdc",
+        "permesso",
+        "relazione",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-09",
+      "nome": "Elaborati grafici: stato legittimo (nero), stato di fatto, \"comparativa\" (gialli/rossi), stato di sanatoria/progetto se il titolo è condizionato a opere; inquadramento, piante, prospetti, sezioni, calcoli superfici/volumi",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-03",
+        "SAN-05"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-09_elaborati-legittimo-fatto-sanatoria.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "elaborat",
+        "pdc",
+        "permesso",
+        "pianta",
+        "prospett",
+        "scia",
+        "sezion",
+        "tav",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-10",
+      "nome": "Calcolo oblazione: art. 36 = doppio del contributo di costruzione (se gratuito, da € 516 a € 5.164 in base al valore venale); art. 36-bis c. 5: (a) PdC: doppio del contributo o, se gratuito, importo da € 1.032 a € 30.984 in relazione all'aumento di valore venale; (b) SCIA: da € 1.032 a € 10.328 in relazione all'aumento di valore venale; CILA tardiva: € 1.000 / € 333,33",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-08",
+        "SAN-09"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico (determina finale: SUE)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-10_calcolo-oblazione.pdf",
+      "fonte": "[F1][F2][F6] — importi 36-bis DA VERIFICARE sul testo vigente e Linee MIT 29/1/2025 [F11]",
+      "parole_chiave": [
+        "calcolo",
+        "contributo",
+        "doppio",
+        "oblazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-11",
+      "nome": "Modulo unificato regionale: \"Permesso di costruire in sanatoria\" o \"SCIA in sanatoria\" o \"CILA tardiva\" (modulistica Conferenza Unificata 27/3/2025 recepita con DGR Campania 252 del 6/5/2025 e DD 217 del 16/6/2025) + procura speciale al tecnico",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-08",
+        "SAN-09",
+        "SAN-10"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico + committente (firma)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-11_modulo-istanza-sanatoria.pdf",
+      "fonte": "[F12][F13]",
+      "parole_chiave": [
+        "delega",
+        "istanza",
+        "modulo",
+        "procura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-12",
+      "nome": "Marca da bollo (istanza e titolo: € 16 ciascuna, cartacea o virtuale) + ricevuta diritti di segreteria/istruttoria (pagoPA)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-11"
+      ],
+      "gruppo": "P3",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-12_bollo-diritti.pdf",
+      "fonte": "importi comunali DA VERIFICARE (vedi §5)",
+      "parole_chiave": [
+        "bollettino",
+        "cila",
+        "cilas",
+        "diritti",
+        "pagopa",
+        "pdc",
+        "permesso",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "scia",
+        "titolo",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SAN-13",
+      "nome": "Pratica strutturale in sanatoria: relazione sulle strutture, certificato di idoneità statica / collaudo, deposito o autorizzazione al Genio Civile per opere in zona sismica (art. 93-94 TUE, L.R. 9/1983)",
+      "obbligatorio": "condizionato",
+      "condizione": "opere strutturali (nuovi volumi, solai, aperture in muri portanti, scale)",
+      "prerequisiti": [
+        "SAN-05",
+        "SAN-09"
+      ],
+      "gruppo": "P2",
+      "produce": "ingegnere/strutturista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-13_idoneita-statica-genio-civile.pdf",
+      "fonte": "DA VERIFICARE iter \"postumo\" Genio Civile Campania",
+      "parole_chiave": [
+        "collaudo",
+        "deposito",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-14",
+      "nome": "Accertamento di compatibilità paesaggistica (art. 167 c. 4-5 D.Lgs. 42/2004) con relazione paesaggistica e fotoinserimenti; per 36-bis il parere SABAP è vincolante entro 90 gg (c. 2)",
+      "obbligatorio": "condizionato",
+      "condizione": "immobile in area vincolata (art. 136/142 Codice)",
+      "prerequisiti": [
+        "SAN-08",
+        "SAN-09"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-14_compatibilita-paesaggistica-167.pdf",
+      "fonte": "[F9][F14] (vedi scheda PAE)",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-15",
+      "nome": "Altri pareri/nulla osta: vincolo idrogeologico (Comunità montana/Regione), Ente Parco, ASL (igienico-sanitario per attività), VV.F., Autorità di Bacino, beni culturali art. 21",
+      "obbligatorio": "condizionato",
+      "condizione": "vincolo presente",
+      "prerequisiti": [
+        "SAN-06"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "validità del singolo parere",
+      "nome_file": "AAAA-MM-GG_SAN-15_pareri-nulla-osta.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "comunità",
+        "idrogeologico",
+        "pareri",
+        "vincolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-16",
+      "nome": "Relazione tecnica energetica (ex L. 10, art. 8 D.Lgs. 192/2005) e/o APE",
+      "obbligatorio": "condizionato",
+      "condizione": "sanatoria di opere rilevanti ai fini energetici (nuovi volumi riscaldati, involucro, impianti)",
+      "prerequisiti": [
+        "SAN-09"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico termotecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-16_relazione-energetica.pdf",
+      "fonte": "[F15] (vedi scheda ENE)",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-17",
+      "nome": "Dichiarazione impianti (DM 37/2008) o dichiarazione di rispondenza",
+      "obbligatorio": "condizionato",
+      "condizione": "impianti realizzati/modificati",
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "impresa installatrice / tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-17_dico-impianti.pdf",
+      "fonte": "DA VERIFICARE richiesta dal singolo SUE",
+      "parole_chiave": [
+        "dichiarazione",
+        "impianti",
+        "rispondenza"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "SAN-18",
+      "nome": "Ricevuta versamento oblazione (e contributo di costruzione / monetizzazioni se dovuti)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-10"
+      ],
+      "gruppo": "P4",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-18_ricevuta-oblazione.pdf",
+      "fonte": "[F1][F2]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SAN-19",
+      "nome": "Aggiornamento catastale DOCFA post sanatoria",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P5",
+      "produce": "tecnico",
+      "validita_giorni": 30,
+      "validita_testo": "30 gg dalla variazione (DM 701/1994)",
+      "nome_file": "AAAA-MM-GG_SAN-19_docfa.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "catast",
+        "docfa"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-20",
+      "nome": "Segnalazione certificata di agibilità (art. 24 TUE)",
+      "obbligatorio": "condizionato",
+      "condizione": "se richiesta/ necessaria dopo la sanatoria",
+      "prerequisiti": [
+        "SAN-18",
+        "SAN-19"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "15 gg da fine opere",
+      "nome_file": "AAAA-MM-GG_SAN-20_sca.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "agibilità",
+        "certificata",
+        "segnalazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-21",
+      "nome": "CONDONO – Copia della domanda originaria (L. 47/85 / 724/94 / 326/03) con protocollo, oblazione e oneri versati (bollettini), eventuale richiesta integrazioni del Comune",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "C0",
+      "produce": "committente / tecnico (accesso agli atti all'Ufficio Condono)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-21_condono-domanda-originaria.pdf",
+      "fonte": "[F16][F17]",
+      "parole_chiave": [
+        "condono",
+        "domanda",
+        "originaria",
+        "protocollo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SAN-22",
+      "nome": "CONDONO – Dichiarazione sullo stato dei lavori con documentazione fotografica (art. 35 c. 3 lett. b L. 47/85; art. 39 L. 724/94; art. 32 c. 35 L. 326/03)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-21"
+      ],
+      "gruppo": "C1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-22_condono-foto-stato-lavori.pdf",
+      "fonte": "[F16]",
+      "parole_chiave": [
+        "foto",
+        "jpg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-23",
+      "nome": "CONDONO – Perizia giurata su dimensioni e stato delle opere + certificato di idoneità statica (opere > 450 mc; non necessario se già collaudata, salvo richiesta del Sindaco)",
+      "obbligatorio": "condizionato",
+      "condizione": "volume > 450 mc",
+      "prerequisiti": [
+        "SAN-21",
+        "SAN-22"
+      ],
+      "gruppo": "C1",
+      "produce": "tecnico (giuramento in Tribunale / notaio)",
+      "validita_giorni": null,
+      "validita_testo": "da presentare entro il termine della 2ª rata di oblazione (art. 35 c. 3 L. 47/85)",
+      "nome_file": "AAAA-MM-GG_SAN-23_condono-perizia-giurata-idoneita-statica.pdf",
+      "fonte": "[F16]",
+      "parole_chiave": [
+        "condono",
+        "dimensioni",
+        "giurata",
+        "perizia"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-24",
+      "nome": "CONDONO – Elaborati grafici dell'opera abusiva, planimetria catastale, visura, atto di proprietà aggiornato (volture), dichiarazione sostitutiva su data ultimazione (entro 1/10/1983, 31/12/1993, 31/3/2003)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-21"
+      ],
+      "gruppo": "C1",
+      "produce": "tecnico + committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-24_condono-elaborati-titolo.pdf",
+      "fonte": "[F16][F17]",
+      "parole_chiave": [
+        "elaborat",
+        "fine lavori",
+        "fine-lavori",
+        "pianta",
+        "planimetria",
+        "prospett",
+        "sezion",
+        "tav",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-25",
+      "nome": "CONDONO – Attestazione versamenti: oblazione a saldo, oneri concessori, eventuali conguagli richiesti dal Comune, diritti di segreteria",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SAN-21"
+      ],
+      "gruppo": "C1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-25_condono-attestazione-versamenti.pdf",
+      "fonte": "[F16]",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SAN-26",
+      "nome": "CONDONO – Parere paesaggistico/ambientale (art. 32 L. 47/85) per immobili in area vincolata; per il terzo condono (326/03) in zona vincolata ammessi solo manutenzione straordinaria/restauro, non nuovi volumi",
+      "obbligatorio": "condizionato",
+      "condizione": "vincolo",
+      "prerequisiti": [
+        "SAN-24"
+      ],
+      "gruppo": "C2",
+      "produce": "SUE → Soprintendenza / ente gestore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-26_condono-parere-vincolo.pdf",
+      "fonte": "[F18]",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "SAN-27",
+      "nome": "CONDONO – Risposta alla richiesta di integrazione del Comune (termine 3 mesi, pena improcedibilità, L. 724/94)",
+      "obbligatorio": "condizionato",
+      "condizione": "richiesta pervenuta",
+      "prerequisiti": [
+        "SAN-22",
+        "SAN-26"
+      ],
+      "gruppo": "C3",
+      "produce": "tecnico",
+      "validita_giorni": 90,
+      "validita_testo": "3 mesi dalla richiesta",
+      "nome_file": "AAAA-MM-GG_SAN-27_condono-integrazione.pdf",
+      "fonte": "[F16]",
+      "parole_chiave": [
+        "condono",
+        "integrazione",
+        "richiesta",
+        "risposta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SAN-28",
+      "nome": "CONDONO – Diffida/sollecito per silenzio-assenso: 24 mesi dalla domanda completa e dai versamenti senza provvedimento (art. 35 c. 18 L. 47/85; art. 39 L. 724/94; art. 32 c. 37 L. 326/03)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "SAN-25",
+        "SAN-27"
+      ],
+      "gruppo": "C4",
+      "produce": "committente/avvocato",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SAN-28_condono-diffida-silenzio.pdf",
+      "fonte": "DA VERIFICARE decorrenza per il 326/03",
+      "parole_chiave": [
+        "condono",
+        "diffida",
+        "silenzio",
+        "sollecito"
+      ],
+      "cartella": "01_committente"
+    }
+  ],
+  "controlli_incrociati": [
+    "Identificativi catastali, indirizzo, CF/PI del committente e del tecnico identici in istanza, relazione, elaborati, DOCFA e ricevute.",
+    "Protocollo e data del titolo violato (licenza/PdC/SCIA) citati identicamente in relazione, elaborati e modulo; stato legittimo coerente con l'ultimo titolo sull'intero immobile.",
+    "Data dell'abuso coerente tra dichiarazione (SAN-07), foto aeree e atti; una data sbagliata cambia il regime (34-bis ante 24/5/2024; condono ante 31/3/2003).",
+    "Istanza qualificata correttamente (36 vs 36-bis): il Comune non può riqualificarla d'ufficio (TAR Lazio 2025) ma un'istanza ambigua non forma silenzio-assenso (Cons. Stato 2026) [F3][F20].",
+    "Oblazione non versata: contestata la formazione del titolo; il diniego tardivo è inefficace ma è possibile l'autotutela [F20].",
+    "Area vincolata: domanda ex 36-bis senza richiesta di compatibilità paesaggistica = rigetto; abuso totale con volumi in area vincolata = non sanabile (art. 167 c. 4).",
+    "Opere strutturali senza pratica sismica: la sanatoria urbanistica non copre l'illecito sismico (artt. 93-95 TUE).",
+    "Condono: pratica senza foto/perizia, oblazione a rate non saldata, opere aggiuntive dopo la domanda (compromettono la sanatoria) [F26]."
+  ],
+  "dopo": [
+    "Prima: accesso agli atti → stato legittimo (art. 9-bis). In parallelo: accertamento di compatibilità paesaggistica (scheda PAE) e pratica sismica Genio Civile. Dopo: DOCFA → SCA (agibilità) → eventuali CILA/SCIA per nuovi lavori (che richiedono lo stato legittimo aggiornato). Sostituisce: nulla (non alternativa al condono, i cui termini sono chiusi). Per compravendite/mutui la sanatoria rilasciata è il documento che il notaio chiede per la dichiarazione di conformità urbanistica."
+  ]
+}

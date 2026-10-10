@@ -176,10 +176,6 @@ def collega(pid, codice, percorso_rel, forza=False):
     manc = prerequisiti_mancanti(p, codice)
     if manc and not forza:
         raise PermissionError("prima servono: " + ", ".join(manc))
-    # un file sta in un solo slot
-    for k, v in list(p["documenti"].items()):
-        if v["percorso"] == percorso_rel.replace("\\", "/") and k != codice:
-            del p["documenti"][k]
     inf = info_file(ass)
     voce = {"percorso": percorso_rel.replace("\\", "/"), "nome": os.path.basename(ass), "sha256": impronta(ass),
             "dimensione": inf["dimensione"], "modificato": inf["modificato"], "collegato_il": oggi(),

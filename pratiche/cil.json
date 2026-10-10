@@ -1,57 +1,423 @@
 {
   "sigla": "CIL",
   "nome": "Comunicazione di Inizio Lavori",
-  "descrizione": "Comunica al SUE l'avvio dei lavori di un titolo già efficace (PdC, SCIA) o di un intervento in edilizia libera: impresa, direttore dei lavori, sicurezza.",
-  "norma": "dPR 380/2001 art. 6 e art. 15; D.Lgs. 81/2008 art. 90 e 99; modulistica unificata Regione Campania",
-  "stato_scheda": "bozza: da confrontare con docs/pratiche/cil.md",
-  "cartelle": ["01_titolo_e_committente", "02_impresa", "03_tecnico", "04_sicurezza", "05_pacchetto_ai", "99_TRASMESSI"],
+  "descrizione": "Vedi docs/pratiche/cil.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/cil.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
   "documenti": [
-    {"codice": "CIL-00", "nome": "Titolo edilizio efficace (PdC rilasciato / SCIA con protocollo) o descrizione dell'intervento libero", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P0", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["permesso", "scia", "titolo", "protocollo"], "cartella": "01_titolo_e_committente",
-     "note": "Il PdC va iniziato entro 1 anno dal rilascio (art. 15)."},
-    {"codice": "CIL-01", "nome": "Documento d'identità del committente", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P1", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["identita", "carta", "documento"], "cartella": "01_titolo_e_committente"},
-    {"codice": "CIL-02", "nome": "Contratto d'appalto / lettera di incarico all'impresa", "obbligatorio": "condizionato", "condizione": "richiesto da alcuni comuni",
-     "prerequisiti": [], "gruppo": "P1", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["contratto", "appalto", "incarico"], "cartella": "02_impresa"},
-    {"codice": "CIL-03", "nome": "Visura camerale dell'impresa", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": 180,
-     "parole_chiave": ["visura", "camerale", "cciaa"], "cartella": "02_impresa"},
-    {"codice": "CIL-04", "nome": "DURC dell'impresa", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": 120,
-     "parole_chiave": ["durc"], "cartella": "02_impresa",
-     "note": "Deve essere valido alla data di inizio lavori. Se scade prima, va rinnovato."},
-    {"codice": "CIL-05", "nome": "Dichiarazione organico medio annuo e CCNL applicato (art. 90 c. 9 D.Lgs. 81/08)", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": null,
-     "parole_chiave": ["organico", "ccnl", "art. 90", "art 90"], "cartella": "02_impresa"},
-    {"codice": "CIL-06", "nome": "Polizza RC dell'impresa", "obbligatorio": false,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": null,
-     "parole_chiave": ["polizza", "rc", "assicura"], "cartella": "02_impresa"},
-    {"codice": "CIL-07", "nome": "Nomina e accettazione del direttore dei lavori", "obbligatorio": true,
-     "prerequisiti": ["CIL-00"], "gruppo": "P3", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["nomina", "direttore", "dl", "accettazione"], "cartella": "03_tecnico"},
-    {"codice": "CIL-08", "nome": "Nomina del coordinatore per la sicurezza (CSP/CSE)", "obbligatorio": "condizionato", "condizione": "più imprese, anche non contemporanee (art. 90 c. 3)",
-     "prerequisiti": ["CIL-00"], "gruppo": "P3", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["coordinatore", "csp", "cse", "sicurezza"], "cartella": "04_sicurezza"},
-    {"codice": "CIL-09", "nome": "Notifica preliminare ASL / Ispettorato (art. 99 D.Lgs. 81/08)", "obbligatorio": "condizionato", "condizione": "più imprese, oppure una sola con più di 200 uomini-giorno",
-     "prerequisiti": ["CIL-08", "CIL-03"], "gruppo": "P4", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["notifica", "preliminare", "asl"], "cartella": "04_sicurezza",
-     "note": "Va aggiornata se cambiano imprese, date o importo. In cantiere ne va affissa una copia."},
-    {"codice": "CIL-10", "nome": "Ricevuta del deposito sismico al Genio Civile", "obbligatorio": "condizionato", "condizione": "opere strutturali (tutta la Campania è zona sismica)",
-     "prerequisiti": ["CIL-00"], "gruppo": "P3", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["genio", "sismic", "deposito", "struttur"], "cartella": "03_tecnico",
-     "note": "Collegamento con la pratica SISMICA. Senza deposito non si può iniziare (art. 93)."},
-    {"codice": "CIL-11", "nome": "Modulo CIL compilato", "obbligatorio": true,
-     "prerequisiti": ["CIL-01", "CIL-03", "CIL-04", "CIL-05", "CIL-07"], "gruppo": "P5", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["modulo", "comunicazione inizio", "cil"], "cartella": "03_tecnico"}
+    {
+      "codice": "CIL-01",
+      "nome": "Verifica del titolo: (A) legittimazione sull'immobile e assenza di vincoli ostativi; (B) copia del PdC/SCIA con numero di protocollo, data di rilascio/efficacia e termini (1 anno inizio, 3 anni fine)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "PdC: inizio entro 1 anno dal rilascio, decadenza di diritto per la parte non eseguita; proroga solo se chiesta prima della scadenza; proroga straordinaria di 2 anni per titoli formati fino al 31/12/2023 (se non scaduti)",
+      "nome_file": "AAAA-MM-GG_CIL-01_verifica-titolo.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-02",
+      "nome": "Documento d'identità del committente (e del tecnico se firma con procura)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "in corso di validità alla data di invio",
+      "nome_file": "AAAA-MM-GG_CIL-02_identita-committente.pdf",
+      "fonte": "modulistica unificata CU [F1]; Aversa richiede copia firmata digitalmente in PDF/A per l'accreditamento [F21]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "delega",
+        "identita",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-03",
+      "nome": "Procura speciale / delega al tecnico per la trasmissione telematica",
+      "obbligatorio": "condizionato",
+      "condizione": "se invia il tecnico",
+      "prerequisiti": [
+        "CIL-02"
+      ],
+      "gruppo": "P1",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_CIL-03_procura-speciale.pdf",
+      "fonte": "modello \"procura\" dei portali SUE (Caserta, Avellino, Benevento) [F15][F17][F19] — formato da verificare per comune",
+      "parole_chiave": [
+        "delega",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-04",
+      "nome": "Visura e planimetria catastale aggiornate (identificativi da riportare nel modulo)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "consigliato ≤ 3 mesi — DA VERIFICARE (nessuna norma fissa una validità)",
+      "nome_file": "AAAA-MM-GG_CIL-04_visura-catastale.pdf",
+      "fonte": "prassi di studio",
+      "parole_chiave": [
+        "istanza",
+        "modulo",
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-05",
+      "nome": "(A) Modulo \"Comunicazione di inizio lavori per opere dirette a soddisfare obiettive esigenze contingenti e temporanee\" (modulo unificato CU 2017, recepito in Campania con DGR 308/2017 + DD 19/2017; aggiornamento DD 217/2025)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-01",
+        "CIL-02",
+        "CIL-04"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico/committente",
+      "validita_giorni": null,
+      "validita_testo": "va inviata PRIMA dell'inizio; rimozione entro 180 gg dal montaggio",
+      "nome_file": "AAAA-MM-GG_CIL-05_modulo-CIL-opere-temporanee.pdf",
+      "fonte": "[F1][F2][F11][F12]",
+      "parole_chiave": [
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-06",
+      "nome": "(A) Planimetria con ubicazione, schema dell'opera, foto dello stato dei luoghi, cronoprogramma con date di montaggio e smontaggio",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-04"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CIL-06_elaborati-opera-temporanea.pdf",
+      "fonte": "richiesto dal modulo unificato (sezione \"quadro riepilogativo\") — contenuto esatto DA VERIFICARE sul modulo regionale 2025",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-07",
+      "nome": "(A) Autorizzazione paesaggistica (ordinaria art. 146 D.Lgs. 42/2004 o semplificata dPR 31/2017) / nulla osta ente parco / concessione occupazione suolo pubblico",
+      "obbligatorio": "condizionato",
+      "condizione": "area vincolata, suolo pubblico",
+      "prerequisiti": [
+        "CIL-01"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico → ente",
+      "validita_giorni": null,
+      "validita_testo": "come da provvedimento",
+      "nome_file": "AAAA-MM-GG_CIL-07_autorizzazione-paesaggistica.pdf",
+      "fonte": "art. 6 co. 1 dPR 380 (\"fatte salve le prescrizioni... e le disposizioni del D.Lgs. 42/2004\") — DA VERIFICARE testo",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-08",
+      "nome": "(B) Modulo di comunicazione inizio lavori del Comune (Napoli: \"modello COM\" agg. 29/07/2022; altri comuni: modulo \"comunicazione inizio lavori\" nel portale SUE) con data di inizio, estremi del titolo, dati DL e impresa",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-01",
+        "CIL-02",
+        "CIL-09",
+        "CIL-10"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "da inviare prima dell'inizio effettivo; per il PdC entro 1 anno dal rilascio",
+      "nome_file": "AAAA-MM-GG_CIL-08_comunicazione-inizio-lavori.pdf",
+      "fonte": "[F13][F14][F5]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "istanza",
+        "modulo",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-09",
+      "nome": "(B) Nomina e accettazione del Direttore dei Lavori (con timbro/firma, iscrizione all'Ordine/Collegio)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-01"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "per tutta la durata dei lavori; variazioni da comunicare (Napoli: modello COM per \"variazioni di nominativi\")",
+      "nome_file": "AAAA-MM-GG_CIL-09_nomina-DL.pdf",
+      "fonte": "art. 29 dPR 380 (responsabilità DL); [F13]",
+      "parole_chiave": [
+        "accettazione",
+        "incarico",
+        "nomina"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CIL-10",
+      "nome": "(B) Nomina dell'impresa esecutrice + visura camerale (oggetto sociale edile, codice ATECO, sede, legale rappresentante)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa",
+      "validita_giorni": 180,
+      "validita_testo": "visura: 6 mesi (prassi di studio)",
+      "nome_file": "AAAA-MM-GG_CIL-10_visura-camerale-impresa.pdf",
+      "fonte": "art. 90 co. 9 lett. a) D.Lgs. 81/08 (idoneità tecnico-professionale, All. XVII: iscrizione CCIAA) [F4]",
+      "parole_chiave": [
+        "accettazione",
+        "camerale",
+        "cciaa",
+        "incarico",
+        "nomina",
+        "visura"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CIL-11",
+      "nome": "(B) DURC on line dell'impresa (e di ogni subappaltatore/lavoratore autonomo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-10"
+      ],
+      "gruppo": "P1",
+      "produce": "impresa (richiesta INPS/INAIL/Cassa Edile)",
+      "validita_giorni": 120,
+      "validita_testo": "120 giorni dalla data della richiesta (art. 31 co. 5 DL 69/2013 conv. L. 98/2013)",
+      "nome_file": "AAAA-MM-GG_CIL-11_DURC-impresa.pdf",
+      "fonte": "[F4][F22]",
+      "parole_chiave": [
+        "durc"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CIL-12",
+      "nome": "(B) Dichiarazione dell'impresa su organico medio annuo distinto per qualifica e CCNL applicato; dichiarazione del committente di avvenuta verifica dell'idoneità tecnico-professionale (art. 90 co. 9 lett. a-b)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-10",
+        "CIL-11"
+      ],
+      "gruppo": "P1",
+      "produce": "impresa + committente/RL",
+      "validita_giorni": null,
+      "validita_testo": "riferita al cantiere",
+      "nome_file": "AAAA-MM-GG_CIL-12_dichiarazione-organico-idoneita.pdf",
+      "fonte": "[F4]",
+      "parole_chiave": [
+        "ccnl",
+        "organico"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CIL-13",
+      "nome": "(B) Notifica preliminare ASL + ITL (art. 99 D.Lgs. 81/08, contenuti All. XII) — in Campania generata e trasmessa SOLO tramite piattaforma GISA \"Prevenzione e Sicurezza Luoghi di Lavoro\"; copia da affiggere in cantiere",
+      "obbligatorio": "condizionato",
+      "condizione": "cantiere con più imprese (anche non contemporanee), oppure una sola impresa ma ≥ 200 uomini-giorno, oppure cantiere inizialmente non soggetto che ricade nei casi precedenti",
+      "prerequisiti": [
+        "CIL-10",
+        "CIL-11",
+        "CIL-14"
+      ],
+      "gruppo": "P2",
+      "produce": "committente o responsabile dei lavori (di norma il tecnico)",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio lavori; aggiornare a ogni variazione (nuove imprese)",
+      "nome_file": "AAAA-MM-GG_CIL-13_notifica-preliminare-GISA.pdf",
+      "fonte": "[F4][F6] — numero/data del decreto regionale GISA DA VERIFICARE",
+      "parole_chiave": [
+        "notifica",
+        "preliminare"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-14",
+      "nome": "(B) Nomina CSP (in progettazione) e CSE (in esecuzione) + PSC e fascicolo dell'opera",
+      "obbligatorio": "condizionato",
+      "condizione": "più imprese anche non contemporanee (art. 90 co. 3-4 D.Lgs. 81/08)",
+      "prerequisiti": [
+        "CIL-01"
+      ],
+      "gruppo": "P1",
+      "produce": "committente → coordinatore",
+      "validita_giorni": null,
+      "validita_testo": "per tutta la durata; il CSE deve esistere PRIMA dell'affidamento dei lavori",
+      "nome_file": "AAAA-MM-GG_CIL-14_nomina-CSP-CSE.pdf",
+      "fonte": "art. 90 co. 3, 4 e 11 D.Lgs. 81/08 — DA VERIFICARE testo vigente (nota: la lett. c) del co. 9 richiama anche il PSC come allegato alla notifica, cfr. [F4])",
+      "parole_chiave": [
+        "accettazione",
+        "incarico",
+        "nomina"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-15",
+      "nome": "(B) Denuncia dei lavori strutturali e attestazione di deposito sismico (DS) o di presentazione progetto (APP, interventi di minore rilevanza) rilasciata dal Genio Civile provinciale o dal Comune delegato (art. 4-bis L.R. 9/1983) tramite portale S.I.smi.C.A.; in zona 3 vale il deposito sismico",
+      "obbligatorio": "condizionato",
+      "condizione": "opere strutturali (artt. 65 e 93 dPR 380; L.R. 9/1983 art. 2; Reg. 4/2010 come mod. da Reg. 9/2020)",
+      "prerequisiti": [
+        "CIL-01",
+        "CIL-09",
+        "CIL-10"
+      ],
+      "gruppo": "P2",
+      "produce": "strutturista + committente (\"la denuncia è presentata a cura del committente\")",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio dei lavori strutturali; il titolo edilizio non copre la parte strutturale",
+      "nome_file": "AAAA-MM-GG_CIL-15_attestazione-deposito-sismico.pdf",
+      "fonte": "[F9][F10] — il DD 117 del 19/03/2025 approva il vademecum per la verifica amministrativa delle istanze APP e DS",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-16",
+      "nome": "(B) Ricevuta versamento contributo di costruzione (prima rata) e/o diritti di segreteria se dovuti per la comunicazione",
+      "obbligatorio": "condizionato",
+      "condizione": "PdC oneroso; diritti solo dove il tariffario comunale li prevede per le comunicazioni",
+      "prerequisiti": [
+        "CIL-01"
+      ],
+      "gruppo": "P3",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "come da PdC/tariffario",
+      "nome_file": "AAAA-MM-GG_CIL-16_ricevuta-contributo-diritti.pdf",
+      "fonte": "art. 16 dPR 380; tariffari comunali: Napoli \"pagare prima dell'invio\" [F13]; Giugliano del. GC 181/2011 e aggiornamenti [F23]; Marcianise del. 112/2017 [F24]; Montesarchio tabella gen. 2025 [F20]; importi DA VERIFICARE",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CIL-17",
+      "nome": "(B) Cartello di cantiere (estremi titolo, committente, DL, impresa, CSE) — non si invia, ma la sua presenza viene verificata nei sopralluoghi",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-08",
+        "CIL-14"
+      ],
+      "gruppo": "P3",
+      "produce": "impresa/DL",
+      "validita_giorni": null,
+      "validita_testo": "esposto per tutta la durata",
+      "nome_file": "AAAA-MM-GG_CIL-17_cartello-cantiere.pdf",
+      "fonte": "art. 27 co. 4 dPR 380 + regolamento edilizio comunale (RUEC Benevento 2016 [F18]) — DA VERIFICARE per comune",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CIL-18",
+      "nome": "Ricevuta di protocollo / ricevuta del portale SUE (o della PEC)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CIL-01",
+        "CIL-02",
+        "CIL-04",
+        "CIL-05",
+        "CIL-06",
+        "CIL-08",
+        "CIL-09",
+        "CIL-10",
+        "CIL-11",
+        "CIL-12",
+        "CIL-17"
+      ],
+      "gruppo": "P4",
+      "produce": "ente",
+      "validita_giorni": null,
+      "validita_testo": "conservare: fa fede per la data di inizio",
+      "nome_file": "AAAA-MM-GG_CIL-18_ricevuta-protocollo.pdf",
+      "fonte": "art. 5 co. 4-bis dPR 380 (trasmissione telematica) — citato da avvisi comunali [F25]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente",
+      "prerequisiti_tutti": true
+    }
   ],
   "controlli_incrociati": [
-    "Data di inizio lavori identica in CIL, notifica preliminare e nomine.",
-    "Numero di imprese coerente tra CIL, notifica preliminare e nomina CSP.",
-    "DURC valido alla data di inizio lavori.",
-    "Protocollo del titolo identico ovunque."
+    "Devono coincidere tra tutti i documenti: nominativo e CF del committente; identificativi catastali (foglio, particella, sub) tra visura, titolo e modulo; numero di protocollo e data del PdC/SCIA tra CIL-01, CIL-08, CIL-13 (la notifica preliminare riporta gli estremi del titolo) e CIL-15; ragione sociale, P.IVA e sede dell'impresa tra visura, DURC, dichiarazione organico, notifica preliminare e cartello; nominativo del DL tra nomina, modulo, denuncia sismica e cartello; data di inizio lavori tra comunicazione, notifica preliminare e verbale di consegna lavori.",
+    "Errori tipici:",
+    "usare la CIL per opere di manutenzione straordinaria (serve CILA) o per opere \"temporanee\" lasciate oltre 180 giorni",
+    "comunicare l'inizio lavori del PdC oltre l'anno (decadenza)",
+    "DURC scaduto (>120 gg) o riferito a impresa diversa da quella in cantiere",
+    "notifica preliminare mancante con più imprese \"non contemporanee\" (il subappaltatore del secondo mese fa scattare l'obbligo) o inviata per PEC anziché su GISA",
+    "iniziare opere strutturali prima dell'attestazione del Genio Civile",
+    "a Napoli inviare il COM al SUE centrale invece che alla Municipalità, o allegati non firmati digitalmente uno per uno",
+    "nei comuni con portale esclusivo (Caserta, Aversa, Marcianise, Pozzuoli) inviare via PEC: pratica inammissibile/irricevibile",
+    "diritti di segreteria non pagati prima dell'invio (Napoli) o con causale incompleta",
+    "nomina CSE dopo l'inizio dei lavori"
   ],
-  "dopo": ["CFL (Comunicazione di fine lavori)"]
+  "dopo": [
+    "Prima: titolo edilizio (PdC, SCIA, SCIA alternativa) o, per la CILA, la CILA stessa; progetto strutturale e denuncia sismica; eventuale autorizzazione paesaggistica. In parallelo: notifica preliminare (GISA), PSC/POS, allaccio cantiere, occupazione suolo pubblico. Dopo: varianti in corso d'opera → CFL (comunicazione fine lavori, a Napoli ancora con modello COM) → collaudo statico/relazione a struttura ultimata (art. 65 e 67 dPR 380) → DOCFA → SCA (agibilità, entro 15 giorni dall'ultimazione, art. 24 dPR 380). La CIL \"titolo\" (opere temporanee) non ha fine lavori formale ma la rimozione entro 180 giorni. Sostituzioni: la vecchia CIL asseverata è sostituita dalla CILA (art. 6-bis); la comunicazione inizio lavori del PdC non sostituisce mai la notifica preliminare né il deposito sismico, che restano adempimenti autonomi verso ASL/ITL e Genio Civile."
+  ]
 }

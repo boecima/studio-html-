@@ -1,74 +1,472 @@
 {
   "sigla": "CFL",
-  "nome": "Comunicazione di Fine Lavori",
-  "descrizione": "Chiude un titolo edilizio (CILA, CILAS, SCIA, PdC). Da depositare al SUE del Comune. Apre la strada al DOCFA e alla SCA (agibilità).",
-  "norma": "dPR 380/2001 artt. 6-bis, 22, 23 e 24; modulistica unificata Regione Campania",
-  "stato_scheda": "bozza: elenco ricavato dalla skill crea-cfl e dal pacchetto già depositato dallo studio; da confrontare con docs/pratiche/cfl.md",
-  "cartelle": ["01_titolo_e_committente", "02_impresa", "03_tecnico", "04_elaborati_e_foto", "05_pacchetto_ai", "99_TRASMESSI"],
+  "nome": "Comunicazione di Fine Lavori (per titoli CILA / CILAS / SCIA / SCIA alternativa / PdC)",
+  "descrizione": "Vedi docs/pratiche/cfl.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/cfl.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
   "documenti": [
-    {"codice": "CFL-00", "nome": "Titolo edilizio con ricevuta di protocollo", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P0", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["cila", "cilas", "scia", "permesso", "protocollo", "titolo"], "cartella": "01_titolo_e_committente",
-     "note": "Prima di tutto: catena dei titoli sull'immobile. Una CFL con altri titoli aperti non chiude nulla ai fini dell'agibilità."},
-    {"codice": "CFL-01", "nome": "Documento d'identità del committente", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P1", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["identita", "carta", "ci_", "documento"], "cartella": "01_titolo_e_committente",
-     "note": "Controllare che non sia scaduto alla data di deposito."},
-    {"codice": "CFL-02", "nome": "Procura / atto di assenso dei comproprietari", "obbligatorio": "condizionato", "condizione": "più proprietari o delega al tecnico",
-     "prerequisiti": ["CFL-01"], "gruppo": "P1", "produce": "committente", "validita_giorni": null,
-     "parole_chiave": ["procura", "assenso", "delega"], "cartella": "01_titolo_e_committente"},
-    {"codice": "CFL-03", "nome": "Visura camerale dell'impresa esecutrice", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": 180,
-     "parole_chiave": ["visura", "camerale", "camera", "cciaa"], "cartella": "02_impresa",
-     "note": "Non più vecchia di 6 mesi alla data di deposito. La sede legale vince su quella del DURC."},
-    {"codice": "CFL-04", "nome": "DURC dell'impresa esecutrice", "obbligatorio": true,
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": 120,
-     "parole_chiave": ["durc"], "cartella": "02_impresa",
-     "note": "Vale 120 giorni dalla data della richiesta. Deve essere valido alla data di deposito, non a quella dei lavori."},
-    {"codice": "CFL-05", "nome": "Dichiarazioni di conformità degli impianti (DM 37/2008)", "obbligatorio": "condizionato", "condizione": "lavori su impianti elettrico, idrico, termico, gas",
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": null,
-     "parole_chiave": ["conformita", "dm37", "dm 37", "impianto", "elettric", "idric", "termic"], "cartella": "02_impresa",
-     "note": "Una per installatore, con visura e allegati obbligatori."},
-    {"codice": "CFL-06", "nome": "Formulario rifiuti (FIR) e analisi", "obbligatorio": "condizionato", "condizione": "produzione di rifiuti da demolizione o scavo",
-     "prerequisiti": [], "gruppo": "P2", "produce": "impresa", "validita_giorni": null,
-     "parole_chiave": ["fir", "formulario", "rifiuti", "analisi"], "cartella": "02_impresa"},
-    {"codice": "CFL-07", "nome": "Elaborati dello stato finale", "obbligatorio": true,
-     "prerequisiti": ["CFL-00"], "gruppo": "P3", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["stato finale", "finale", "as built", "tav", "elaborat", "pianta"], "cartella": "04_elaborati_e_foto",
-     "note": "Da barrare nel quadro allegati del modulo: è l'errore più frequente."},
-    {"codice": "CFL-08", "nome": "Documentazione fotografica", "obbligatorio": false,
-     "prerequisiti": [], "gruppo": "P3", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["foto", "img", "jpg"], "cartella": "04_elaborati_e_foto"},
-    {"codice": "CFL-09", "nome": "Certificato di ultimazione lavori", "obbligatorio": true,
-     "prerequisiti": ["CFL-00", "CFL-07"], "gruppo": "P4", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["ultimazione", "fine lavori"], "cartella": "03_tecnico",
-     "note": "La data di ultimazione deve essere identica in tutti gli atti e nel DOCFA."},
-    {"codice": "CFL-10", "nome": "Certificato di regolare esecuzione (DL + impresa + committente)", "obbligatorio": true,
-     "prerequisiti": ["CFL-09", "CFL-03"], "gruppo": "P4", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["regolare esecuzione", "cre", "regolare"], "cartella": "03_tecnico"},
-    {"codice": "CFL-11", "nome": "Dichiarazione del DL di conformità al titolo", "obbligatorio": true,
-     "prerequisiti": ["CFL-09"], "gruppo": "P4", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["conformita al titolo", "dichiarazione dl", "direttore"], "cartella": "03_tecnico"},
-    {"codice": "CFL-12", "nome": "Ricevuta DOCFA oppure dichiarazione che non serve variazione catastale", "obbligatorio": true,
-     "prerequisiti": ["CFL-09"], "gruppo": "P5", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["docfa", "catast", "variazione"], "cartella": "03_tecnico",
-     "note": "Il DOCFA va presentato entro 30 giorni dall'ultimazione. Collegamento con la pratica CATASTO."},
-    {"codice": "CFL-13", "nome": "Modulo CFL compilato (editabile + versione piatta)", "obbligatorio": true,
-     "prerequisiti": ["CFL-01", "CFL-03", "CFL-04", "CFL-07", "CFL-09", "CFL-10", "CFL-11", "CFL-12"], "gruppo": "P6", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["modulo", "istanza", "comunicazione fine"], "cartella": "03_tecnico",
-     "note": "Compilare per ultimo: i valori vengono dalla scheda dati, non dalla memoria."},
-    {"codice": "CFL-14", "nome": "Lettera di accompagnamento al SUE", "obbligatorio": false,
-     "prerequisiti": ["CFL-13"], "gruppo": "P6", "produce": "tecnico", "validita_giorni": null,
-     "parole_chiave": ["accompagnatoria", "accompagnamento", "lettera"], "cartella": "03_tecnico"}
+    {
+      "codice": "CFL-00",
+      "nome": "Verifica catena dei titoli (estremi CILA/SCIA/PdC, varianti, proroghe, data inizio lavori, scadenza 3 anni)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "— (controllo preliminare)",
+      "nome_file": "AAAA-MM-GG_CFL-00_verifica-titoli.pdf",
+      "fonte": "[F22][F23] — art. 15 c. 2 / 23 c. 2 DA VERIFICARE",
+      "parole_chiave": [
+        "titoli",
+        "variante",
+        "varianti",
+        "verifica"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-01",
+      "nome": "Modulo unificato regionale \"E. Comunicazione di fine lavori (CFL)\" compilato (dati titolare, ubicazione, estremi titolo, dichiarazione di ultimazione totale o parziale \"come da planimetria allegata\", quadro riepilogativo allegati)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-00",
+        "CFL-02"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico (firma committente + DL)",
+      "validita_giorni": null,
+      "validita_testo": "da depositare alla data di ultimazione; la SCA segue entro 15 gg (art. 24 c. 2)",
+      "nome_file": "AAAA-MM-GG_CFL-01_modulo-CFL.pdf",
+      "fonte": "[F4][F5]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "fine lavori",
+        "fine-lavori",
+        "istanza",
+        "modulo",
+        "pdc",
+        "permesso",
+        "planimetria",
+        "scia",
+        "titolo",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-02",
+      "nome": "Certificato / dichiarazione di ultimazione lavori del DL con DATA di ultimazione (totale o parziale)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-00"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico (DL)",
+      "validita_giorni": null,
+      "validita_testo": "la data fa partire i 15 gg della SCA e i 30 gg del DOCFA",
+      "nome_file": "AAAA-MM-GG_CFL-02_ultimazione-lavori.pdf",
+      "fonte": "[F5][F1]",
+      "parole_chiave": [
+        "fine lavori",
+        "fine-lavori",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-03",
+      "nome": "Certificato di collaudo finale / certificato di regolare esecuzione: conformità dell'opera al progetto presentato (art. 23 c. 7 per SCIA; analogo per CILA e PdC secondo modulo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-02",
+        "CFL-12"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico (progettista o tecnico abilitato)",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-03_collaudo-finale.pdf",
+      "fonte": "[F23][F22]",
+      "parole_chiave": [
+        "collaudo",
+        "cre",
+        "istanza",
+        "modulo",
+        "regolare"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-04",
+      "nome": "DURC dell'impresa esecutrice (e delle subappaltatrici) in corso di validità",
+      "obbligatorio": "condizionato",
+      "condizione": "se lavori eseguiti da impresa (richiesto da molti SUE e dal titolo: art. 90 c. 9 D.Lgs. 81/2008 DA VERIFICARE)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa (richiesta su DURC on line INPS/INAIL)",
+      "validita_giorni": 120,
+      "validita_testo": "120 gg dalla data di richiesta (art. 31 c. 5 DL 69/2013; per lavori privati fonti 2013-2015 indicano 90 gg dal 2015: DA VERIFICARE con DM 30/01/2015)",
+      "nome_file": "AAAA-MM-GG_CFL-04_DURC-impresa.pdf",
+      "fonte": "[F24]",
+      "parole_chiave": [
+        "durc"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CFL-05",
+      "nome": "Visura camerale dell'impresa esecutrice (e degli installatori)",
+      "obbligatorio": "condizionato",
+      "condizione": "se lavori eseguiti da impresa",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa (CCIAA / Registro Imprese)",
+      "validita_giorni": 180,
+      "validita_testo": "6 mesi (prassi; DPR 445/2000 art. 41 DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CFL-05_visura-impresa.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "camerale",
+        "cciaa",
+        "visura"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CFL-06",
+      "nome": "Dichiarazioni di conformità impianti (DM 37/2008 art. 7) con allegati obbligatori: progetto, relazione tipologia materiali, schema impianto, copia certificato requisiti tecnico-professionali / visura installatore; oppure dichiarazione di rispondenza (art. 7 c. 6) per impianti ante 2008",
+      "obbligatorio": "condizionato",
+      "condizione": "se sono stati installati/trasformati/ampliati impianti (elettrico, idrico-sanitario, gas, riscaldamento, climatizzazione, ascensore, antenne…)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa installatrice abilitata",
+      "validita_giorni": 30,
+      "validita_testo": "da depositare al SUE entro 30 gg dalla conclusione dei lavori (DM 37/2008 art. 11 — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CFL-06_conformita-impianto-<tipo>.pdf",
+      "fonte": "[F1] (art. 24 c. 5 lett. e richiama le dichiarazioni dell'impresa installatrice); DM 37/2008 DA VERIFICARE",
+      "parole_chiave": [
+        "conformita",
+        "dm 37",
+        "dm37",
+        "impiant",
+        "materiali"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CFL-07",
+      "nome": "Formulari di identificazione rifiuti (FIR, D.Lgs. 152/2006 art. 193) / ricevute conferimento inerti e documentazione RENTRI dell'impresa",
+      "obbligatorio": "condizionato",
+      "condizione": "se prodotti rifiuti da demolizione/costruzione; richiesto espressamente da alcuni regolamenti comunali (non trovato per i comuni campani cercati)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa (produttore) + trasportatore",
+      "validita_giorni": null,
+      "validita_testo": "conservazione copie 3 anni (DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CFL-07_FIR-rifiuti.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "fir",
+        "formulario",
+        "rifiuti"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CFL-08",
+      "nome": "Dichiarazione dell'impresa di fine lavori / consegna opere (verbale)",
+      "obbligatorio": false,
+      "prerequisiti": [
+        "CFL-02"
+      ],
+      "gruppo": "P1",
+      "produce": "impresa",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-08_verbale-consegna.pdf",
+      "fonte": "—",
+      "parole_chiave": [
+        "consegna",
+        "dichiarazione",
+        "impresa",
+        "lavori"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CFL-09",
+      "nome": "Ricevuta DOCFA (variazione / nuova costruzione, Agenzia Entrate – Catasto) OPPURE dichiarazione del tecnico che le opere non hanno comportato modificazioni del classamento",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-02",
+        "CFL-12"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico abilitato (via Sister)",
+      "validita_giorni": null,
+      "validita_testo": "DOCFA entro 30 gg da quando l'unità è divenuta abitabile/servibile (RDL 652/1939 art. 28 / DM 701/1994 — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CFL-09_ricevuta-DOCFA.pdf / AAAA-MM-GG_CFL-09_dich-no-variazione-catastale.pdf",
+      "fonte": "[F23][F5][F19]",
+      "parole_chiave": [
+        "catast",
+        "docfa",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-10",
+      "nome": "Elaborati grafici dello stato finale / planimetria \"as built\" (obbligatoria in caso di fine lavori parziale per individuare la porzione)",
+      "obbligatorio": "condizionato",
+      "condizione": "fine lavori parziale, oppure se il modulo/il comune lo richiede; copia dell'elaborato planimetrico catastale citata nel quadro allegati del modulo regionale",
+      "prerequisiti": [
+        "CFL-02"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-10_stato-finale.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "as built",
+        "elaborat",
+        "finale",
+        "pianta",
+        "planimetria",
+        "prospett",
+        "sezion",
+        "stato finale",
+        "stato-finale",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-11",
+      "nome": "Documentazione fotografica dello stato finale",
+      "obbligatorio": false,
+      "prerequisiti": [
+        "CFL-02"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-11_foto-stato-finale.pdf",
+      "fonte": "DA VERIFICARE per singolo comune",
+      "parole_chiave": [
+        "as built",
+        "finale",
+        "foto",
+        "jpg",
+        "stato finale",
+        "stato-finale"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-12",
+      "nome": "Verifica varianti in corso d'opera: estremi delle varianti/CILA/SCIA di variante già presentate o dichiarazione di assenza varianti (sezione del modulo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-00"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-12_varianti.pdf",
+      "fonte": "[F5] (campo del modulo)",
+      "parole_chiave": [
+        "istanza",
+        "modulo",
+        "variante",
+        "varianti"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-13",
+      "nome": "Opere strutturali: attestato di deposito relazione a struttura ultimata e certificato di collaudo statico / dichiarazione di regolare esecuzione (art. 67 c. 8-bis) presso Genio Civile – portale S.I.smi.CA (L.R. 9/1983)",
+      "obbligatorio": "condizionato",
+      "condizione": "se eseguite opere strutturali",
+      "prerequisiti": [
+        "CFL-02"
+      ],
+      "gruppo": "P2",
+      "produce": "collaudatore / DL strutture",
+      "validita_giorni": null,
+      "validita_testo": "collaudo entro 60 gg dall'ultimazione strutture (art. 67 c. 7 — DA VERIFICARE testo vigente)",
+      "nome_file": "AAAA-MM-GG_CFL-13_collaudo-statico.pdf",
+      "fonte": "[F3][F25]",
+      "parole_chiave": [
+        "collaudo",
+        "cre",
+        "regolare"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-14",
+      "nome": "APE post-lavori",
+      "obbligatorio": "condizionato",
+      "condizione": "se obbligatorio (nuova costruzione, ristrutturazione importante, interventi che incidono sulla prestazione energetica – D.Lgs. 192/2005 art. 6 DA VERIFICARE)",
+      "prerequisiti": [
+        "CFL-02"
+      ],
+      "gruppo": "P2",
+      "produce": "certificatore energetico",
+      "validita_giorni": null,
+      "validita_testo": "10 anni (DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CFL-14_APE.pdf",
+      "fonte": "[F19]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CFL-15",
+      "nome": "Copia documento d'identità del titolare (e del tecnico se non firmano digitalmente)",
+      "obbligatorio": "condizionato",
+      "condizione": "\"solo se i soggetti non firmano digitalmente o manca la procura\" (quadro allegati modulo regionale)",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "documento in corso di validità",
+      "nome_file": "AAAA-MM-GG_CFL-15_CI-titolare.pdf",
+      "fonte": "[F5]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "identita"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CFL-16",
+      "nome": "Procura speciale al tecnico per firma e invio telematico (modulo \"procura speciale\" della modulistica unificata)",
+      "obbligatorio": "condizionato",
+      "condizione": "se il titolare non firma digitalmente / invio tramite tecnico",
+      "prerequisiti": [
+        "CFL-15"
+      ],
+      "gruppo": "P1",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_CFL-16_procura.pdf",
+      "fonte": "[F5][F4]",
+      "parole_chiave": [
+        "delega",
+        "istanza",
+        "modulo",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CFL-17",
+      "nome": "Ricevuta di versamento diritti di segreteria",
+      "obbligatorio": "condizionato",
+      "condizione": "\"se previsto\" dal comune (voce del quadro allegati del modulo regionale)",
+      "prerequisiti": [],
+      "gruppo": "P3",
+      "produce": "committente / tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-17_diritti-segreteria.pdf",
+      "fonte": "[F5]; importi: vedi sez. 5",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CFL-18",
+      "nome": "Lettera di accompagnamento / indice degli allegati (interna allo studio; utile per PEC)",
+      "obbligatorio": false,
+      "prerequisiti": [
+        "CFL-00",
+        "CFL-01",
+        "CFL-02",
+        "CFL-03",
+        "CFL-09",
+        "CFL-12"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CFL-18_lettera-accompagnamento.pdf",
+      "fonte": "—",
+      "parole_chiave": [
+        "accompagnamento",
+        "accompagnatoria",
+        "lettera"
+      ],
+      "cartella": "03_tecnico",
+      "prerequisiti_tutti": true
+    },
+    {
+      "codice": "CFL-19",
+      "nome": "Ricevuta di deposito / protocollo SUE della CFL",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CFL-01"
+      ],
+      "gruppo": null,
+      "produce": "SUE",
+      "validita_giorni": null,
+      "validita_testo": "da conservare nel fascicolo; serve per la SCA",
+      "nome_file": "AAAA-MM-GG_CFL-19_ricevuta-protocollo.pdf",
+      "fonte": "[F10][F14]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente"
+    }
   ],
   "controlli_incrociati": [
-    "Data di ultimazione identica in: modulo CFL, certificato di ultimazione, certificato di regolare esecuzione, DOCFA.",
-    "Protocollo e data del titolo identici ovunque.",
-    "Identificativi catastali e indirizzo identici ovunque.",
-    "Codici fiscali con carattere di controllo corretto.",
-    "PEC del Comune corretta; sede legale impresa coerente tra visura e DURC.",
-    "Allegati barrati nel modulo = file presenti nel pacchetto.",
-    "Nessun '$$$', 'da inserire' o parentesi vuota nel corpo degli atti."
+    "Dati che devono coincidere in tutti i documenti: data di ultimazione (CFL-01 = CFL-02 = CFL-03 = CFL-09 = SCA); estremi del titolo (numero/protocollo/data di CILA/SCIA/PdC e varianti) in CFL-01, CFL-03, CFL-12; identificativi catastali (foglio, particella, sub) in CFL-01, CFL-09, CFL-10; codici fiscali/ragione sociale di committente, tecnico, impresa, installatori (CFL-01, CFL-04, CFL-05, CFL-06); indirizzo e civico.",
+    "Errori tipici:",
+    "CFL senza data di ultimazione o con data successiva alla scadenza del titolo",
+    "collaudo finale che dichiara conformità ignorando varianti non comunicate (TAR: la conformità va riferita al progetto come variato)",
+    "dichiarazione di conformità impianti senza gli allegati obbligatori o resa da impresa non abilitata",
+    "DURC scaduto al momento dell'invio",
+    "DOCFA mancante o dichiarazione di \"nessuna variazione\" quando invece la planimetria è cambiata (es. spostamento tramezzi: va valutato, [F23])",
+    "invio su canale sbagliato (Caserta: solo portale)",
+    "diritti non pagati prima dell'invio (Napoli)",
+    "modulo regionale non aggiornato alla versione 2025",
+    "procura speciale mancante quando firma solo il tecnico",
+    "fine lavori parziale senza planimetria della porzione"
   ],
-  "dopo": ["CATASTO (DOCFA entro 30 giorni dall'ultimazione)", "SCA (agibilità, entro 15 giorni dall'ultimazione, art. 24)"]
+  "dopo": [
+    "Prima: titolo edilizio (CILA / CILAS / SCIA / PdC) e sue varianti → comunicazione inizio lavori → (strutture) denuncia L.R. 9/1983 e relazione a struttura ultimata → collaudo statico.",
+    "Contestuali/paralleli: DOCFA (Catasto), dichiarazioni DM 37/2008, APE, deposito collaudo statico al Genio Civile.",
+    "Dopo: SCA entro 15 giorni (può essere contestuale alla CFL) [F17-bis] → eventuale aggiornamento toponomastica/numero civico → voltura catastale.",
+    "Sostituzioni: per la SCIA alternativa al PdC e il PdC valgono le stesse regole di chiusura (collaudo finale + catasto) tramite il modulo E; la CFL non sostituisce mai la SCA."
+  ]
 }

@@ -1,0 +1,441 @@
+{
+  "sigla": "CILA",
+  "nome": "Comunicazione di Inizio Lavori Asseverata (con sezione CILAS – Superbonus)",
+  "descrizione": "Vedi docs/pratiche/cila.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/cila.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "CILA-01",
+      "nome": "Verifica catena dei titoli e stato legittimo dell'immobile (art. 9-bis co. 1-bis dPR 380): ultimo titolo che ha disciplinato l'immobile, condoni, tolleranze art. 34-bis; accesso agli atti se mancano i titoli",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "— (l'accesso agli atti ad Aversa costa 30 € di diritti di ricerca [F17])",
+      "nome_file": "AAAA-MM-GG_CILA-01_verifica-stato-legittimo.pdf",
+      "fonte": "art. 9-bis dPR 380 (richiamato dai moduli CU 2025 e da [F9] per la CILAS) — testo DA VERIFICARE",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titoli",
+        "titolo",
+        "verifica"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-02",
+      "nome": "Visura e planimetria catastale aggiornate; se la planimetria non corrisponde, nota per DOCFA a fine lavori",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": 90,
+      "validita_testo": "consigliato ≤ 3 mesi (prassi)",
+      "nome_file": "AAAA-MM-GG_CILA-02_visura-planimetria-catastale.pdf",
+      "fonte": "modulo CILA sezione \"dati dell'immobile\" [F6]",
+      "parole_chiave": [
+        "catast",
+        "docfa",
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-03",
+      "nome": "Titolo di disponibilità (atto di proprietà, contratto di locazione con assenso del proprietario, ecc.) o dichiarazione sostitutiva",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-03_titolo-disponibilita.pdf",
+      "fonte": "modulo CILA sezione \"titolarità\" [F6]",
+      "parole_chiave": [
+        "appalto",
+        "cila",
+        "cilas",
+        "contratto",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-04",
+      "nome": "Documento d'identità del committente e del tecnico",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "committente/tecnico",
+      "validita_giorni": null,
+      "validita_testo": "in corso di validità",
+      "nome_file": "AAAA-MM-GG_CILA-04_identita.pdf",
+      "fonte": "modulistica unificata [F6]; Aversa: PDF/A firmato digitalmente [F17]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "identita"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-05",
+      "nome": "Procura speciale al tecnico per la firma digitale e l'invio telematico",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-04"
+      ],
+      "gruppo": "P1",
+      "produce": "committente + tecnico",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_CILA-05_procura-speciale.pdf",
+      "fonte": "modelli \"procura\" dei portali SUE; Napoli: allegati firmati digitalmente dal progettista (del. GC 77/2011) [F8]",
+      "parole_chiave": [
+        "delega",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-06",
+      "nome": "Assenso dei comproprietari / delibera o nulla osta dell'amministratore se si toccano parti comuni; dichiarazione di non lesione di diritti di terzi",
+      "obbligatorio": "condizionato",
+      "condizione": "comproprietà, condominio, parti comuni",
+      "prerequisiti": [
+        "CILA-03"
+      ],
+      "gruppo": "P1",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-06_assenso-terzi.pdf",
+      "fonte": "modulo CILA \"dichiarazioni del titolare\" [F6]; DA VERIFICARE se il comune richiede l'assenso in forma scritta",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-07",
+      "nome": "Modulo CILA unificato: in Campania \"Modello A – Comunicazione Inizio Lavori Asseverata\" (DD 217/2025); a Napoli \"Mod. CILA 23/06/2025\" in due parti: CILA.a (comunicazione + asseverazione) e CILA.b (soggetti coinvolti)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-01",
+        "CILA-06",
+        "CILA-09",
+        "CILA-10"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": 1095,
+      "validita_testo": "efficace dall'invio; durata lavori: il modulo prevede la comunicazione di fine lavori; la legge non fissa una validità (prassi comunale 3 anni — DA VERIFICARE nei RUEC)",
+      "nome_file": "AAAA-MM-GG_CILA-07_modulo-CILA.pdf",
+      "fonte": "[F6][F7][F8][F11]",
+      "parole_chiave": [
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-08",
+      "nome": "Allegato \"Soggetti coinvolti\" (titolari, tecnico, DL, impresa con dati identificativi, codice fiscale/P.IVA)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-04",
+        "CILA-12"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-08_soggetti-coinvolti.pdf",
+      "fonte": "art. 6-bis co. 2 (dati dell'impresa) [F1]; Napoli CILA.b [F8]",
+      "parole_chiave": [
+        "allegato",
+        "coinvolti",
+        "soggetti",
+        "titolari"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-09",
+      "nome": "Relazione tecnica asseverata: descrizione opere, conformità urbanistica ed edilizia, compatibilità sismica (nessun interessamento strutturale), rendimento energetico, stato legittimo/tolleranze, vincoli, destinazione d'uso",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-01",
+        "CILA-02"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-09_relazione-tecnica-asseverata.pdf",
+      "fonte": "art. 6-bis co. 2 [F1]; modulo CU 2025 sezione \"asseverazione\" [F6]",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "relazione",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-10",
+      "nome": "Elaborati grafici: stato di fatto, progetto, sovrapposizione (gialli/rossi), con quote, destinazioni, rapporti aeroilluminanti; in PDF firmato digitalmente (Napoli: ogni file firmato singolarmente)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-02"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-10_elaborati-grafici.pdf",
+      "fonte": "[F8]; Pozzuoli: solo modelli ufficiali, firma digitale obbligatoria [F18]",
+      "parole_chiave": [
+        "elaborat",
+        "pianta",
+        "prospett",
+        "sezion",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-11",
+      "nome": "Documentazione fotografica dello stato dei luoghi (interno/esterno)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-11_foto-stato-luoghi.pdf",
+      "fonte": "moduli comunali; DA VERIFICARE se il modulo regionale la chiede come obbligatoria",
+      "parole_chiave": [
+        "foto",
+        "jpg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-12",
+      "nome": "Dati impresa: visura camerale + DURC (+ dichiarazione organico/CCNL art. 90 co. 9 D.Lgs. 81/08)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "impresa",
+      "validita_giorni": 120,
+      "validita_testo": "DURC 120 gg dalla richiesta; visura 6 mesi (prassi)",
+      "nome_file": "AAAA-MM-GG_CILA-12_visura-DURC-impresa.pdf",
+      "fonte": "art. 6-bis co. 2 [F1]; art. 31 co. 5 DL 69/2013 [F13]; art. 90 D.Lgs. 81/08 [F14]",
+      "parole_chiave": [
+        "camerale",
+        "cciaa",
+        "ccnl",
+        "durc",
+        "organico",
+        "visura"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "CILA-13",
+      "nome": "Ricevuta pagamento diritti di segreteria/istruttoria (PagoPA dove previsto) ed eventuale oblazione per CILA tardiva (1.000 € o 333,33 €)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P3",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "da pagare PRIMA dell'invio (Napoli); importi per comune DA VERIFICARE",
+      "nome_file": "AAAA-MM-GG_CILA-13_ricevuta-diritti.pdf",
+      "fonte": "[F8] Napoli; Avellino solo PagoPA dal 07/09/2026 [F15]; Benevento del. GC 249/2024 [F16]; Montesarchio tabella gen. 2025 [F19]; Giugliano del. GC 181/2011 [F20]; Marcianise del. 112/2017 [F21]. Il mancato pagamento non consente l'archiviazione della CILA ma solo la regolarizzazione (TAR Campania 2018, cit. ANCE [F22])",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-14",
+      "nome": "Autorizzazione paesaggistica (art. 146 D.Lgs. 42/2004 o semplificata dPR 31/2017) / nulla osta parco / autorizzazione Soprintendenza per immobili vincolati (art. 21 D.Lgs. 42/2004)",
+      "obbligatorio": "condizionato",
+      "condizione": "immobile o area vincolata",
+      "prerequisiti": [
+        "CILA-01"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico → ente",
+      "validita_giorni": null,
+      "validita_testo": "come da provvedimento (paesaggistica 5 anni)",
+      "nome_file": "AAAA-MM-GG_CILA-14_autorizzazione-paesaggistica.pdf",
+      "fonte": "modulo CILA sezione \"vincoli\" [F6]; durata DA VERIFICARE",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-15",
+      "nome": "Relazione tecnica L. 10/1991 art. 8 (ex L. 10) / attestazione requisiti minimi DM 26/06/2015",
+      "obbligatorio": "condizionato",
+      "condizione": "interventi su involucro o impianti termici rilevanti ai fini energetici",
+      "prerequisiti": [
+        "CILA-09"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "da depositare prima dell'inizio lavori",
+      "nome_file": "AAAA-MM-GG_CILA-15_relazione-energetica.pdf",
+      "fonte": "art. 6-bis co. 2 (compatibilità con la normativa sul rendimento energetico) [F1] — modalità di deposito per comune DA VERIFICARE",
+      "parole_chiave": [
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-16",
+      "nome": "Notifica preliminare art. 99 D.Lgs. 81/08 su piattaforma GISA Campania",
+      "obbligatorio": "condizionato",
+      "condizione": "più imprese anche non contemporanee o ≥ 200 uomini-giorno",
+      "prerequisiti": [
+        "CILA-12"
+      ],
+      "gruppo": "P2",
+      "produce": "committente/responsabile lavori",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio",
+      "nome_file": "AAAA-MM-GG_CILA-16_notifica-preliminare-GISA.pdf",
+      "fonte": "[F14]",
+      "parole_chiave": [
+        "notifica",
+        "preliminare"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILA-17",
+      "nome": "Progetto impianti (DM 37/2008 art. 5) quando obbligatorio (es. impianti elettrici > 6 kW o > 400 mq; impianti termici > 35 kW ecc.)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "CILA-09"
+      ],
+      "gruppo": "P2",
+      "produce": "professionista impianti",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILA-17_progetto-impianti.pdf",
+      "fonte": "DM 37/2008 art. 5 — soglie DA VERIFICARE",
+      "parole_chiave": [
+        "impianti",
+        "obbligatorio",
+        "progetto",
+        "quando"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILA-18",
+      "nome": "Ricevuta di protocollo del portale SUE",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-01",
+        "CILA-02",
+        "CILA-03",
+        "CILA-04",
+        "CILA-05",
+        "CILA-07",
+        "CILA-08",
+        "CILA-09",
+        "CILA-10",
+        "CILA-11",
+        "CILA-12",
+        "CILA-13"
+      ],
+      "gruppo": "P4",
+      "produce": "ente",
+      "validita_giorni": null,
+      "validita_testo": "conservare; da essa decorrono i controlli",
+      "nome_file": "AAAA-MM-GG_CILA-18_ricevuta-protocollo.pdf",
+      "fonte": "art. 5 co. 4-bis dPR 380 (citato dagli avvisi comunali) [F17][F21]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "04_ente",
+      "prerequisiti_tutti": true
+    },
+    {
+      "codice": "CILA-19",
+      "nome": "Comunicazione di fine lavori (modulo unificato \"fine lavori\"; a Napoli \"modello COM\") con dichiarazioni di conformità impianti DM 37/2008, eventuale DOCFA e dichiarazione del DL di conformità delle opere",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILA-18"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico/DL",
+      "validita_giorni": null,
+      "validita_testo": "nessun termine di legge per la CILA (la SCA, se dovuta, entro 15 gg dall'ultimazione, art. 24 dPR 380)",
+      "nome_file": "AAAA-MM-GG_CILA-19_fine-lavori.pdf",
+      "fonte": "modulo CU \"fine lavori\" [F6]; Napoli COM [F8]",
+      "parole_chiave": [
+        "catast",
+        "conformita",
+        "dm 37",
+        "dm37",
+        "docfa",
+        "impiant",
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Dati che devono coincidere: identificativi catastali tra visura (CILA-02), modulo, relazione ed elaborati; nominativo/CF del titolare tra identità, titolo di disponibilità, procura, modulo e causale del pagamento; estremi del titolo pregresso tra verifica stato legittimo (CILA-01), relazione e modulo (per CILAS: estremi del titolo o \"ante 1967\" identici in CILAS-01 e CILAS-02); dati impresa tra soggetti coinvolti, visura, DURC e notifica preliminare; superfici/destinazioni tra relazione, elaborati e futura DOCFA; data di inizio lavori tra CILA, notifica preliminare e verbale; a fine lavori, conformità tra elaborati \"progetto\" e stato realizzato (altrimenti serve variante prima della fine lavori).",
+    "Errori tipici che fanno respingere o dichiarare inefficace:",
+    "CILA per opere che toccano strutture (solai, travi, aperture su muri portanti) → serve SCIA + deposito sismico",
+    "stato legittimo non verificato o difforme (abusi pregressi): la CILA ordinaria è inefficace, la CILAS no ma il Comune può procedere sugli abusi",
+    "vincolo paesaggistico ignorato",
+    "moduli non ufficiali o modificati (Pozzuoli: inammissibilità), allegati non firmati digitalmente uno per uno (Napoli), file non PDF/A (Aversa)",
+    "invio via PEC nei comuni a portale esclusivo (Caserta, Aversa, Marcianise, Pozzuoli) → inammissibile/irricevibile",
+    "diritti pagati dopo l'invio o senza causale (Napoli)",
+    "dati impresa assenti (obbligatori ex art. 6-bis co. 2) o \"lavori in economia\" senza spiegazione",
+    "CILAS: asseverazione sismica All. B depositata dopo l'inizio lavori; delibera condominiale mancante o posteriore ai termini; attestazione del titolo originario errata",
+    "relazione L. 10 non depositata per interventi energetici",
+    "fine lavori senza dichiarazioni DM 37/2008"
+  ],
+  "dopo": [
+    "Prima: verifica stato legittimo/accesso agli atti; autorizzazione paesaggistica (se vincolo); progetto impianti; per la CILAS: APE ante, asseverazione sismica preventiva, delibera assembleare. In parallelo: notifica preliminare GISA (vedi `cil.md`, CIL-13), PSC/POS, occupazione suolo pubblico, pratica ENEA ecobonus ordinario (se non Superbonus). Dopo: CILA di variante → fine lavori (CILA-19) → DOCFA → SCA (se dovuta) → per la CILAS: asseverazioni ENEA, visto di conformità, comunicazione opzione AE. Sostituzioni: la CILA ha sostituito la \"CIL asseverata\" (art. 6 co. 2, fino al 2016) [F3]; non sostituisce SCIA/PdC se l'intervento è \"pesante\"; la CILAS sostituisce la CILA ordinaria solo per gli interventi Superbonus senza demolizione e ricostruzione [F9]. La comunicazione di inizio lavori \"adempimento\" (impresa, DL, DURC) per la CILA è assorbita nel modulo stesso (sezione soggetti coinvolti), diversamente dal PdC dove è un passaggio separato (vedi `cil.md`, caso B)."
+  ]
+}

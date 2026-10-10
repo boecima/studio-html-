@@ -1,0 +1,722 @@
+{
+  "sigla": "SCIA",
+  "nome": "Segnalazione Certificata di Inizio Attività edilizia (art. 22 dPR 380/2001) e SCIA alternativa al Permesso di Costruire (art. 23 dPR 380/2001)",
+  "descrizione": "Vedi docs/pratiche/scia.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/scia.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "SCIA-01",
+      "nome": "Visura catastale aggiornata + estratto di mappa",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico (Sister/Entratel) o committente",
+      "validita_giorni": 90,
+      "validita_testo": "consigliata < 3 mesi (prassi; nessun termine di legge — DA VERIFICARE con il comune)",
+      "nome_file": "AAAA-MM-GG_SCIA-01_visura-catastale.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "visura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-02",
+      "nome": "Planimetria catastale",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "come sopra",
+      "nome_file": "AAAA-MM-GG_SCIA-02_planimetria-catastale.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-03",
+      "nome": "Titolo di proprietà (atto notarile) o altro titolo + eventuale atto di assenso dei comproprietari/condominio",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente (notaio)",
+      "validita_giorni": null,
+      "validita_testo": "nessuna scadenza; assenso condominiale: verbale assemblea",
+      "nome_file": "AAAA-MM-GG_SCIA-03_titolo-proprieta.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-04",
+      "nome": "Verifica stato legittimo: copia dei titoli edilizi precedenti (licenza/concessione/PdC/DIA/condoni) o dichiarazione ai sensi art. 9-bis c. 1-bis dPR 380",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-03"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico (accesso agli atti)",
+      "validita_giorni": null,
+      "validita_testo": "— ; accesso atti Aversa: 30 gg, diritti 30 € [F14]",
+      "nome_file": "AAAA-MM-GG_SCIA-04_stato-legittimo.pdf",
+      "fonte": "[F1][F14]",
+      "parole_chiave": [
+        "edilizi",
+        "legittimo",
+        "titoli",
+        "verifica"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-05",
+      "nome": "Procura/delega al tecnico per la presentazione telematica + copia documento identità del titolare",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_SCIA-05_procura.pdf",
+      "fonte": "[F8][F12]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "delega",
+        "identita",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-06",
+      "nome": "Rilievo e elaborati grafici STATO DI FATTO (piante, prospetti, sezioni, quotati, scala 1:100)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-01",
+        "SCIA-02",
+        "SCIA-04"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-06_tav-stato-di-fatto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "elaborat",
+        "pianta",
+        "prospett",
+        "sezion",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-07",
+      "nome": "Documentazione fotografica interna/esterna con punti di ripresa",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-06"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-07_foto.pdf",
+      "fonte": "[F8][F13]",
+      "parole_chiave": [
+        "foto",
+        "jpg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-08",
+      "nome": "Elaborati grafici STATO DI PROGETTO",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-06"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-08_tav-progetto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "elaborat",
+        "pianta",
+        "prospett",
+        "sezion",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-09",
+      "nome": "Elaborati grafici COMPARATIVI (gialli/rossi)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-06",
+        "SCIA-08"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-09_tav-comparativa.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "elaborat",
+        "pianta",
+        "prospett",
+        "sezion",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-10",
+      "nome": "Relazione tecnica di asseverazione (sez. 2 del modulo B1/B2) con verifica conformità urbanistica, edilizia, igienico-sanitaria, sicurezza, energia, barriere",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-04",
+        "SCIA-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-10_relazione-asseverata.pdf",
+      "fonte": "[F1][F8]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "dm236",
+        "istanza",
+        "modulo",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-11",
+      "nome": "Modulo unificato B1 (SCIA) o B2 (SCIA alternativa) – sez. titolare + quadro riepilogativo allegati",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-05",
+        "SCIA-10"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico + committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-11_modulo-B1.pdf (o B2)",
+      "fonte": "[F8][F11]",
+      "parole_chiave": [
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-12",
+      "nome": "Dichiarazione conformità superamento barriere architettoniche (L. 13/1989 art. 1 c. 4; DM 236/1989; art. 77 dPR 380) + elaborato dimostrativo",
+      "obbligatorio": "condizionato",
+      "condizione": "interventi su edifici privati di nuova costruzione o ristrutturazione; sempre per edifici aperti al pubblico",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-12_barriere-DM236.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "dm236"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-13",
+      "nome": "Relazione tecnica \"ex Legge 10\" (art. 8 D.Lgs. 192/2005, DM 26/06/2015)",
+      "obbligatorio": "condizionato",
+      "condizione": "interventi che toccano involucro/impianti termici (nuove costruzioni, ristrutturazioni importanti, riqualificazioni energetiche)",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico (termotecnico)",
+      "validita_giorni": null,
+      "validita_testo": "da depositare prima dell'inizio lavori; a fine lavori asseverazione DL + APE",
+      "nome_file": "AAAA-MM-GG_SCIA-13_relazione-L10.pdf",
+      "fonte": "[F1] DA VERIFICARE modalità di deposito per singolo comune",
+      "parole_chiave": [
+        "ex l10",
+        "l10",
+        "legge 10",
+        "legge10",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-14",
+      "nome": "Relazione sui requisiti acustici passivi (DPCM 5/12/1997) / previsione di impatto o clima acustico (art. 8 L. 447/1995)",
+      "obbligatorio": "condizionato",
+      "condizione": "nuove costruzioni, ristrutturazioni con nuove unità, attività rumorose; per residenze possibile autocertificazione (art. 8 c. 3-bis L. 447/95)",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico competente in acustica",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-14_relazione-acustica.pdf",
+      "fonte": "[F1] DA VERIFICARE regolamento acustico comunale",
+      "parole_chiave": [
+        "acustic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-15",
+      "nome": "Progetto strutturale + relazione geotecnica/geologica (NTC 2018)",
+      "obbligatorio": "condizionato",
+      "condizione": "opere con parti strutturali (sempre per SCIA alternativa e per art. 22 c. 1 lett. a-b)",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P4",
+      "produce": "ingegnere/strutturista + geologo",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-15_progetto-strutturale.pdf",
+      "fonte": "[F15][F16]",
+      "parole_chiave": [
+        "geotec"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-16",
+      "nome": "Relazione geologica",
+      "obbligatorio": "condizionato",
+      "condizione": "nuove fondazioni, ampliamenti, interventi su pendii; obbligatoria se richiesta dalle NTC 2018 §6.2.1 o dal Genio Civile",
+      "prerequisiti": [],
+      "gruppo": "P4",
+      "produce": "geologo",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-16_relazione-geologica.pdf",
+      "fonte": "[F15] DA VERIFICARE casi di esonero Reg. 4/2010",
+      "parole_chiave": [
+        "geolog"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-17",
+      "nome": "Istanza al Genio Civile via S.I.smi.CA: autorizzazione sismica (interventi \"rilevanti\" art. 94-bis c.1 lett. a) oppure attestazione di presentazione (minore rilevanza, lett. b) oppure denuncia/deposito (privi di rilevanza, lett. c, elenchi DD 359/2020)",
+      "obbligatorio": "condizionato",
+      "condizione": "tutte le opere strutturali — in Campania TUTTI i comuni sono in zona sismica 1, 2 o 3 (DGR 5447/2002)",
+      "prerequisiti": [
+        "SCIA-15",
+        "SCIA-16"
+      ],
+      "gruppo": "P4",
+      "produce": "strutturista + committente (firma)",
+      "validita_giorni": null,
+      "validita_testo": "autorizzazione: entro 60 gg (fonte stampa CNI 2018, DA VERIFICARE su Reg. 4/2010 art. 4); attestazione minore rilevanza: immediata (DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCIA-17_istanza-sismica-SIsmiCA.pdf",
+      "fonte": "[F15][F16][F17][F18]",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-18",
+      "nome": "Autorizzazione paesaggistica (art. 146 D.Lgs. 42/2004) o semplificata (DPR 31/2017)",
+      "obbligatorio": "condizionato",
+      "condizione": "immobile/area con vincolo paesaggistico",
+      "prerequisiti": [
+        "SCIA-07",
+        "SCIA-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico (relazione paesaggistica DPCM 12/12/2005) → comune subdelegato/Soprintendenza",
+      "validita_giorni": 105,
+      "validita_testo": "ordinaria 105 gg; semplificata 60 gg; validità 5 anni (art. 146 c. 4)",
+      "nome_file": "AAAA-MM-GG_SCIA-18_autorizzazione-paesaggistica.pdf",
+      "fonte": "[F1] DA VERIFICARE subdelega regionale ai comuni (L.R. Campania)",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-19",
+      "nome": "Nulla osta vincolo idrogeologico (R.D.L. 3267/1923)",
+      "obbligatorio": "condizionato",
+      "condizione": "area sottoposta a vincolo idrogeologico (frequente in AV/BN e zone collinari CE/NA)",
+      "prerequisiti": [
+        "SCIA-08",
+        "SCIA-16"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico → UOD regionale / comune delegato",
+      "validita_giorni": null,
+      "validita_testo": "DA VERIFICARE (L.R. Campania 11/1996 e delega ai comuni)",
+      "nome_file": "AAAA-MM-GG_SCIA-19_nullaosta-idrogeologico.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "idrogeologico",
+        "vincolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-20",
+      "nome": "Parere VVF – valutazione progetto (DPR 151/2011 art. 3, mod. PIN1-2018)",
+      "obbligatorio": "condizionato",
+      "condizione": "attività cat. B o C dell'All. I DPR 151/2011 (autorimesse > 300 mq, centrali termiche > 116 kW, ecc.)",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico antincendio → Comando VVF",
+      "validita_giorni": null,
+      "validita_testo": "integrazioni 30 gg; parere 60 gg da documentazione completa",
+      "nome_file": "AAAA-MM-GG_SCIA-20_parere-VVF.pdf",
+      "fonte": "[F20]",
+      "parole_chiave": [
+        "parere",
+        "progetto",
+        "valutazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-21",
+      "nome": "Parere ASL igienico-sanitario",
+      "obbligatorio": "condizionato",
+      "condizione": "solo se la conformità richiede valutazioni tecnico-discrezionali (altrimenti sostituito dall'asseverazione del progettista)",
+      "prerequisiti": [
+        "SCIA-10"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico → ASL",
+      "validita_giorni": null,
+      "validita_testo": "DA VERIFICARE tempi ASL",
+      "nome_file": "AAAA-MM-GG_SCIA-21_parere-ASL.pdf",
+      "fonte": "[F1] (art. 20 c. 1 e art. 23 c. 1 dPR 380)",
+      "parole_chiave": [
+        "igienico",
+        "parere",
+        "sanitario"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-22",
+      "nome": "Altri atti di assenso: autorizzazione scarichi, parere Autorità di Bacino (PAI), ente parco, Comune per occupazione suolo pubblico, ecc.",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-22_altri-pareri.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "assenso",
+        "autorizzazione",
+        "parere",
+        "scarichi"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-23",
+      "nome": "Nomina impresa esecutrice: visura camerale, DURC, dichiarazione organico medio annuo e CCNL applicato (art. 90 c. 9 D.Lgs. 81/2008)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P6",
+      "produce": "impresa",
+      "validita_giorni": 120,
+      "validita_testo": "DURC 120 gg dalla richiesta; visura camerale 6 mesi",
+      "nome_file": "AAAA-MM-GG_SCIA-23_impresa-DURC.pdf",
+      "fonte": "[F1] (art. 90 D.Lgs. 81/2008)",
+      "parole_chiave": [
+        "accettazione",
+        "camerale",
+        "cciaa",
+        "ccnl",
+        "durc",
+        "incarico",
+        "nomina",
+        "organico",
+        "visura"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "SCIA-24",
+      "nome": "Nomina/accettazione Direttore dei Lavori e (se dovuto) collaudatore statico, CSP/CSE (D.Lgs. 81/2008 art. 90)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P6",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-24_nomina-DL.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "accettazione",
+        "incarico",
+        "nomina"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-25",
+      "nome": "Notifica preliminare ASL/ITL (art. 99 D.Lgs. 81/2008)",
+      "obbligatorio": "condizionato",
+      "condizione": "più imprese o ≥ 200 uomini-giorno",
+      "prerequisiti": [
+        "SCIA-23"
+      ],
+      "gruppo": "P6",
+      "produce": "committente/responsabile lavori",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio lavori",
+      "nome_file": "AAAA-MM-GG_SCIA-25_notifica-preliminare.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "notifica",
+        "preliminare"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-26",
+      "nome": "Ricevuta diritti di segreteria/istruttoria (PagoPA)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P7",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "per la singola pratica",
+      "nome_file": "AAAA-MM-GG_SCIA-26_diritti-segreteria.pdf",
+      "fonte": "[F10][F12][F13]",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-27",
+      "nome": "Calcolo e ricevuta contributo di costruzione (oneri di urbanizzazione + costo di costruzione) o dichiarazione di non onerosità",
+      "obbligatorio": "condizionato",
+      "condizione": "sempre per SCIA alternativa (art. 23); per SCIA art. 22 se aumento carico urbanistico/cambio d'uso",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P7",
+      "produce": "tecnico (calcolo) + committente (pagamento)",
+      "validita_giorni": null,
+      "validita_testo": "oneri: al rilascio/presentazione, rateizzabili; costo di costruzione: entro 60 gg da fine lavori (art. 16 c. 2-3)",
+      "nome_file": "AAAA-MM-GG_SCIA-27_contributo-costruzione.pdf",
+      "fonte": "[F1][F19]",
+      "parole_chiave": [
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-28",
+      "nome": "Marca da bollo",
+      "obbligatorio": "condizionato",
+      "condizione": "la SCIA è di regola esente; Ariano Irpino indica bollo 16 € per SCIA alternativa — DA VERIFICARE comune per comune",
+      "prerequisiti": [],
+      "gruppo": "P7",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "—",
+      "fonte": "[F13]",
+      "parole_chiave": [],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "SCIA-29",
+      "nome": "Modello ISTAT (nuove costruzioni/ampliamenti)",
+      "obbligatorio": "condizionato",
+      "condizione": "nuove costruzioni e ampliamenti (SCIA alternativa)",
+      "prerequisiti": [
+        "SCIA-08"
+      ],
+      "gruppo": "P7",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-29_ISTAT.pdf",
+      "fonte": "[F11] (Benevento lo elenca per PdC)",
+      "parole_chiave": [
+        "ampliamenti",
+        "costruzioni",
+        "modello"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-30",
+      "nome": "Ricevuta di presentazione / protocollo SUE (prova del titolo, art. 23 c. 5)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-01",
+        "SCIA-02",
+        "SCIA-03",
+        "SCIA-04",
+        "SCIA-05",
+        "SCIA-06",
+        "SCIA-07",
+        "SCIA-08",
+        "SCIA-09",
+        "SCIA-10",
+        "SCIA-11",
+        "SCIA-23",
+        "SCIA-24",
+        "SCIA-26"
+      ],
+      "gruppo": null,
+      "produce": "SUE",
+      "validita_giorni": null,
+      "validita_testo": "conservare per sempre (fascicolo del fabbricato)",
+      "nome_file": "AAAA-MM-GG_SCIA-30_ricevuta-protocollo.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "04_ente",
+      "prerequisiti_tutti": true
+    },
+    {
+      "codice": "SCIA-31",
+      "nome": "Comunicazione inizio lavori (se differita rispetto alla SCIA) con DURC aggiornato e autorizzazione sismica ottenuta",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "SCIA-17",
+        "SCIA-23",
+        "SCIA-30"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_SCIA-31_inizio-lavori.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "deposito",
+        "durc",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "SCIA-32",
+      "nome": "Fine lavori: certificato di collaudo finale del tecnico + ricevuta DOCFA/variazione catastale (art. 23 c. 7) + dichiarazioni impianti DM 37/2008 + asseverazione Legge 10",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "SCIA-30"
+      ],
+      "gruppo": null,
+      "produce": "tecnico, impresa",
+      "validita_giorni": 1095,
+      "validita_testo": "entro il termine di validità del titolo (3 anni, art. 15 per analogia; art. 23 c. 2 — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_SCIA-32_collaudo-finale.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "catast",
+        "collaudo",
+        "docfa",
+        "ex l10",
+        "l10",
+        "legge 10",
+        "legge10",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Identificativi catastali (foglio/particella/sub) uguali su visura, planimetria, modulo, elaborati, istanza sismica e DOCFA.",
+    "Codice fiscale e generalità del titolare uguali in modulo, procura, ricevute di pagamento, DURC (impresa) e istanza S.I.smi.CA.",
+    "Stato di fatto = ultimo stato legittimo (titoli precedenti) e = planimetria catastale; se divergono, prima sanatoria (art. 36/36-bis) o aggiornamento catastale.",
+    "Protocollo e data del titolo precedente citati correttamente nella relazione asseverata; data di fine lavori coerente tra collaudo finale, DOCFA e SCA.",
+    "Scelta sbagliata del regime (SCIA art. 22 per ristrutturazione pesante o nuova costruzione fuori dai casi dell'art. 23 c. 01): la SCIA è inefficace e l'opera abusiva [F3].",
+    "SCIA alternativa presentata e lavori iniziati prima dei 30 gg.",
+    "Immobile vincolato: SCIA presentata senza l'atto di assenso già rilasciato (art. 22 c. 6 / art. 23 c. 3) → priva di effetti.",
+    "Opere strutturali iniziate senza autorizzazione/attestazione sismica (violazione artt. 93-94 dPR 380 e L.R. 9/1983, sanzioni penali art. 95).",
+    "Allegati obbligatori mancanti (ricevuta diritti, documento identità, procura, foto, DURC): irricevibilità nei portali (Caserta, Pozzuoli, Giugliano) [F11][F13a][F21].",
+    "Pagamento diritti effettuato dopo l'invio (Napoli richiede il pagamento prima) [F10].",
+    "Invio via PEC o cartaceo: inammissibile a Napoli, Caserta, Pozzuoli, Marcianise, Avellino, Benevento, Montesarchio.",
+    "Modulistica vecchia (pre Salva Casa, ante DD 217/2025): rischio di rigetto; usare i modelli B1/B2 aggiornati 2025.",
+    "DURC scaduto (> 120 gg) all'inizio lavori.",
+    "Varianti: comunicare a fine lavori solo quelle \"non essenziali\" (art. 22 c. 2-bis); le altre richiedono SCIA in corso d'opera o nuovo PdC."
+  ],
+  "dopo": [
+    "Prima: accesso agli atti/stato legittimo → eventuale accertamento di conformità (art. 36/36-bis) → autorizzazione paesaggistica / VVF / idrogeologico → istanza Genio Civile (S.I.smi.CA).",
+    "In parallelo: notifica preliminare (art. 99 D.Lgs. 81), deposito Legge 10, occupazione suolo pubblico, allacci.",
+    "Dopo: comunicazione inizio lavori → varianti (SCIA art. 22 c. 2 anche a PdC) → fine lavori + collaudo finale + DOCFA → SCA agibilità (art. 24) → collaudo statico e deposito RSU/CRE al Genio Civile (art. 65-67 dPR 380; modulistica DD 117/2025 con controllo automatico RSU/CRE/collaudo) [F17].",
+    "Sostituzioni: la SCIA alternativa sostituisce il PdC nei casi dell'art. 23 c. 01; la SCIA art. 22 c. 2 sostituisce il PdC in variante; resta sempre possibile chiedere il PdC (art. 22 c. 7). Piano Casa (L.R. 19/2009): termine perentorio per le istanze artt. 4, 5, 6-bis, 7 scaduto il 30/09/2022 (Corte cost. ord. 72/2026) — non più utilizzabile per nuove SCIA, DA VERIFICARE eventuali riaperture [F24].",
+    "Scheda collegata: pdc.md (permesso di costruire)."
+  ]
+}

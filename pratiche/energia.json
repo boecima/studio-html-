@@ -1,0 +1,410 @@
+{
+  "sigla": "ENE",
+  "nome": "APE (Attestato di Prestazione Energetica) e relazione tecnica \"ex Legge 10\" (art. 8 D.Lgs. 192/2005)",
+  "descrizione": "Vedi docs/pratiche/energia.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/energia.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "ENE-01",
+      "nome": "Dati immobile: visura e planimetria catastale, atto/titolo, titoli edilizi e relazioni L. 10 pregresse, APE precedente se esiste",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente / tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-01_dati-immobile.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione",
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "planimetria",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "ENE-02",
+      "nome": "Documentazione impianti: libretto d'impianto (DM 10/2/2014), rapporti di controllo efficienza energetica, DiCo DM 37/2008, schede tecniche generatore/pompe di calore/FV",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente / installatore",
+      "validita_giorni": null,
+      "validita_testo": "libretto: aggiornato a ogni controllo; rapporto: periodicità dPR 74/2013 (es. 4 anni gas < 100 kW, 2 anni > 100 kW — DA VERIFICARE per Campania)",
+      "nome_file": "AAAA-MM-GG_ENE-02_libretto-impianti.pdf",
+      "fonte": "[F3][F10]",
+      "parole_chiave": [
+        "documentazione",
+        "impianti",
+        "impianto",
+        "libretto"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "ENE-03",
+      "nome": "Incarico e dichiarazione di indipendenza del certificatore (dPR 75/2013 art. 3)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-03_incarico-indipendenza.pdf",
+      "fonte": "[F11]",
+      "parole_chiave": [
+        "certificatore",
+        "dichiarazione",
+        "incarico",
+        "indipendenza"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-04",
+      "nome": "Accreditamento/registrazione del certificatore sul portale APE-Campania (procedura della \"Guida per la fruizione dell'APE-Campania\")",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "— (verificare rinnovi)",
+      "nome_file": "AAAA-MM-GG_ENE-04_registrazione-ape-campania.pdf",
+      "fonte": "[F4][F5]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-05",
+      "nome": "Verbale/rilievo di sopralluogo obbligatorio con foto (involucro, serramenti, generatore, targhe), stratigrafie, misure",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-01",
+        "ENE-02"
+      ],
+      "gruppo": "P1",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-05_sopralluogo-rilievo.pdf",
+      "fonte": "[F2]",
+      "parole_chiave": [
+        "obbligatorio",
+        "rilievo",
+        "sopralluogo",
+        "verbale"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-06",
+      "nome": "Calcolo prestazione energetica (UNI/TS 11300, software certificato CTI) e file XML v5 esteso",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-05"
+      ],
+      "gruppo": "P2",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-06_calcolo-xml.xml",
+      "fonte": "[F2][F6]",
+      "parole_chiave": [
+        "calcolo",
+        "energetica",
+        "prestazione",
+        "software"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-07",
+      "nome": "APE firmato (formato DM 26/6/2015 All. 1: classe, EPgl, raccomandazioni)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-06"
+      ],
+      "gruppo": "P2",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "10 anni (art. 6 c. 5), salvo decadenza per mancati controlli impianti o cambio classe",
+      "nome_file": "AAAA-MM-GG_ENE-07_ape.pdf",
+      "fonte": "[F1][F2]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-08",
+      "nome": "Trasmissione al catasto APE-Campania e ricevuta/codice identificativo; consegna al committente entro 15 gg con ricevuta allegata",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-07"
+      ],
+      "gruppo": "P3",
+      "produce": "certificatore",
+      "validita_giorni": 15,
+      "validita_testo": "15 gg (DM 26/6/2015 All. 1 p. 7.1.5 come applicato dalla Regione)",
+      "nome_file": "AAAA-MM-GG_ENE-08_ricevuta-ape-campania.pdf",
+      "fonte": "[F5][F6]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione",
+        "prot",
+        "protocollo",
+        "ricevuta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-09",
+      "nome": "Clausola contrattuale e allegazione APE (vendita/locazione) o allegazione alla SCA (nuova costruzione / ristrutturazione importante)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-08"
+      ],
+      "gruppo": "P4",
+      "produce": "notaio / committente / tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-09_ape-allegato-atto-sca.pdf",
+      "fonte": "[F1][F9]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "ENE-10",
+      "nome": "RELAZIONE L.10 – Inquadramento dell'intervento (nuova costruzione, ristrutturazione importante 1°/2° livello, riqualificazione energetica, sostituzione impianto) e scelta dello schema (All. 1, 2 o 3 DM 26/6/2015)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-01"
+      ],
+      "gruppo": "P1",
+      "produce": "progettista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-10_inquadramento-livello.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "costruzione",
+        "inquadramento",
+        "intervento",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-11",
+      "nome": "RELAZIONE L.10 – Progetto energetico: stratigrafie, trasmittanze, ponti termici, verifica H'T, Asol, impianti, rinnovabili (D.Lgs. 199/2021 quote), verifica requisiti minimi/edificio di riferimento",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-10"
+      ],
+      "gruppo": "P2",
+      "produce": "progettista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-11_progetto-energetico.pdf",
+      "fonte": "[F7]",
+      "parole_chiave": [
+        "energetico",
+        "progetto",
+        "relazione",
+        "stratigrafie"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-12",
+      "nome": "RELAZIONE L.10 – Relazione tecnica firmata (schema DM 26/6/2015) + elaborati grafici (piante con zone termiche, schemi impianto)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-11"
+      ],
+      "gruppo": "P2",
+      "produce": "progettista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-12_relazione-legge10.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "elaborat",
+        "pianta",
+        "prospett",
+        "relazione",
+        "sezion",
+        "tav"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-13",
+      "nome": "RELAZIONE L.10 – Deposito al SUE contestuale al titolo (CILA/SCIA/PdC) o comunque prima dell'inizio lavori; ricevuta/attestazione di deposito (in duplice copia dove ancora cartaceo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-12"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico → SUE",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio lavori; omesso deposito = sospensione lavori + sanzione",
+      "nome_file": "AAAA-MM-GG_ENE-13_deposito-legge10-ricevuta.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-14",
+      "nome": "RELAZIONE L.10 – Varianti in corso d'opera con rilevanza energetica: aggiornamento della relazione e nuovo deposito",
+      "obbligatorio": "condizionato",
+      "condizione": "varianti energetiche",
+      "prerequisiti": [
+        "ENE-13"
+      ],
+      "gruppo": "P3",
+      "produce": "progettista",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'esecuzione della variante",
+      "nome_file": "AAAA-MM-GG_ENE-14_variante-legge10.pdf",
+      "fonte": "[F8] (prassi, norma non dettagliata)",
+      "parole_chiave": [
+        "variante",
+        "varianti"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-15",
+      "nome": "RELAZIONE L.10 – Asseverazione del DL di conformità delle opere al progetto e alla relazione (art. 8 c. 2), presentata con la dichiarazione di fine lavori",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-13",
+        "ENE-14"
+      ],
+      "gruppo": "P4",
+      "produce": "direttore lavori",
+      "validita_giorni": null,
+      "validita_testo": "con la fine lavori (CFL)",
+      "nome_file": "AAAA-MM-GG_ENE-15_asseverazione-dl-192.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "asseverazione",
+        "conformità",
+        "progetto",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-16",
+      "nome": "Dichiarazione di conformità impianti (DM 37/2008) + libretto d'impianto compilato alla prima accensione + eventuale denuncia INAIL impianto termico > 35 kW",
+      "obbligatorio": "condizionato",
+      "condizione": "impianti nuovi/modificati",
+      "prerequisiti": [
+        "ENE-13"
+      ],
+      "gruppo": "P4",
+      "produce": "installatore",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_ENE-16_dico-libretto.pdf",
+      "fonte": "[F10]",
+      "parole_chiave": [
+        "conformita",
+        "dm 37",
+        "dm37",
+        "impiant"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "ENE-17",
+      "nome": "APE di fine lavori (nuova costruzione / ristrutturazione importante) allegato alla SCA, redatto da certificatore terzo (non progettista né DL)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "ENE-15",
+        "ENE-16",
+        "ENE-03",
+        "ENE-08"
+      ],
+      "gruppo": "P4",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "10 anni",
+      "nome_file": "AAAA-MM-GG_ENE-17_ape-fine-lavori.pdf",
+      "fonte": "[F1][F7]",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "ENE-18",
+      "nome": "Registrazione impianto nel catasto regionale impianti termici (L.R. 39/2018) e rapporto di controllo",
+      "obbligatorio": "condizionato",
+      "condizione": "impianti termici > 10 kW riscaldamento / > 12 kW raffrescamento per i controlli di efficienza (L.R. 39/2018)",
+      "prerequisiti": [
+        "ENE-16"
+      ],
+      "gruppo": "P4",
+      "produce": "manutentore / responsabile impianto",
+      "validita_giorni": null,
+      "validita_testo": "periodicità dPR 74/2013",
+      "nome_file": "AAAA-MM-GG_ENE-18_catasto-impianti-rce.pdf",
+      "fonte": "[F12] portale e procedura DA VERIFICARE",
+      "parole_chiave": [
+        "catasto",
+        "impianto",
+        "regionale",
+        "registrazione"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Identificativi catastali, indirizzo, intestatario e CF identici tra APE, atto/contratto, titolo edilizio e relazione L. 10.",
+    "Certificatore non indipendente (ha progettato/diretto l'opera o è parente): APE nullo e sanzione.",
+    "APE senza sopralluogo o senza il codice/ricevuta APE-Campania: non valido per l'atto; XML in versione non v5 respinto dal portale.",
+    "APE scaduto per mancato controllo di efficienza (libretto non aggiornato): rifare.",
+    "Relazione L. 10 depositata dopo l'inizio lavori o non aggiornata alla variante; mancata asseverazione DL a fine lavori → SCA incompleta.",
+    "Dichiarazione \"intervento non soggetto al D.Lgs. 192\" usata impropriamente (sostituzione generatore, cappotto, serramenti sono soggetti).",
+    "Quote di rinnovabili (D.Lgs. 199/2021) non verificate nelle ristrutturazioni rilevanti.",
+    "Classe energetica dichiarata nell'annuncio diversa dall'APE depositato."
+  ],
+  "dopo": [
+    "Prima: progetto architettonico e titolo edilizio (CILA/SCIA/PdC) → la relazione ex L. 10 si deposita con il titolo. In parallelo: pratica sismica, DiCo impianti, bonus fiscali (asseverazioni ENEA per ecobonus hanno canale separato). Dopo: CFL con asseverazione DL → SCA con APE → DOCFA. L'APE è richiesto anche per compravendita/locazione dopo sanatoria (scheda SAN) e non dipende dall'autorizzazione paesaggistica (scheda PAE), ma gli interventi su involucro in area vincolata richiedono entrambe. Sostituisce: l'APE sostituisce l'ACE ante 2013; gli APE 2009 restano validi fino a scadenza [F2]."
+  ]
+}

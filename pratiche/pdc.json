@@ -1,0 +1,881 @@
+{
+  "sigla": "PDC",
+  "nome": "Permesso di Costruire (artt. 10, 20 dPR 380/2001)",
+  "descrizione": "Vedi docs/pratiche/pdc.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/pdc.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "02_impresa",
+    "03_tecnico",
+    "04_ente",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "PDC-01",
+      "nome": "Visura catastale aggiornata + estratto di mappa",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": 90,
+      "validita_testo": "consigliata < 3 mesi (prassi — DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_PDC-01_visura-catastale.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "visura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-02",
+      "nome": "Planimetria catastale (se fabbricato esistente)",
+      "obbligatorio": "condizionato",
+      "condizione": "interventi su esistente",
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "come sopra",
+      "nome_file": "AAAA-MM-GG_PDC-02_planimetria-catastale.pdf",
+      "fonte": "[F7][F8]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-03",
+      "nome": "Titolo di proprietà / atto che legittima (art. 11) + atto di assenso comproprietari/condominio",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-03_titolo-proprieta.pdf",
+      "fonte": "[F1][F8]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-04",
+      "nome": "Stato legittimo: titoli pregressi, condoni, agibilità (art. 9-bis c. 1-bis)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-03"
+      ],
+      "gruppo": "P0",
+      "produce": "tecnico (accesso atti; CDU art. 30 c. 2)",
+      "validita_giorni": null,
+      "validita_testo": "CDU: validità 1 anno (art. 30 c. 3); Aversa: 50–80 € + 2 bolli; Avellino: da 20 € per 2 particelle",
+      "nome_file": "AAAA-MM-GG_PDC-04_stato-legittimo-CDU.pdf",
+      "fonte": "[F1][F12][F14]",
+      "parole_chiave": [
+        "condoni",
+        "legittimo",
+        "pregressi",
+        "titoli"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-05",
+      "nome": "Procura al tecnico + documento identità titolare",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "pratica",
+      "nome_file": "AAAA-MM-GG_PDC-05_procura.pdf",
+      "fonte": "[F8][F11b]",
+      "parole_chiave": [
+        "carta",
+        "ci_",
+        "delega",
+        "identita",
+        "procura"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-06",
+      "nome": "Rilievo topografico/plano-altimetrico del lotto e elaborati STATO DI FATTO (inquadramento urbanistico su PRG/PUC, stralcio catastale, planimetria con distanze, piante/prospetti/sezioni esistenti)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-01",
+        "PDC-04"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-06_tav-stato-di-fatto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-07",
+      "nome": "Documentazione fotografica con coni ottici",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-06"
+      ],
+      "gruppo": "P1",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-07_foto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "foto",
+        "jpg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-08",
+      "nome": "Elaborati di PROGETTO (planimetria generale con standard/parcheggi L. 122/89, piante, prospetti, sezioni, particolari, schema fognario e impianti, sistemazione esterna)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-06"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-08_tav-progetto.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "planimetria"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-09",
+      "nome": "Elaborati COMPARATIVI (gialli/rossi)",
+      "obbligatorio": "condizionato",
+      "condizione": "interventi su esistente",
+      "prerequisiti": [
+        "PDC-06",
+        "PDC-08"
+      ],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-09_tav-comparativa.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "comparativi",
+        "elaborati",
+        "gialli"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-10",
+      "nome": "Relazione tecnica illustrativa + verifica parametri urbanistici (volumi, superfici, altezze, distanze, standard)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-10_relazione-tecnica.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-11",
+      "nome": "Dichiarazione asseverata del progettista di conformità a strumenti urbanistici, regolamento edilizio, norme igienico-sanitarie, sicurezza, efficienza energetica, barriere (art. 20 c. 1) — sez. 2 Modello D",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-10"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-11_asseverazione-art20.pdf",
+      "fonte": "[F1][F3]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "dm236"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-12",
+      "nome": "Modello D \"Richiesta di Permesso di Costruire\" (sez. titolare + quadro riepilogativo)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-05",
+        "PDC-11"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico + committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-12_modello-D.pdf",
+      "fonte": "[F8][F11]",
+      "parole_chiave": [
+        "costruire",
+        "modello",
+        "permesso",
+        "richiesta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-13",
+      "nome": "Dichiarazione conformità barriere architettoniche (L. 13/89 art. 1 c. 4; DM 236/89; art. 77 dPR 380) + elaborato",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-13_barriere-DM236.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "accessibilit",
+        "barriere",
+        "dm236"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-14",
+      "nome": "Relazione tecnica ex Legge 10 (art. 8 D.Lgs. 192/2005; DM 26/06/2015) + requisiti FER (D.Lgs. 199/2021 All. III)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P3",
+      "produce": "termotecnico",
+      "validita_giorni": null,
+      "validita_testo": "deposito prima dell'inizio lavori; asseverazione DL a fine lavori",
+      "nome_file": "AAAA-MM-GG_PDC-14_relazione-L10.pdf",
+      "fonte": "[F1] DA VERIFICARE modalità deposito comunale",
+      "parole_chiave": [
+        "ex l10",
+        "l10",
+        "legge 10",
+        "legge10",
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-15",
+      "nome": "Relazione requisiti acustici passivi (DPCM 5/12/1997) e valutazione previsionale clima/impatto acustico (art. 8 L. 447/1995)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico competente in acustica",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-15_relazione-acustica.pdf",
+      "fonte": "[F1] DA VERIFICARE regolamento comunale",
+      "parole_chiave": [
+        "acustic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-16",
+      "nome": "Relazione geologica + geotecnica (NTC 2018 §6.2.1-6.2.2)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P4",
+      "produce": "geologo + strutturista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-16_relazione-geologica.pdf",
+      "fonte": "[F15]",
+      "parole_chiave": [
+        "geolog"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-17",
+      "nome": "Progetto strutturale esecutivo (NTC 2018)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08",
+        "PDC-16"
+      ],
+      "gruppo": "P4",
+      "produce": "strutturista",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-17_progetto-strutturale.pdf",
+      "fonte": "[F15]",
+      "parole_chiave": [
+        "esecutivo",
+        "progetto",
+        "strutturale"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-18",
+      "nome": "Istanza Genio Civile via S.I.smi.CA: autorizzazione sismica (rilevanti, art. 94-bis c. 1 lett. a: nuove costruzioni) / attestazione (minore rilevanza) / deposito (privi di rilevanza, DD 359/2020) — tutta la Campania è in zona 1, 2 o 3",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-16",
+        "PDC-17"
+      ],
+      "gruppo": "P4",
+      "produce": "strutturista + committente",
+      "validita_giorni": null,
+      "validita_testo": "autorizzazione entro 60 gg (CNI 2018 — DA VERIFICARE Reg. 4/2010 art. 4); da ottenere prima dell'inizio lavori",
+      "nome_file": "AAAA-MM-GG_PDC-18_istanza-sismica-SIsmiCA.pdf",
+      "fonte": "[F15][F16][F17][F18]",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-19",
+      "nome": "Autorizzazione paesaggistica (art. 146 D.Lgs. 42/2004; DPR 31/2017) con relazione paesaggistica",
+      "obbligatorio": "condizionato",
+      "condizione": "vincolo paesaggistico (costiere, Vesuvio, Campi Flegrei, Sannio/Irpinia aree boscate ecc.)",
+      "prerequisiti": [
+        "PDC-07",
+        "PDC-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico → comune subdelegato/Soprintendenza (anche in conferenza, art. 20 c. 5-bis)",
+      "validita_giorni": 105,
+      "validita_testo": "ordinaria 105 gg; semplificata 60 gg; validità 5 anni; niente silenzio-assenso sul PdC (art. 20 c. 8)",
+      "nome_file": "AAAA-MM-GG_PDC-19_autorizzazione-paesaggistica.pdf",
+      "fonte": "[F1] DA VERIFICARE subdelega",
+      "parole_chiave": [
+        "paesagg"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-20",
+      "nome": "Nulla osta vincolo idrogeologico (R.D.L. 3267/1923)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-08",
+        "PDC-16"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico → UOD regionale/comune",
+      "validita_giorni": null,
+      "validita_testo": "DA VERIFICARE (L.R. 11/1996)",
+      "nome_file": "AAAA-MM-GG_PDC-20_nullaosta-idrogeologico.pdf",
+      "fonte": "DA VERIFICARE",
+      "parole_chiave": [
+        "idrogeologico",
+        "vincolo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-21",
+      "nome": "Parere VVF valutazione progetto (DPR 151/2011 art. 3, PIN1-2018)",
+      "obbligatorio": "condizionato",
+      "condizione": "attività cat. B/C",
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico antincendio",
+      "validita_giorni": null,
+      "validita_testo": "integrazioni 30 gg; parere 60 gg",
+      "nome_file": "AAAA-MM-GG_PDC-21_parere-VVF.pdf",
+      "fonte": "[F20]",
+      "parole_chiave": [
+        "parere",
+        "progetto",
+        "valutazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-22",
+      "nome": "Parere ASL",
+      "obbligatorio": "condizionato",
+      "condizione": "valutazioni tecnico-discrezionali (es. attività produttive, deroghe igienico-sanitarie)",
+      "prerequisiti": [
+        "PDC-11"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico → ASL",
+      "validita_giorni": null,
+      "validita_testo": "DA VERIFICARE",
+      "nome_file": "AAAA-MM-GG_PDC-22_parere-ASL.pdf",
+      "fonte": "[F1] (art. 20 c. 1)",
+      "parole_chiave": [
+        "parere"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-23",
+      "nome": "Altri pareri: Autorità di Bacino (PAI/PSAI), Ente Parco, Consorzio di bonifica, ANAS/Provincia (accessi), gestore idrico (allaccio/scarico), ENAC, Demanio",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-23_altri-pareri.pdf",
+      "fonte": "[F8]",
+      "parole_chiave": [
+        "autorità",
+        "bacino",
+        "consorzio",
+        "pareri"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-24",
+      "nome": "Calcolo contributo di costruzione: oneri di urbanizzazione primaria/secondaria (tabelle comunali su parametri regionali, art. 16 c. 4-5) + costo di costruzione (quota 5–20 %, art. 16 c. 9-10; DM 10/05/1977 per il residenziale) + eventuale progetto opere a scomputo (art. 16 c. 2)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08",
+        "PDC-10"
+      ],
+      "gruppo": "P6",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "determinato al rilascio; oneri rateizzabili; costo di costruzione entro 60 gg da fine lavori (art. 16 c. 3)",
+      "nome_file": "AAAA-MM-GG_PDC-24_calcolo-contributo.pdf",
+      "fonte": "[F1][F19] DA VERIFICARE tabelle parametriche regionali vigenti in Campania",
+      "parole_chiave": [
+        "calcolo",
+        "contributo",
+        "costruzione",
+        "urbanizzazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-25",
+      "nome": "Schema di convenzione / atto d'obbligo (PdC convenzionato art. 28-bis; opere a scomputo; parcheggi L. 122/89 vincolo pertinenziale)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-24"
+      ],
+      "gruppo": "P6",
+      "produce": "tecnico + notaio",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-25_convenzione.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "convenzionato",
+        "convenzione",
+        "obbligo",
+        "schema"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-26",
+      "nome": "Modello ISTAT (nuove costruzioni/ampliamenti, residenziale o non residenziale)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-08"
+      ],
+      "gruppo": "P6",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-26_ISTAT.pdf",
+      "fonte": "[F11b]",
+      "parole_chiave": [
+        "ampliamenti",
+        "costruzioni",
+        "modello",
+        "residenziale"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-27",
+      "nome": "Ricevuta diritti di segreteria/istruttoria (PagoPA)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P7",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "pratica",
+      "nome_file": "AAAA-MM-GG_PDC-27_diritti-segreteria.pdf",
+      "fonte": "[F10][F12][F13][F13a]",
+      "parole_chiave": [
+        "bollettino",
+        "diritti",
+        "pagopa",
+        "prot",
+        "protocollo",
+        "ricevuta",
+        "versamento"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-28",
+      "nome": "Marca da bollo da 16 € sull'istanza + 16 € sul permesso rilasciato (DPR 642/1972)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P7",
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "—",
+      "fonte": "[F13] DA VERIFICARE modalità (bollo virtuale nei portali)",
+      "parole_chiave": [
+        "istanza",
+        "permesso",
+        "rilasciato"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-29",
+      "nome": "Istanza protocollata e comunicazione del responsabile del procedimento (entro 10 gg, art. 20 c. 2)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-01",
+        "PDC-03",
+        "PDC-04",
+        "PDC-05",
+        "PDC-06",
+        "PDC-07",
+        "PDC-08",
+        "PDC-10",
+        "PDC-11",
+        "PDC-12",
+        "PDC-13",
+        "PDC-14",
+        "PDC-15",
+        "PDC-16",
+        "PDC-17",
+        "PDC-18",
+        "PDC-24",
+        "PDC-26",
+        "PDC-27",
+        "PDC-28"
+      ],
+      "gruppo": null,
+      "produce": "SUE",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_PDC-29_protocollo-RdP.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "comunicazione",
+        "istanza",
+        "protocollata",
+        "responsabile"
+      ],
+      "cartella": "04_ente",
+      "prerequisiti_tutti": true
+    },
+    {
+      "codice": "PDC-30",
+      "nome": "Integrazioni documentali (richiesta una sola volta entro 30 gg dall'istanza; il termine ricomincia dalla ricezione)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-29"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "entro il termine fissato dal SUE (DA VERIFICARE per comune)",
+      "nome_file": "AAAA-MM-GG_PDC-30_integrazioni.pdf",
+      "fonte": "[F1][F3]",
+      "parole_chiave": [
+        "documentali",
+        "integrazioni",
+        "istanza",
+        "richiesta"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-31",
+      "nome": "Osservazioni al preavviso di diniego (art. 10-bis L. 241/90; art. 20 c. 5)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-29"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "10 gg dal preavviso",
+      "nome_file": "AAAA-MM-GG_PDC-31_osservazioni-preavviso.pdf",
+      "fonte": "[F1][F2]",
+      "parole_chiave": [
+        "diniego",
+        "osservazioni",
+        "preavviso"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-32",
+      "nome": "Ricevute pagamento contributo (oneri al rilascio; costo di costruzione in corso d'opera) + eventuale fideiussione per rate",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-24"
+      ],
+      "gruppo": null,
+      "produce": "committente",
+      "validita_giorni": null,
+      "validita_testo": "oneri: al ritiro; costo di costruzione: entro 60 gg da ultimazione",
+      "nome_file": "AAAA-MM-GG_PDC-32_pagamento-contributo.pdf",
+      "fonte": "[F1][F19]",
+      "parole_chiave": [
+        "contributo",
+        "pagamento",
+        "ricevute",
+        "rilascio"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "PDC-33",
+      "nome": "Permesso di costruire rilasciato (con avviso all'albo pretorio, art. 20 c. 6-7) e ritiro",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-32"
+      ],
+      "gruppo": null,
+      "produce": "SUE",
+      "validita_giorni": null,
+      "validita_testo": "inizio lavori entro 1 anno dal rilascio; fine entro 3 anni dall'inizio (art. 15 c. 2)",
+      "nome_file": "AAAA-MM-GG_PDC-33_permesso-rilasciato.pdf",
+      "fonte": "[F1][F5]",
+      "parole_chiave": [
+        "avviso",
+        "costruire",
+        "permesso",
+        "rilasciato"
+      ],
+      "cartella": "04_ente"
+    },
+    {
+      "codice": "PDC-34",
+      "nome": "Nomina impresa (visura camerale, DURC, organico/CCNL art. 90 c. 9 D.Lgs. 81/08), DL, collaudatore statico, CSP/CSE, notifica preliminare (art. 99)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-33"
+      ],
+      "gruppo": "P8",
+      "produce": "impresa + tecnico",
+      "validita_giorni": 120,
+      "validita_testo": "DURC 120 gg; visura 6 mesi",
+      "nome_file": "AAAA-MM-GG_PDC-34_impresa-DURC-nomine.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "accettazione",
+        "camerale",
+        "cciaa",
+        "ccnl",
+        "durc",
+        "incarico",
+        "nomina",
+        "notifica",
+        "organico",
+        "preliminare",
+        "visura"
+      ],
+      "cartella": "02_impresa"
+    },
+    {
+      "codice": "PDC-35",
+      "nome": "Comunicazione inizio lavori al SUE con autorizzazione sismica, DURC, nomine, deposito Legge 10",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-18",
+        "PDC-33",
+        "PDC-34"
+      ],
+      "gruppo": "P8",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "entro 1 anno dal rilascio (art. 15 c. 2)",
+      "nome_file": "AAAA-MM-GG_PDC-35_inizio-lavori.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "deposito",
+        "durc",
+        "ex l10",
+        "genio",
+        "l10",
+        "legge 10",
+        "legge10",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-36",
+      "nome": "Varianti: (a) SCIA in variante (art. 22 c. 2) per varianti che non incidono su parametri urbanistici e volumetrie, non cambiano destinazione d'uso/categoria, non alterano sagoma di edificio vincolato, non violano prescrizioni; (b) comunicazione a fine lavori per varianti non essenziali (art. 22 c. 2-bis); (c) nuovo PdC per variazioni essenziali (art. 32)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-33"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "(a) prima dell'esecuzione; (b) con la fine lavori; (c) prima dell'esecuzione",
+      "nome_file": "AAAA-MM-GG_PDC-36_variante.pdf",
+      "fonte": "[F1][F28] DA VERIFICARE definizione regionale variazioni essenziali",
+      "parole_chiave": [
+        "variante",
+        "varianti"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-37",
+      "nome": "Istanza di proroga dei termini (art. 15 c. 2-2bis) con motivazione (fatti sopravvenuti estranei alla volontà, mole dell'opera, caratteristiche tecnico-costruttive, difficoltà tecnico-esecutive, lavori pubblici incidenti)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-33"
+      ],
+      "gruppo": null,
+      "produce": "tecnico + committente",
+      "validita_giorni": null,
+      "validita_testo": "da presentare PRIMA della scadenza; Napoli: diritti 501 € per rinnovi/varianti/proroghe/volture",
+      "nome_file": "AAAA-MM-GG_PDC-37_proroga.pdf",
+      "fonte": "[F1][F5][F10]",
+      "parole_chiave": [
+        "istanza",
+        "motivazione",
+        "proroga",
+        "termini"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-38",
+      "nome": "Voltura del permesso (art. 11 c. 2, trasferibilità ai successori/aventi causa)",
+      "obbligatorio": "condizionato",
+      "prerequisiti": [
+        "PDC-33"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "Napoli 501 €",
+      "nome_file": "AAAA-MM-GG_PDC-38_voltura.pdf",
+      "fonte": "[F1][F10]",
+      "parole_chiave": [
+        "permesso",
+        "successori",
+        "trasferibilità",
+        "voltura"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-39",
+      "nome": "Fine lavori: comunicazione ultimazione, certificato di collaudo/attestazione DL, DOCFA, dichiarazioni impianti DM 37/08, asseverazione Legge 10, collaudo statico + RSU/CRE al Genio Civile (artt. 65-67), saldo costo di costruzione",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-35"
+      ],
+      "gruppo": null,
+      "produce": "tecnico, impresa, collaudatore",
+      "validita_giorni": null,
+      "validita_testo": "entro 3 anni dall'inizio lavori; costo di costruzione entro 60 gg",
+      "nome_file": "AAAA-MM-GG_PDC-39_fine-lavori.pdf",
+      "fonte": "[F1][F17]",
+      "parole_chiave": [
+        "catast",
+        "collaudo",
+        "docfa",
+        "ex l10",
+        "fine lavori",
+        "fine-lavori",
+        "l10",
+        "legge 10",
+        "legge10",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "PDC-40",
+      "nome": "SCA – segnalazione certificata di agibilità (art. 24)",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "PDC-39"
+      ],
+      "gruppo": null,
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "15 gg; sanzione 77–464 € (art. 24 c. 3)",
+      "nome_file": "AAAA-MM-GG_PDC-40_SCA.pdf",
+      "fonte": "[F1]",
+      "parole_chiave": [
+        "agibilità",
+        "certificata",
+        "segnalazione"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Dati catastali, CF e generalità identici su istanza, procura, titolo, asseverazione, S.I.smi.CA, convenzione, DOCFA.",
+    "Asseverazione art. 20 c. 1 mancante o generica: niente silenzio-assenso (Cons. Stato, in [F3]).",
+    "Progetto non conforme al PUC/PRG o a RUEC (distanze, altezze, parcheggi L. 122/89, standard): diniego.",
+    "Stato di fatto non corrispondente allo stato legittimo (abusi pregressi): istruttoria bloccata; prima art. 36/36-bis.",
+    "Contributo calcolato con tabelle oneri non aggiornate o costo di costruzione errato (quota %); mancato versamento al ritiro.",
+    "Istanza senza ricevuta diritti/bollo o inviata via PEC/cartaceo (inammissibile in tutti i comuni verificati).",
+    "Inizio lavori oltre 1 anno o fine oltre 3 anni senza proroga chiesta prima della scadenza → decadenza; \"inizio lavori\" fittizio non vale (giurisprudenza in [F5]).",
+    "Lavori strutturali avviati senza autorizzazione sismica (art. 94-95; L.R. 9/1983).",
+    "Variante essenziale (volumi, sagoma, destinazione d'uso, localizzazione) eseguita con SCIA: equiparata a totale difformità (art. 32).",
+    "DURC assente alla comunicazione di inizio lavori: efficacia del titolo sospesa (art. 90 c. 10 D.Lgs. 81/08).",
+    "Integrazioni richieste più volte o oltre 30 gg dal SUE: contestare, il termine non è interrotto (art. 20 c. 5).",
+    "Modulistica pre-2025 (ante DD 217/2025): rischio rigetto."
+  ],
+  "dopo": [
+    "Prima: CDU / accesso agli atti → eventuale sanatoria (art. 36/36-bis) → piano attuativo o PdC convenzionato (art. 28-bis) se richiesto dal PUC → pareri (paesaggio, VVF, idrogeologico, PAI) → sismica.",
+    "In parallelo: notifica preliminare, deposito Legge 10, occupazione suolo, allacci, DOCFA del terreno.",
+    "Dopo: inizio lavori → varianti (SCIA art. 22 c. 2 / nuovo PdC) → proroga → fine lavori + collaudo statico (artt. 65-67) → SCA (art. 24) → DOCFA.",
+    "Sostituzioni: SCIA alternativa (art. 23 c. 01) nei casi ammessi; SCIA art. 22 per varianti non essenziali; Piano Casa L.R. 19/2009: istanze non più presentabili dal 30/09/2022 (Corte cost. ord. 72/2026) — DA VERIFICARE riaperture [F24].",
+    "Scheda collegata: scia.md."
+  ]
+}

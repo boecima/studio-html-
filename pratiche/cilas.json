@@ -1,0 +1,220 @@
+{
+  "sigla": "CILAS",
+  "nome": "CILAS (variante di CILA: vedi la scheda cila.md)",
+  "descrizione": "Vedi docs/pratiche/cila.md",
+  "norma": "",
+  "stato_scheda": "generato da docs/pratiche/cila.md con pratiche/da_scheda.py; la scheda è una bozza da verificare con il tecnico",
+  "cartelle": [
+    "01_committente",
+    "03_tecnico",
+    "05_pacchetto_ai",
+    "99_TRASMESSI"
+  ],
+  "documenti": [
+    {
+      "codice": "CILAS-01",
+      "nome": "Verifica del titolo originario: estremi del PdC/licenza/condono oppure prova dell'ultimazione ante 01/09/1967 (atti, catasto, aerofotogrammetrie)",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P0",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILAS-01_estremi-titolo-o-ante-1967.pdf",
+      "fonte": "co. 13-ter [F9]",
+      "parole_chiave": [
+        "cila",
+        "cilas",
+        "fine lavori",
+        "fine-lavori",
+        "pdc",
+        "permesso",
+        "scia",
+        "titolo",
+        "ultimazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-02",
+      "nome": "Modulo unificato CILA-Superbonus (Accordo 88/CU 2021), con quadro \"dichiarazioni del tecnico\" specifico; Pozzuoli pubblica un modello CILAS proprio in PDF",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILAS-01",
+        "CILAS-03",
+        "CILAS-04"
+      ],
+      "gruppo": "P3",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "efficace dall'invio; per il 65% 2025 doveva essere protocollata entro il 15/10/2024",
+      "nome_file": "AAAA-MM-GG_CILAS-02_modulo-CILA-Superbonus.pdf",
+      "fonte": "[F10][F23][F18][F26]",
+      "parole_chiave": [
+        "istanza",
+        "modulo"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-03",
+      "nome": "Relazione tecnica ed elaborati (stato di fatto/progetto) con inquadramento degli interventi trainanti e trainati nell'art. 119",
+      "obbligatorio": true,
+      "prerequisiti": [],
+      "gruppo": "P2",
+      "produce": "tecnico",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILAS-03_relazione-elaborati-superbonus.pdf",
+      "fonte": "modulo CILAS [F23]",
+      "parole_chiave": [
+        "relazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-04",
+      "nome": "Delibera assembleare di approvazione lavori (condominio) + tabelle millesimali; per le unità singole: titolarità e requisiti soggettivi",
+      "obbligatorio": "condizionato",
+      "condizione": "condominio",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "amministratore/committente",
+      "validita_giorni": null,
+      "validita_testo": "per il 65% 2025: delibera entro il 15/10/2024",
+      "nome_file": "AAAA-MM-GG_CILAS-04_delibera-assemblea.pdf",
+      "fonte": "[F26]",
+      "parole_chiave": [
+        "approvazione",
+        "assembleare",
+        "delibera",
+        "lavori"
+      ],
+      "cartella": "01_committente"
+    },
+    {
+      "codice": "CILAS-05",
+      "nome": "Asseverazione sismica preventiva (All. B DM 58/2017) depositata al SUE PRIMA dell'inizio lavori",
+      "obbligatorio": "condizionato",
+      "condizione": "sismabonus/super-sismabonus",
+      "prerequisiti": [
+        "CILAS-03"
+      ],
+      "gruppo": "P2",
+      "produce": "strutturista",
+      "validita_giorni": null,
+      "validita_testo": "prima dell'inizio lavori (tardività = perdita del beneficio sismico)",
+      "nome_file": "AAAA-MM-GG_CILAS-05_asseverazione-sismica-AllB.pdf",
+      "fonte": "DM 58/2017 — DA VERIFICARE versione vigente",
+      "parole_chiave": [
+        "deposito",
+        "genio",
+        "sismic"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-06",
+      "nome": "APE ante operam (ecobonus trainante)",
+      "obbligatorio": "condizionato",
+      "condizione": "super-ecobonus",
+      "prerequisiti": [],
+      "gruppo": "P1",
+      "produce": "certificatore",
+      "validita_giorni": null,
+      "validita_testo": "prima dei lavori",
+      "nome_file": "AAAA-MM-GG_CILAS-06_APE-ante.pdf",
+      "fonte": "DM 06/08/2020 \"Requisiti\" — DA VERIFICARE",
+      "parole_chiave": [
+        "ape",
+        "attestato prestazione"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-07",
+      "nome": "Asseverazione ENEA (co. 13 lett. a) per SAL ≥ 30% e a fine lavori, con computo metrico su prezzari, polizza RC del tecnico, fatture/bonifici parlanti",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILAS-02"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico asseveratore",
+      "validita_giorni": 90,
+      "validita_testo": "entro 90 gg dalla fine lavori; per le pratiche in coda, termine 02/10/2025",
+      "nome_file": "AAAA-MM-GG_CILAS-07_asseverazione-ENEA.pdf",
+      "fonte": "[F24][F25]",
+      "parole_chiave": [
+        "assicura",
+        "polizza",
+        "rc"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-08",
+      "nome": "Visto di conformità del professionista fiscale (per cessione/sconto e, dal 2022, per detrazione diretta salvo esoneri)",
+      "obbligatorio": "condizionato",
+      "condizione": "opzioni art. 121",
+      "prerequisiti": [
+        "CILAS-07"
+      ],
+      "gruppo": "P5",
+      "produce": "commercialista/CAF",
+      "validita_giorni": null,
+      "validita_testo": "comunicazione opzione all'AE entro il 16 marzo dell'anno successivo (termine DA VERIFICARE)",
+      "nome_file": "AAAA-MM-GG_CILAS-08_visto-conformita.pdf",
+      "fonte": "art. 119 co. 11 — DA VERIFICARE",
+      "parole_chiave": [
+        "cessione",
+        "conformità",
+        "fiscale",
+        "professionista"
+      ],
+      "cartella": "03_tecnico"
+    },
+    {
+      "codice": "CILAS-09",
+      "nome": "Comunicazione di fine lavori CILAS con eventuale variante (modulo unificato prevede sezione varianti/fine lavori) e dichiarazione di conformità impianti",
+      "obbligatorio": true,
+      "prerequisiti": [
+        "CILAS-02",
+        "CILAS-07"
+      ],
+      "gruppo": "P5",
+      "produce": "tecnico/DL",
+      "validita_giorni": null,
+      "validita_testo": "",
+      "nome_file": "AAAA-MM-GG_CILAS-09_fine-lavori-CILAS.pdf",
+      "fonte": "modulo CILAS [F23]; dettaglio sezione varianti DA VERIFICARE",
+      "parole_chiave": [
+        "conformita",
+        "dm 37",
+        "dm37",
+        "impiant",
+        "istanza",
+        "modulo",
+        "variante",
+        "varianti"
+      ],
+      "cartella": "03_tecnico"
+    }
+  ],
+  "controlli_incrociati": [
+    "Dati che devono coincidere: identificativi catastali tra visura (CILA-02), modulo, relazione ed elaborati; nominativo/CF del titolare tra identità, titolo di disponibilità, procura, modulo e causale del pagamento; estremi del titolo pregresso tra verifica stato legittimo (CILA-01), relazione e modulo (per CILAS: estremi del titolo o \"ante 1967\" identici in CILAS-01 e CILAS-02); dati impresa tra soggetti coinvolti, visura, DURC e notifica preliminare; superfici/destinazioni tra relazione, elaborati e futura DOCFA; data di inizio lavori tra CILA, notifica preliminare e verbale; a fine lavori, conformità tra elaborati \"progetto\" e stato realizzato (altrimenti serve variante prima della fine lavori).",
+    "Errori tipici che fanno respingere o dichiarare inefficace:",
+    "CILA per opere che toccano strutture (solai, travi, aperture su muri portanti) → serve SCIA + deposito sismico",
+    "stato legittimo non verificato o difforme (abusi pregressi): la CILA ordinaria è inefficace, la CILAS no ma il Comune può procedere sugli abusi",
+    "vincolo paesaggistico ignorato",
+    "moduli non ufficiali o modificati (Pozzuoli: inammissibilità), allegati non firmati digitalmente uno per uno (Napoli), file non PDF/A (Aversa)",
+    "invio via PEC nei comuni a portale esclusivo (Caserta, Aversa, Marcianise, Pozzuoli) → inammissibile/irricevibile",
+    "diritti pagati dopo l'invio o senza causale (Napoli)",
+    "dati impresa assenti (obbligatori ex art. 6-bis co. 2) o \"lavori in economia\" senza spiegazione",
+    "CILAS: asseverazione sismica All. B depositata dopo l'inizio lavori; delibera condominiale mancante o posteriore ai termini; attestazione del titolo originario errata",
+    "relazione L. 10 non depositata per interventi energetici",
+    "fine lavori senza dichiarazioni DM 37/2008"
+  ],
+  "dopo": [
+    "Prima: verifica stato legittimo/accesso agli atti; autorizzazione paesaggistica (se vincolo); progetto impianti; per la CILAS: APE ante, asseverazione sismica preventiva, delibera assembleare. In parallelo: notifica preliminare GISA (vedi `cil.md`, CIL-13), PSC/POS, occupazione suolo pubblico, pratica ENEA ecobonus ordinario (se non Superbonus). Dopo: CILA di variante → fine lavori (CILA-19) → DOCFA → SCA (se dovuta) → per la CILAS: asseverazioni ENEA, visto di conformità, comunicazione opzione AE. Sostituzioni: la CILA ha sostituito la \"CIL asseverata\" (art. 6 co. 2, fino al 2016) [F3]; non sostituisce SCIA/PdC se l'intervento è \"pesante\"; la CILAS sostituisce la CILA ordinaria solo per gli interventi Superbonus senza demolizione e ricostruzione [F9]. La comunicazione di inizio lavori \"adempimento\" (impresa, DL, DURC) per la CILA è assorbita nel modulo stesso (sezione soggetti coinvolti), diversamente dal PdC dove è un passaggio separato (vedi `cil.md`, caso B)."
+  ]
+}
