@@ -1,2 +1,8 @@
 # Materiale con dati di clienti: non va nel repository pubblico
 docs/riepiloghi/_originali/
+
+# Configurazione locale e dati di prova generati
+app/config.json
+esempio/archivio/
+esempio/pratiche_aperte/
+__pycache__/

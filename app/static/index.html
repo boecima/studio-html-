@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pratiche dello studio</title>
+<link rel="icon" href="data:,">
+<style>
+:root{--bg:#EEF1F3;--panel:#fff;--ink:#1B2730;--muted:#5E6E7A;--line:#CDD5DA;--accent:#2B5C8F;--accent-soft:#E1EBF5;
+ --ok:#2F7A4B;--ok-soft:#E0F0E6;--warn:#A8670F;--warn-soft:#F8EBD5;--err:#B2432F;--err-soft:#F7E1DD;--lock:#F4F6F7}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#12181D;--panel:#1A2228;--ink:#E4EAEE;--muted:#93A3AF;--line:#2E3B44;
+ --accent:#6FA6DC;--accent-soft:#1F3347;--ok:#6CC08A;--ok-soft:#1C3326;--warn:#E0A55A;--warn-soft:#3A2D18;--err:#E07A6A;--err-soft:#3A1F1B;--lock:#161D22}}
+*{box-sizing:border-box}html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.45 system-ui,Segoe UI,Roboto,sans-serif}
+button,select,input,textarea{font:inherit;color:inherit}
+.app{display:grid;grid-template-columns:var(--left,36%) 6px minmax(0,1fr);height:100%}
+.pane{background:var(--panel);min-width:0;min-height:0;display:flex;flex-direction:column;position:relative}
+.divider{background:var(--line);cursor:col-resize}.divider:hover{background:var(--accent)}
+.phead{display:flex;align-items:center;gap:10px;padding:8px 12px;border-bottom:1px solid var(--line);min-height:48px;flex-wrap:wrap}
+.phead h2{margin:0;font-size:15px}.note{color:var(--muted);font-size:12px}
+.scroll{overflow:auto;flex:1;padding:10px 12px 24px}
+/* albero */
+.tree ul{list-style:none;margin:0;padding-left:16px}.tree>ul{padding-left:0}
+.tree ul ul{margin-left:6px;border-left:1px dotted var(--muted)}
+.tree li{position:relative;padding:1px 0}
+.tree ul ul>li::before{content:"";position:absolute;left:-16px;top:12px;width:12px;border-top:1px dotted var(--muted)}
+.frow{display:flex;align-items:center;gap:6px;padding:2px 4px;cursor:pointer;border-radius:3px;font-weight:600}
+.frow:hover,.file:hover{background:var(--accent-soft)}
+.box{width:12px;height:12px;border:1px solid var(--muted);display:inline-grid;place-items:center;font-size:11px;line-height:1;flex:none}
+.file{display:flex;align-items:center;gap:6px;padding:2px 4px;border-radius:3px;cursor:grab;font-family:ui-monospace,Consolas,monospace;font-size:12.5px}
+.file .nm{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.file .dt{color:var(--muted);font-size:11px;flex:none}
+.file.sel{outline:1px solid var(--accent);background:var(--accent-soft)}
+.ext{font:700 9px/1 system-ui;padding:3px 0;border-radius:2px;color:#fff;width:30px;text-align:center;flex:none;background:#777}
+.ext.pdf{background:#B2432F}.ext.docx,.ext.doc{background:#2B5C8F}.ext.xlsx,.ext.xls,.ext.xlsm{background:#2F7A4B}.ext.dwg,.ext.dxf{background:#6B4E9B}.ext.jpg,.ext.jpeg,.ext.png{background:#8A6D1F}.ext.p7m{background:#444}
+.linked{color:var(--ok);font-weight:700}.fit{width:7px;height:7px;border-radius:50%;background:var(--warn);flex:none}
+.more a{color:var(--accent);font-size:12px;cursor:pointer;text-decoration:underline}
+/* destra */
+.tabs{display:flex;gap:2px;margin-left:auto}
+.tab{padding:6px 12px;border:1px solid var(--line);border-bottom:0;border-radius:6px 6px 0 0;background:var(--bg);cursor:pointer}
+.tab.on{background:var(--panel);font-weight:700;border-color:var(--accent)}
+.btn{padding:6px 12px;border-radius:4px;border:1px solid var(--accent);background:var(--accent);color:#fff;cursor:pointer;font-weight:600}
+.btn.ghost{background:transparent;color:var(--accent)}.btn.small{padding:3px 8px;font-size:12px}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+select.sel{padding:6px 8px;border:1px solid var(--line);background:var(--panel);border-radius:4px;max-width:100%}
+h3.t{margin:0 0 2px;font-size:18px}.meta{color:var(--muted);font-size:13px}
+.progress{margin:10px 0 4px;font-weight:600}.bar{height:8px;background:var(--bg);border-radius:4px;overflow:hidden;border:1px solid var(--line)}.bar i{display:block;height:100%;background:var(--ok)}
+/* infografica a livelli */
+.flow{display:flex;gap:10px;overflow-x:auto;padding:12px 2px 8px;align-items:stretch}
+.lvl{display:flex;flex-direction:column;gap:8px;min-width:230px;max-width:260px;flex:none}
+.lvl h4{margin:0;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:6px}
+.lvl h4::after{content:"";flex:1;border-top:1px solid var(--line)}
+.arrow{align-self:center;color:var(--muted);font-size:20px;flex:none}
+.slot{border:1px solid var(--line);border-radius:6px;padding:8px 10px;background:var(--panel);display:grid;grid-template-columns:20px 1fr;gap:3px 8px;position:relative}
+.slot.filled{border-color:var(--ok);background:var(--ok-soft)}
+.slot.locked{background:var(--lock);color:var(--muted);border-style:dashed}
+.slot.over{border-color:var(--accent);background:var(--accent-soft)}
+.slot.warn{border-color:var(--warn)}
+.mark{width:18px;height:18px;border-radius:50%;border:2px solid var(--line);display:grid;place-items:center;font-size:11px;font-weight:700}
+.slot.filled .mark{background:var(--ok);border-color:var(--ok);color:#fff}
+.slot.locked .mark{border-style:dashed}
+.sname{font-weight:600;font-size:13px}.code{font-family:ui-monospace,monospace;font-size:11px;color:var(--muted)}
+.req{font-size:10.5px;margin-left:4px;padding:1px 6px;border-radius:9px;background:var(--warn-soft);color:var(--warn);font-weight:600}
+.req.opt{background:var(--bg);color:var(--muted)}.req.cond{background:var(--accent-soft);color:var(--accent)}
+.sbody{grid-column:2;font-size:12px;color:var(--muted)}
+.sbody .lnk{font-family:ui-monospace,monospace;font-size:11.5px;color:var(--ink);word-break:break-all}
+.sbody button{border:0;background:none;color:var(--accent);cursor:pointer;text-decoration:underline;padding:0;margin-left:6px;font-size:12px}
+.who{font-size:10.5px;color:var(--muted)}
+.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:12px 0}
+.card{border:1px solid var(--line);border-radius:6px;padding:10px 12px;margin:8px 0;background:var(--panel)}
+pre.mono{background:var(--bg);border:1px solid var(--line);border-radius:4px;padding:10px;font:12px/1.5 ui-monospace,monospace;overflow:auto;max-height:280px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line);vertical-align:top}th{color:var(--muted);font-weight:600;font-size:12px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 10px}
+.chip{padding:4px 10px;border:1px solid var(--line);border-radius:14px;background:var(--bg);cursor:pointer;font-size:12.5px}
+.chip:hover{border-color:var(--accent)}.chip.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.chip .n{opacity:.7;margin-left:4px}
+.facet h5{margin:10px 0 2px;font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.empty{padding:30px 10px;color:var(--muted)}
+/* anteprima */
+.overlay{position:absolute;inset:0;background:var(--panel);display:flex;flex-direction:column;z-index:5}.overlay[hidden]{display:none}
+.ovbody{flex:1;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:auto}
+.ovbody iframe,.ovbody img{width:100%;height:100%;border:0;object-fit:contain}
+.ovbody .noprev{padding:30px;color:var(--muted);text-align:center;max-width:420px}
+.ovbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:8px 12px;border-top:1px solid var(--line)}
+.ovbar select{flex:1;min-width:160px}
+dialog{border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);padding:18px;width:min(420px,92vw)}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+dialog label{display:block;margin:10px 0 3px;font-weight:600;font-size:13px}
+dialog input,dialog select,dialog textarea{width:100%;padding:7px 8px;border:1px solid var(--line);background:var(--panel);border-radius:4px}
+.toast{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);background:var(--ink);color:var(--panel);padding:8px 14px;border-radius:5px;font-size:13px;z-index:20;max-width:90vw}.toast[hidden]{display:none}
+.toast.err{background:var(--err)}
+@media (max-width:760px){.app{grid-template-columns:minmax(0,1fr);grid-template-rows:42% minmax(0,1fr)}.divider{display:none}}
+</style>
+</head>
+<body>
+<div class="app" id="app">
+  <section class="pane" aria-label="Archivio">
+    <div class="phead"><h2>Archivio</h2><span class="note" id="archNote">sola lettura</span></div>
+    <div class="scroll tree" id="tree"></div>
+  </section>
+  <div class="divider" id="divider"></div>
+  <section class="pane" aria-label="Pratiche">
+    <div class="phead">
+      <select class="sel" id="pratSel" aria-label="Pratica"></select>
+      <button class="btn" id="nuova">Nuova pratica</button>
+      <div class="tabs">
+        <button class="tab on" data-tab="pratica">Pratica</button>
+        <button class="tab" data-tab="inviati">Inviati</button>
+        <button class="tab" data-tab="indice">Indice</button>
+      </div>
+    </div>
+    <div class="scroll" id="view"></div>
+    <div class="overlay" id="overlay" hidden>
+      <div class="phead"><div style="min-width:0"><h2 id="ovName" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap"></h2><div class="meta" id="ovMeta"></div></div>
+        <button class="btn ghost" id="ovClose" style="margin-left:auto">Chiudi</button></div>
+      <div class="ovbody" id="ovBody"></div>
+      <div class="ovbar"><select class="sel" id="ovSlot"></select><button class="btn" id="ovLink">Collega alla pratica</button></div>
+    </div>
+  </section>
+</div>
+
+<dialog id="dlgNuova">
+  <h3 style="margin:0 0 4px">Nuova pratica</h3><div class="meta">Crea la cartella con le sottocartelle del tipo scelto.</div>
+  <label>Tipo</label><select id="nTipo"></select>
+  <label>Cliente (cognome e nome)</label><input id="nCliente" autocomplete="off" placeholder="es. Rossi Mario">
+  <label>Comune</label><input id="nComune" autocomplete="off" placeholder="es. Avellino">
+  <label>Mese</label><input id="nMese" type="month">
+  <div class="actions" style="justify-content:flex-end"><button class="btn ghost" id="nAnnulla">Annulla</button><button class="btn" id="nCrea">Crea</button></div>
+</dialog>
+<dialog id="dlgInvio">
+  <h3 style="margin:0 0 4px">Registra un invio</h3><div class="meta">I file scelti vengono copiati in sola lettura nella cartella degli inviati.</div>
+  <label>Data</label><input id="iData" type="date">
+  <label>Canale</label><select id="iCanale"><option>PEC</option><option>Portale SUE</option><option>Sportello</option><option>Raccomandata</option><option>Email</option></select>
+  <label>Protocollo / ricevuta</label><input id="iProt" placeholder="es. prot. 1234 del …">
+  <label>Documenti</label><div id="iDocs" style="max-height:180px;overflow:auto;border:1px solid var(--line);border-radius:4px;padding:6px"></div>
+  <label>Note</label><textarea id="iNote" rows="2"></textarea>
+  <div class="actions" style="justify-content:flex-end"><button class="btn ghost" id="iAnnulla">Annulla</button><button class="btn" id="iOk">Registra</button></div>
+</dialog>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const api=async(u,opt)=>{const r=await fetch(u,opt);const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.errore||r.statusText);return j};
+const post=(u,b)=>api(u,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(b||{})});
+const LIMIT=4;
+let CFG=null, pratiche=[], cur=null, tab="pratica", selected=null;
+let open=new Set([""]), showAll=new Set(), cache={};
+let indiceFiltri={};
+
+function toast(t,err){const el=$("#toast");el.textContent=t;el.className="toast"+(err?" err":"");el.hidden=false;clearTimeout(toast.t);toast.t=setTimeout(()=>el.hidden=true,err?5000:2600)}
+
+/* ---------- tipo corrente ---------- */
+const tipo=()=>cur?CFG.tipi[cur.tipo]:null;
+const docs=()=>tipo()?tipo().documenti:[];
+const docDef=c=>docs().find(d=>d.codice===c);
+const collegati=()=>cur?cur.documenti:{};
+function mancanti(d){return (d.prerequisiti||[]).filter(c=>!collegati()[c])}
+function livelli(){ // livello = 1 + max livello dei prerequisiti
+  const L={};const calc=d=>{if(L[d.codice]!=null)return L[d.codice];L[d.codice]=0;const p=(d.prerequisiti||[]).map(c=>docDef(c)).filter(Boolean);L[d.codice]=p.length?1+Math.max(...p.map(calc)):0;return L[d.codice]};
+  docs().forEach(calc);return L;
+}
+function scaduto(d,v){ // validità contata dalla data di modifica del file: solo un avviso
+  if(!d.validita_giorni||!v)return false;
+  const gg=(Date.now()-new Date(v.modificato.slice(0,10)))/86400000;return gg>d.validita_giorni;
+}
+function suggerisci(nomeFile){
+  if(!cur)return null;const n=nomeFile.toLowerCase();
+  return docs().find(d=>!collegati()[d.codice]&&!mancanti(d).length&&(d.parole_chiave||[]).some(k=>n.includes(k.toLowerCase())))||null;
+}
+
+/* ---------- albero ---------- */
+async function carica(p){if(!cache[p])cache[p]=await api("/api/albero?p="+encodeURIComponent(p));return cache[p]}
+function linkedSet(){return new Set(Object.values(collegati()).map(v=>v.percorso))}
+async function nodo(p,nome,linked){
+  const isOpen=open.has(p);
+  let h=`<li><div class="frow" data-dir="${esc(p)}"><span class="box">${isOpen?"–":"+"}</span><span>${esc(nome)}</span></div>`;
+  if(isOpen){
+    let d;try{d=await carica(p)}catch(e){return h+`<ul><li class="note">${esc(e.message)}</li></ul></li>`}
+    const all=showAll.has(p), shown=all?d.file:d.file.slice(0,LIMIT);
+    h+="<ul>";
+    for(const c of d.cartelle)h+=await nodo(p?p+"/"+c:c,c,linked);
+    for(const f of shown){
+      const fp=(p?p+"/":"")+f.nome, isL=linked.has(fp), fit=!isL&&suggerisci(f.nome);
+      h+=`<li><div class="file${selected===fp?" sel":""}" draggable="true" data-file="${esc(fp)}" title="${fit?"Potrebbe essere: "+esc(fit.nome):esc(fp)}">
+        <span class="ext ${esc(f.ext)}">${esc(f.ext.toUpperCase().slice(0,4))}</span><span class="nm">${esc(f.nome)}</span>
+        ${isL?'<span class="linked" title="Collegato a questa pratica">✓</span>':fit?'<span class="fit"></span>':""}<span class="dt">${esc(f.modificato)}</span></div></li>`;
+    }
+    if(d.file.length>LIMIT)h+=`<li class="more"><a data-more="${esc(p)}">${all?"mostra meno":"mostra tutti i "+d.file.length+" file"}</a></li>`;
+    h+="</ul>";
+  }
+  return h+"</li>";
+}
+async function renderTree(){$("#tree").innerHTML="<ul>"+await nodo("",CFG.archivio.split(/[\\/]/).filter(Boolean).pop()||"Archivio",linkedSet())+"</ul>"}
+$("#tree").addEventListener("click",e=>{
+  const m=e.target.closest("[data-more]");if(m){const p=m.dataset.more;showAll.has(p)?showAll.delete(p):showAll.add(p);renderTree();return}
+  const d=e.target.closest("[data-dir]");if(d){const p=d.dataset.dir;open.has(p)?open.delete(p):open.add(p);renderTree();return}
+  const f=e.target.closest("[data-file]");if(f)anteprima(f.dataset.file);
+});
+$("#tree").addEventListener("dragstart",e=>{const f=e.target.closest("[data-file]");if(f){e.dataTransfer.setData("text/plain",f.dataset.file);e.dataTransfer.effectAllowed="link"}});
+
+/* ---------- pannello destro ---------- */
+function renderSel(){
+  $("#pratSel").innerHTML=pratiche.length?pratiche.map(p=>`<option value="${esc(p.id)}"${cur&&cur.id===p.id?" selected":""}>${esc(p.tipo)} · ${esc(p.cliente)}${p.comune?" · "+esc(p.comune):""} · ${esc(p.mese)}${p.stato!=="aperta"?" ("+esc(p.stato)+")":""}</option>`).join(""):"<option>— nessuna pratica —</option>";
+}
+$("#pratSel").addEventListener("change",async e=>{cur=await api("/api/pratiche/"+encodeURIComponent(e.target.value));renderAll()});
+document.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{tab=b.dataset.tab;document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x===b));renderView()});
+
+function renderView(){
+  const v=$("#view");
+  if(tab==="indice")return renderIndice(v);
+  if(!cur){v.innerHTML='<div class="empty">Nessuna pratica. Premi “Nuova pratica” per creare la cartella e la lista dei documenti.</div>';return}
+  if(tab==="inviati")return renderInviati(v);
+  renderPratica(v);
+}
+
+function renderPratica(v){
+  const t=tipo(), D=docs(), C=collegati(), L=livelli();
+  const obbl=D.filter(d=>d.obbligatorio===true), fatti=obbl.filter(d=>C[d.codice]).length, pronta=fatti===obbl.length;
+  const maxL=Math.max(0,...Object.values(L));
+  const cols=[];
+  for(let l=0;l<=maxL;l++){
+    const ds=D.filter(d=>L[d.codice]===l);
+    // dentro un livello, i gruppi paralleli stanno insieme
+    ds.sort((a,b)=>(a.gruppo||"").localeCompare(b.gruppo||"")||a.codice.localeCompare(b.codice));
+    cols.push(`<div class="lvl"><h4>Passo ${l+1}</h4>${ds.map(d=>slot(d,C,l)).join("")}</div>`);
+  }
+  v.innerHTML=`
+    <h3 class="t">${esc(t.sigla)} · ${esc(cur.cliente)}${cur.comune?" · "+esc(cur.comune):""}</h3>
+    <div class="meta">${esc(t.nome)} · ${esc(cur.mese)} · cartella <code>${esc(cur.id)}</code> · stato: ${esc(cur.stato)}</div>
+    <div class="meta" style="margin-top:4px">${esc(t.descrizione)} <span title="${esc(t.stato_scheda)}">ⓘ</span></div>
+    <div class="progress">${fatti} di ${obbl.length} documenti obbligatori</div>
+    <div class="bar"><i style="width:${obbl.length?fatti/obbl.length*100:0}%"></i></div>
+    <div class="flow">${cols.join('<div class="arrow">›</div>')}</div>
+    <div class="meta">Un documento tratteggiato è bloccato: prima servono quelli indicati. Documenti dello stesso passo si preparano in parallelo.</div>
+    <div class="actions">
+      <button class="btn" data-az="indice" title="pratica.json + INDICE.md sono già aggiornati a ogni collegamento">Indice (sempre aggiornato)</button>
+      <button class="btn ghost" data-az="copia">Copia i file nella pratica</button>
+      <button class="btn ghost" data-az="pacchetto"${pronta?"":" disabled"}>Pacchetto per l'AI</button>
+      <button class="btn ghost" data-az="invio"${Object.keys(C).length?"":" disabled"}>Registra invio…</button>
+    </div>
+    <div id="esito"></div>
+    <details class="card"><summary>Controlli incrociati prima dell'invio</summary><ul>${(t.controlli_incrociati||[]).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>
+      ${t.dopo&&t.dopo.length?`<div class="meta">Dopo questa pratica: ${t.dopo.map(esc).join(" · ")}</div>`:""}</details>`;
+}
+function slot(d,C,l){
+  const v=C[d.codice], manc=mancanti(d), locked=!v&&manc.length>0, warn=v&&scaduto(d,v);
+  const req=d.obbligatorio===true?'<span class="req">obbligatorio</span>':d.obbligatorio==="condizionato"?`<span class="req cond" title="${esc(d.condizione||"")}">se: ${esc(d.condizione||"")}</span>`:'<span class="req opt">facoltativo</span>';
+  let body;
+  if(v)body=`<span class="lnk">${esc(v.nome)}</span><button data-apri="${esc(v.percorso)}">apri</button><button data-unlink="${esc(d.codice)}">scollega</button>${warn?`<div style="color:var(--warn)">⚠ file più vecchio di ${d.validita_giorni} giorni: controlla la validità alla data di deposito</div>`:""}`;
+  else if(locked)body=`🔒 prima: ${manc.join(", ")}`;
+  else body="Trascina qui un file, oppure aprilo nell'archivio e collegalo.";
+  return `<div class="slot${v?" filled":""}${locked?" locked":""}${warn?" warn":""}" data-slot="${esc(d.codice)}" title="${esc(d.note||"")}">
+    <span class="mark">${v?"✓":locked?"":""}</span>
+    <div><span class="code">${esc(d.codice)}</span>${d.gruppo?` <span class="code">· ${esc(d.gruppo)}</span>`:""}<br><span class="sname">${esc(d.nome)}</span>${req}<div class="who">${esc(d.produce||"")}${d.validita_giorni?" · vale "+d.validita_giorni+" gg":""}</div></div>
+    <div class="sbody">${body}</div></div>`;
+}
+
+function renderInviati(v){
+  const inv=cur.invii||[], C=collegati(), D=docs();
+  const nonInviati=D.filter(d=>C[d.codice]&&!inv.some(i=>i.codici.includes(d.codice)));
+  v.innerHTML=`<h3 class="t">Inviati · ${esc(cur.tipo)} · ${esc(cur.cliente)}</h3>
+    <div class="meta">Ogni invio è una cartella in sola lettura dentro <code>${esc(cur.id)}/99_TRASMESSI</code>. Quello che è partito non si modifica più.</div>
+    <div class="actions"><button class="btn" data-az="invio"${Object.keys(C).length?"":" disabled"}>Registra invio…</button></div>
+    ${inv.length?`<table><tr><th>Data</th><th>Canale</th><th>Protocollo</th><th>Documenti</th><th>Cartella</th></tr>${inv.map(i=>`<tr><td>${esc(i.data)}</td><td>${esc(i.canale)}</td><td>${esc(i.protocollo)}</td><td>${i.codici.map(c=>`<div>${esc(c)} ${esc((docDef(c)||{}).nome||"")}</div>`).join("")}</td><td><code>${esc(i.cartella)}</code>${i.note?"<br>"+esc(i.note):""}</td></tr>`).join("")}</table>`:'<div class="empty">Nessun invio registrato.</div>'}
+    <div class="card"><b>Collegati ma non ancora inviati</b>${nonInviati.length?"<ul>"+nonInviati.map(d=>`<li>${esc(d.codice)} ${esc(d.nome)}</li>`).join("")+"</ul>":'<div class="meta">niente in sospeso</div>'}</div>`;
+}
+
+async function renderIndice(v){
+  v.innerHTML='<div class="empty">Carico l’indice…</div>';
+  const q=new URLSearchParams(indiceFiltri).toString();
+  let r;try{r=await api("/api/indice?"+q)}catch(e){v.innerHTML=`<div class="empty">${esc(e.message)}</div>`;return}
+  const nomi={cliente:"Cliente",comune:"Comune",tipo:"Pratica",anno:"Anno",documento:"Documento",ext:"Formato",produce:"Chi lo produce"};
+  const facce=Object.entries(nomi).map(([k,lab])=>{
+    const vals=r.faccette[k]||[];if(!vals.length&&!indiceFiltri[k])return "";
+    return `<div class="facet"><h5>${lab}</h5><div class="chips">${indiceFiltri[k]?`<span class="chip on" data-f="${k}" data-v="">${esc(indiceFiltri[k])} ✕</span>`:vals.map(([val,n])=>`<span class="chip" data-f="${k}" data-v="${esc(val)}">${esc(val||"—")}<span class="n">${n}</span></span>`).join("")}</div></div>`;
+  }).join("");
+  v.innerHTML=`<h3 class="t">Indice</h3><div class="meta">Niente da scrivere: clicca un cliente, poi una pratica, poi un formato. ${r.totale} documenti${Object.keys(indiceFiltri).length?` · <a href="#" id="azz">azzera filtri</a>`:""}</div>
+    ${facce}
+    <table><tr><th>File</th><th>Documento</th><th>Pratica</th><th>Modificato</th><th></th></tr>
+    ${r.voci.map(x=>`<tr><td><span class="ext ${esc(x.ext)}">${esc(x.ext.toUpperCase().slice(0,4))}</span> ${esc(x.nome)}${x.inviato?' <span class="linked" title="inviato">✓ inviato</span>':""}</td><td>${esc(x.codice)} ${esc(x.documento)}</td><td>${esc(x.tipo)} · ${esc(x.cliente)} · ${esc(x.mese)}</td><td>${esc(x.modificato)}</td>
+      <td><button class="btn small ghost" data-prev="${esc(x.percorso)}">vedi</button> <button class="btn small ghost" data-apri="${esc(x.percorso)}">cartella</button></td></tr>`).join("")}</table>
+    ${!r.voci.length?'<div class="empty">Nessun documento. Collega file alle pratiche e compariranno qui.</div>':""}`;
+  const azz=$("#azz");if(azz)azz.onclick=e=>{e.preventDefault();indiceFiltri={};renderIndice(v)};
+}
+
+/* ---------- azioni ---------- */
+$("#view").addEventListener("click",async e=>{
+  const chip=e.target.closest(".chip");if(chip){if(chip.dataset.v==="")delete indiceFiltri[chip.dataset.f];else indiceFiltri[chip.dataset.f]=chip.dataset.v;renderIndice($("#view"));return}
+  const pv=e.target.closest("[data-prev]");if(pv){anteprima(pv.dataset.prev);return}
+  const ap=e.target.closest("[data-apri]");if(ap){try{const r=await post("/api/apri",{percorso:ap.dataset.apri});toast(r.aperta?"Aperta: "+r.aperta:r.nota+": "+r.percorso)}catch(x){toast(x.message,1)}return}
+  const u=e.target.closest("[data-unlink]");if(u){try{cur=await post(`/api/pratiche/${encodeURIComponent(cur.id)}/scollega`,{codice:u.dataset.unlink});renderAll()}catch(x){toast(x.message,1)}return}
+  const b=e.target.closest("[data-az]");if(!b)return;
+  const az=b.dataset.az, base=`/api/pratiche/${encodeURIComponent(cur.id)}/`, es=$("#esito");
+  try{
+    if(az==="indice"){es.innerHTML=`<div class="card">Indice scritto in <code>${esc(cur.id)}/pratica.json</code> e <code>INDICE.md</code>.<pre class="mono">${esc(JSON.stringify(cur.documenti,null,2))}</pre></div>`}
+    if(az==="copia"){const r=await post(base+"copia");es.innerHTML=`<div class="card">Copiati ${r.copiati.length} file:<pre class="mono">${esc(r.copiati.join("\n"))}</pre></div>`;toast("Copia fatta")}
+    if(az==="pacchetto"){const r=await post(base+"pacchetto");es.innerHTML=`<div class="card">Pacchetto per l'AI scritto (manifest.json). I PDF/Word vanno convertiti in Markdown con <code>converti_in_md.py</code>.<pre class="mono">${esc(JSON.stringify(r,null,2))}</pre></div>`;toast("Pacchetto pronto")}
+    if(az==="invio")apriInvio();
+  }catch(x){toast(x.message,1)}
+});
+$("#view").addEventListener("dragover",e=>{const s=e.target.closest("[data-slot]");if(s&&!s.classList.contains("locked")){e.preventDefault();s.classList.add("over")}});
+$("#view").addEventListener("dragleave",e=>{const s=e.target.closest("[data-slot]");if(s)s.classList.remove("over")});
+$("#view").addEventListener("drop",async e=>{const s=e.target.closest("[data-slot]");if(!s)return;e.preventDefault();s.classList.remove("over");collega(s.dataset.slot,e.dataTransfer.getData("text/plain"))});
+async function collega(codice,percorso){
+  if(!cur||!percorso)return;
+  try{cur=await post(`/api/pratiche/${encodeURIComponent(cur.id)}/collega`,{codice,percorso});toast("Collegato a "+codice);chiudiAnteprima();renderAll()}catch(x){toast(x.message,1)}
+}
+
+/* ---------- anteprima ---------- */
+function anteprima(p){
+  selected=p;const nome=p.split("/").pop(), ext=nome.split(".").pop().toLowerCase(), url="/api/file?p="+encodeURIComponent(p);
+  $("#ovName").textContent=nome;$("#ovMeta").textContent=p;
+  const b=$("#ovBody");
+  if(ext==="pdf"||ext==="txt"||ext==="md")b.innerHTML=`<iframe src="${url}" title="anteprima"></iframe>`;
+  else if(["jpg","jpeg","png"].includes(ext))b.innerHTML=`<img src="${url}" alt="">`;
+  else b.innerHTML=`<div class="noprev">Nessuna anteprima per i file .${esc(ext)}.<br><a href="${url}" target="_blank">Apri con il programma del PC</a><br><span class="note">Word ed Excel: in futuro anteprima dal Markdown.</span></div>`;
+  const sel=$("#ovSlot"),btn=$("#ovLink");
+  if(!cur){sel.innerHTML="<option>Crea prima una pratica</option>";sel.disabled=btn.disabled=true}
+  else{const fit=suggerisci(nome);sel.disabled=btn.disabled=false;
+    sel.innerHTML=docs().map(d=>{const lock=!collegati()[d.codice]&&mancanti(d).length;return `<option value="${esc(d.codice)}"${fit&&fit.codice===d.codice?" selected":""}${lock?" disabled":""}>${collegati()[d.codice]?"✓ ":lock?"🔒 ":""}${esc(d.codice)} ${esc(d.nome)}</option>`}).join("")}
+  $("#overlay").hidden=false;renderTree();
+}
+function chiudiAnteprima(){selected=null;$("#overlay").hidden=true;$("#ovBody").innerHTML="";renderTree()}
+$("#ovClose").onclick=chiudiAnteprima;
+$("#ovLink").onclick=()=>collega($("#ovSlot").value,selected);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("#overlay").hidden)chiudiAnteprima()});
+
+/* ---------- finestre ---------- */
+const dn=$("#dlgNuova");
+$("#nuova").onclick=()=>{$("#nTipo").innerHTML=Object.values(CFG.tipi).map(t=>`<option value="${esc(t.sigla)}">${esc(t.sigla)} – ${esc(t.nome)}</option>`).join("");$("#nMese").value=new Date().toISOString().slice(0,7);$("#nCliente").value="";dn.showModal();$("#nCliente").focus()};
+$("#nAnnulla").onclick=()=>dn.close();
+$("#nCrea").onclick=async()=>{
+  try{const r=await post("/api/pratiche",{tipo:$("#nTipo").value,cliente:$("#nCliente").value,comune:$("#nComune").value,mese:$("#nMese").value});
+    dn.close();pratiche=await api("/api/pratiche");cur=await api("/api/pratiche/"+encodeURIComponent(r.id));tab="pratica";document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x.dataset.tab==="pratica"));toast("Creata "+r.id);renderAll()}
+  catch(x){toast(x.message,1)}
+};
+const di=$("#dlgInvio");
+function apriInvio(){
+  const C=collegati();$("#iData").value=new Date().toISOString().slice(0,10);$("#iProt").value="";$("#iNote").value="";
+  $("#iDocs").innerHTML=docs().filter(d=>C[d.codice]).map(d=>`<label style="font-weight:400;margin:2px 0"><input type="checkbox" value="${esc(d.codice)}" checked style="width:auto"> ${esc(d.codice)} ${esc(d.nome)}</label>`).join("");
+  di.showModal();
+}
+$("#iAnnulla").onclick=()=>di.close();
+$("#iOk").onclick=async()=>{
+  const codici=[...$("#iDocs").querySelectorAll("input:checked")].map(i=>i.value);
+  try{await post(`/api/pratiche/${encodeURIComponent(cur.id)}/invio`,{data:$("#iData").value,canale:$("#iCanale").value,protocollo:$("#iProt").value,note:$("#iNote").value,codici});
+    di.close();cur=await api("/api/pratiche/"+encodeURIComponent(cur.id));pratiche=await api("/api/pratiche");tab="inviati";document.querySelectorAll(".tab").forEach(x=>x.classList.toggle("on",x.dataset.tab==="inviati"));toast("Invio registrato");renderAll()}
+  catch(x){toast(x.message,1)}
+};
+
+/* ---------- avvio ---------- */
+function renderAll(){renderSel();renderView();renderTree()}
+(async()=>{
+  CFG=await api("/api/config");$("#archNote").textContent="sola lettura · "+CFG.archivio;
+  pratiche=await api("/api/pratiche");if(pratiche.length)cur=await api("/api/pratiche/"+encodeURIComponent(pratiche[0].id));
+  renderAll();
+})();
+(function(){const dv=$("#divider"),app=$("#app");let drag=false;
+  dv.addEventListener("pointerdown",e=>{drag=true;dv.setPointerCapture(e.pointerId)});
+  dv.addEventListener("pointermove",e=>{if(!drag)return;app.style.setProperty("--left",Math.min(70,Math.max(22,e.clientX/app.clientWidth*100))+"%")});
+  dv.addEventListener("pointerup",()=>drag=false)})();
+</script>
+</body>
+</html>

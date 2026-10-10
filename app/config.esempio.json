@@ -1,0 +1,7 @@
+{
+  "archivio": "../esempio/archivio",
+  "pratiche": "../esempio/pratiche_aperte",
+  "tipi": "../pratiche",
+  "porta": 8780,
+  "estensioni": [".pdf", ".p7m", ".doc", ".docx", ".xls", ".xlsx", ".xlsm", ".dwg", ".dxf", ".jpg", ".jpeg", ".png", ".txt", ".md"]
+}
